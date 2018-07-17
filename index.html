@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" xmlns:v-if="http://www.w3.org/1999/xhtml">
 <head>
 
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
 
-    <!--<link rel="stylesheet" href="index.css">-->
+    <link rel="stylesheet" href="index.css">
     <!--<link type="text/css" rel="stylesheet" href="http://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>-->
     <!--<link type="text/css" rel="stylesheet" href="http://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
@@ -24,112 +24,24 @@
 <div id="app">
     <q-layout view="lHh Lpr fff">
         <q-layout-header>
-            <q-toolbar color="primary">
-                <q-toolbar-title>
-                    Header Test
-                </q-toolbar-title>
-            </q-toolbar>
+            <!--<q-toolbar color="primary">-->
+                <!--<q-toolbar-title>-->
+                    <!--Header Test-->
+                <!--</q-toolbar-title>-->
+            <!--</q-toolbar>-->
         </q-layout-header>
 
         <q-page-container>
-            <router-link to="/foo"><q-btn color="teal" label="Login"></q-btn></router-link>
-            <!--<router-link to="/foo">Go to Foo</router-link>-->
-            <router-link to="/bar">Go to Bar</router-link>
-            <router-view></router-view>
-            <!--<q-input-->
-            <!--type="textarea"-->
-            <!--float-label="Type here..."-->
-            <!--:max-height="100"-->
-            <!--rows="2">-->
-            <!--</q-input>-->
+            <q-page padding>
+                <div class="logout">
+                    <router-link to="/login">Logout</router-link>
+                </div>
+                <router-view></router-view>
+            </q-page>
         </q-page-container>
     </q-layout>
-    <!--<nav-sidebar>-->
-        <!--<nav-side-item-->
-            <!--v-for="item in items"-->
-            <!--v-bind:nav="item"-->
-            <!--v-bind:key="item.id"></nav-side-item>-->
-    <!--</nav-sidebar>-->
-    <!--<ul>-->
-        <!--<nav-side-item-->
-                <!--v-for="item in items"-->
-                <!--v-bind:nav="item"-->
-                <!--v-bind:key="item.id"></nav-side-item>-->
-    <!--</ul>-->
-    <!--<button-->
-        <!--v-for="tab in tabs"-->
-        <!--v-bind:key="tab"-->
-        <!--v-bind:class="['tab-button', {active: currTab === tab}]"-->
-        <!--v-on:click="currTab = tab"-->
-    <!--&gt;{{ tab }}</button>-->
-    <!--<component-->
-        <!--v-bind:is="currTabComponent"-->
-        <!--class="tab"-->
-    <!--&gt;</component>-->
-
-    <!--&lt;!&ndash;<b-card-group>&ndash;&gt;-->
-
-        <!--<b-card no-body>-->
-            <!--&lt;!&ndash;<b-card&ndash;&gt;-->
-                <!--&lt;!&ndash;title="Jane Doe"&ndash;&gt;-->
-                <!--&lt;!&ndash;img-src="https://placekitten.com/380/200"&ndash;&gt;-->
-                <!--&lt;!&ndash;fluid alt="Img"&ndash;&gt;-->
-                <!--&lt;!&ndash;style="max-width:20%;"&ndash;&gt;-->
-                <!--&lt;!&ndash;img-top>&ndash;&gt;-->
-            <!--&lt;!&ndash;</b-card>&ndash;&gt;-->
-            <!--&lt;!&ndash;<b-card-body>&ndash;&gt;-->
-            <!--<b-navbar variant="faded" type="light">-->
-                <!--<b-navbar-brand href="#">-->
-                    <!--&lt;!&ndash;<img src="https://placekitten.com/g/30/30" alt="BV">&ndash;&gt;-->
-                    <!--<b-img thumbnail rounded="circle" width="75%" src="https://picsum.photos/250/250/?image=54" fluid alt="Responsive image" />-->
-                <!--</b-navbar-brand>-->
-            <!--</b-navbar>-->
-            <!--&lt;!&ndash;<div>&ndash;&gt;-->
-                <!--&lt;!&ndash;<b-img thumbnail rounded="circle" width="75%" src="https://picsum.photos/250/250/?image=54" fluid alt="Responsive image" />&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--<b-tabs pills card vertical>-->
-                    <!--&lt;!&ndash;<b-tab title="Foo"&ndash;&gt;-->
-                           <!--&lt;!&ndash;img-src="https://picsum.photos/250/250/?image=54"&ndash;&gt;-->
-                           <!--&lt;!&ndash;fluid alt="foo"&ndash;&gt;-->
-                           <!--&lt;!&ndash;disabled>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</b-tab>&ndash;&gt;-->
-                    <!--<b-tab title="Active Modules" disabled>-->
-                        <!--Tab Contents 1-->
-                    <!--</b-tab>-->
-                    <!--<b-tab title="Pending Peer Reviews">-->
-                        <!--Tab Contents 2-->
-                    <!--</b-tab>-->
-                    <!--<b-tab title="Delegation Log" active>-->
-                        <!--&lt;!&ndash;<h2>Delegation</h2>&ndash;&gt;-->
-                        <!--<strong>Delegation</strong>-->
-                        <!--<span>-->
-                            <!--<b-dropdown id="ddown1" text="Dropdown Button" variant="outline" class="right m-2">-->
-                                <!--<b-dropdown-item>Reflection</b-dropdown-item>-->
-                                <!--<b-dropdown-item disabled>Action</b-dropdown-item>-->
-                                <!--<b-dropdown-item disabled>Action</b-dropdown-item>-->
-                            <!--</b-dropdown>-->
-                        <!--</span>-->
-                        <!--<template>-->
-                            <!--<div>-->
-                                <!--Placeholder question-->
-                                <!--<b-form-textarea id="textarea1"-->
-                                                 <!--v-model="text"-->
-                                                 <!--placeholder="Enter something"-->
-                                                 <!--:rows="2"-->
-                                                 <!--:max-rows="6">-->
-                                <!--</b-form-textarea>-->
-                                <!--<pre class="mt-3">{{ text }}</pre>-->
-                            <!--</div>-->
-                        <!--</template>-->
-                    <!--</b-tab>-->
-                <!--</b-tabs>-->
-            <!--&lt;!&ndash;</b-card-body>&ndash;&gt;-->
-        <!--</b-card>-->
-    <!--&lt;!&ndash;</b-card-group>&ndash;&gt;-->
 </div>
 
-
-<!--<script src="https://cdn.jsdelivr.net/npm/vue@latest/dist/vue.min.js"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/quasar-framework@^0.16.0/dist/umd/quasar.mat.umd.min.js"></script>
 <!--<script src="https://cdn.jsdelivr.net/npm/quasar-framework@^0.16.0/dist/umd/quasar.ios.umd.min.js"></script>-->
 <script src="index.js"></script>
