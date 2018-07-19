@@ -9,6 +9,9 @@ html, body {
     margin-left:-50px;
     margin-top:-50px;
 }
+.instruction {
+    line-height: 1.5em;
+}
 /*.tab-button {*/
     /*display: block;*/
     /*width: 30%;*/
