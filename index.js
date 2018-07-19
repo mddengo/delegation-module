@@ -67,7 +67,7 @@ const Home = {
             checked-icon="radio_button_checked"></q-radio>
             <p>{{radio1}}</p>
             <q-btn
-                @click="$router.push('/skip')"
+                @click="$router.push('/assessment')"
                 color="indigo-11"
                 label="START"></q-btn>
         </div>
@@ -147,7 +147,7 @@ const Assessment = {
     template: `
         <div class="assessment">
             <div class="mod3a" v-if="ass3a">
-                <p>The following set of questions help us identify instruction specific to you. We assess your inputs to make more efficient use of your learning time. Please note that there is no pass/fail and your results will not be shared with your counselor, manager, nor supervisor.</p>
+                <p>The following set of questions helps us identify instruction specific to you. We assess your inputs to make more efficient use of your learning time. Please note that there is no pass/fail and your results will not be shared with your counselor, manager, nor supervisor.</p>
                 <br>
                 <q-btn
                     @click="ass3aToggle"
@@ -538,7 +538,8 @@ const Skip = {
     },
     template: `
         <div class="skip">
-            <h5>skip?</h5>
+            <p>You have completed the basic practice questions on delegation.</p>
+            <p>If you are confident about your knowledge of delegation, you can skip the next part, go to the final section, and attempt the assignment for peer feedback.</p>
             <p>Choose an option below to proceed.</p>
             <q-radio
             v-model="radio1"
@@ -599,6 +600,7 @@ const Instruction = {
             radio4b: '',
             dg4bdecYes: false,
             dg4bdecNo: false,
+            emailTask: store.state.suggestedTaskEmail,
         }
     },
     template: `
@@ -659,7 +661,7 @@ const Instruction = {
                     <q-input float-label="Task 15" />
                     <br>
                 </div>
-                <p>Write the <strong>tasks you delegate.</strong> (Remember to include TODO)</p>
+                <p>Write the <strong>tasks you delegate.</strong> (Remember to include "{{emailTask}})"</p>
                 <div style="width:400px; max-width:100vw;">
                     <q-input float-label="Delegated Task 1" />
                     <q-input float-label="Delegated Task 2" />
@@ -683,7 +685,7 @@ const Instruction = {
                     <p>How did you decide what to delegate? What criteria did you use?</p>
                         <q-input type="textarea" :max-height="40" />
                         <br>
-                    <p>Did you choose to delegate the original task you wanted to delegate? (TODO)</p>
+                    <p>Did you choose to delegate the original task you wanted to delegate? ("{{emailTask}}")</p>
                         <q-radio
                         v-model="radio4b"
                         val="yes"
