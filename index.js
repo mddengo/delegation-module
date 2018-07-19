@@ -129,6 +129,7 @@ const Assessment = {
             ass3j: false,
             ass3k: false,
             ass3l: false,
+            ass3m: false,
             dgTask: '',
             dgEmailTask: '',
             radioAuth: '',
@@ -136,6 +137,11 @@ const Assessment = {
             radioAccn: '',
             assCorrect: false,
             mod3ba: false,
+            radioAuth1: '',
+            radioResp1: '',
+            radioAccn1: '',
+            ans3f1: '',
+            ans3f2: '',
         }
     },
     template: `
@@ -289,14 +295,144 @@ const Assessment = {
                     color="blue-grey"
                     label="Next"></q-btn>
             </div>
-            <div class="mod3e" v-else-if="ass3e"></div>
-            <div class="mod3f" v-else-if="ass3f"></div>
-            <div class="mod3g" v-else-if="ass3g"></div>
+            <div class="mod3e" v-else-if="ass3e">
+                <p>You suggested: "{{dgEmailTask}}"</p>
+                <p>How does the alternate way you suggested change the responsibility, authority, and accountability for the task?</p>
+                <p>For reference: One of the definitions of delegation is "sharing responsibility and authority with others and holding them accountable for performance."</p>
+                <br>
+                <p>Strongly Disagree | Disagree | Neither agree nor disagree | Agree | Strongly Agree</p>
+                <span>This delegation involves high sharing of Authority
+                    <q-radio
+                    v-model="radioAuth1"
+                    val="authsd"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioAuth1"
+                    val="authdis"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioAuth1"
+                    val="authneither"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioAuth1"
+                    val="authagree"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioAuth1"
+                    val="authsa"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                </span>
+                <br>
+                <span>This delegation involves high sharing of Responsibility
+                    <q-radio
+                    v-model="radioResp1"
+                    val="respsd"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioResp1"
+                    val="respdis"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioResp1"
+                    val="respneither"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioResp1"
+                    val="respagree"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioResp1"
+                    val="respsa"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                </span>
+                <br>
+                <span>This delegation involves high sharing of Accountability 
+                    <q-radio
+                    v-model="radioAccn1"
+                    val="accnsd"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioAccn1"
+                    val="accndis"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioAccn1"
+                    val="accnneither"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioAccn1"
+                    val="accnagree"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <q-radio
+                    v-model="radioAccn1"
+                    val="accnsa"
+                    color="orange-11"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                </span>
+                <br>
+                <q-btn
+                    @click="ass3eToggle"
+                    :disable="filledOut1"
+                    color="blue-grey"
+                    label="Next"></q-btn>
+            </div>
+            <div class="mod3f" v-else-if="ass3f">
+                <p>One of the suggested ways to modify the original task is: "Allow the subordinate to send email directly to the client after your review." </p>
+                <p>You suggested: "{{dgEmailTask}}"</p>
+                <br><br>
+                <div style="width:500px;">
+                    <p>How is your proposal similar to the alternative above? (Type "N/A" if not applicable.)</p>
+                    <q-input v-model="ans3f1" type="textarea"/>
+                    <br><br>
+                    <p>How is your proposal different from the alternative above? (Type "N/A" if not applicable.)</p>
+                    <q-input v-model="ans3f2" type="textarea" />
+                </div>
+                <br><br>
+                <q-btn
+                    @click="ass3fToggle"
+                    :disable="filled3f"
+                    color="blue-grey"
+                    label="Next"></q-btn>
+            </div>
+            <div class="mod3g" v-else-if="ass3g">
+                <h5>Benefits and Challenges of Delegation</h5>
+            </div>
             <div class="mod3h" v-else-if="ass3h"></div>
             <div class="mod3i" v-else-if="ass3i"></div>
             <div class="mod3j" v-else-if="ass3j"></div>
             <div class="mod3k" v-else-if="ass3k"></div>
             <div class="mod3l" v-else-if="ass3l"></div>
+            <div class="mod3m" v-else-if="ass3m"></div>
             <div class="mod3ca" v-else-if="mod3ba">
                 <h6>Defining Delegation</h6>
             </div>
@@ -307,6 +443,14 @@ const Assessment = {
             return (this.radioAuth === '' ||
                     this.radioResp === '' ||
                     this.radioAccn === '');
+        },
+        filledOut1 () {
+            return (this.radioAuth1 === '' ||
+                this.radioResp1 === '' ||
+                this.radioAccn1 === '');
+        },
+        filled3f () {
+            return (this.ans3f1 === '' || this.ans3f2 === '');
         }
     },
     methods: {
@@ -336,6 +480,37 @@ const Assessment = {
         ass3eToggle () {
             this.ass3e = false;
             this.ass3f = true;
+        },
+        ass3fToggle () {
+            this.ass3f = false;
+            this.ass3g = true;
+        },
+        ass3gToggle () {
+            this.ass3g = false;
+            this.ass3h = true;
+        },
+        ass3hToggle () {
+            this.ass3h = false;
+            this.ass3i = true;
+        },
+        ass3iToggle () {
+            this.ass3i = false;
+            this.ass3j = true;
+        },
+        ass3jToggle () {
+            this.ass3j = false;
+            this.ass3k = true;
+        },
+        ass3kToggle () {
+            this.ass3k = false;
+            this.ass3l = true;
+        },
+        ass3lToggle () {
+            this.ass3l = false;
+            this.ass3m = true;
+        },
+        ass3mToggle () {
+            this.ass3m = false;
         },
     },
     watch: {
