@@ -115,35 +115,6 @@ const Login = {
  * Assessment Component
  */
 const Assessment = {
-    data: function () {
-        return {
-            ass3a: true,
-            ass3b: false,
-            ass3c: false,
-            ass3d: false,
-            ass3e: false,
-            ass3f: false,
-            ass3g: false,
-            ass3h: false,
-            ass3i: false,
-            ass3j: false,
-            ass3k: false,
-            ass3l: false,
-            ass3m: false,
-            dgTask: '',
-            dgEmailTask: '',
-            radioAuth: '',
-            radioResp: '',
-            radioAccn: '',
-            assCorrect: false,
-            mod3ba: false,
-            radioAuth1: '',
-            radioResp1: '',
-            radioAccn1: '',
-            ans3f1: '',
-            ans3f2: '',
-        }
-    },
     template: `
         <div class="assessment">
             <div class="mod3a" v-if="ass3a">
@@ -426,18 +397,245 @@ const Assessment = {
             </div>
             <div class="mod3g" v-else-if="ass3g">
                 <h5>Benefits and Challenges of Delegation</h5>
+                <p>Features of Good Delegation</p>
+                <ul>
+                    <li>Focus on what is important to for you to do personally, not just the urgent</li>
+                    <li>Clarify the responsibility and results intended</li>
+                    <li>Select appropriate person taking into account developmental needs</li>
+                    <li>Communicate level of authority and accountability</li>
+                    <li>Communicate the checkpoints</li>
+                    <li>Create a motivating environment</li>
+                    <li>Make sure the person is held accountable for these results</li>
+                </ul>
+                <q-btn
+                    @click="ass3gToggle"
+                    color="blue-grey"
+                    label="Next"></q-btn>
             </div>
-            <div class="mod3h" v-else-if="ass3h"></div>
-            <div class="mod3i" v-else-if="ass3i"></div>
-            <div class="mod3j" v-else-if="ass3j"></div>
-            <div class="mod3k" v-else-if="ass3k"></div>
+            <div class="mod3h" v-else-if="ass3h">
+                <h6>Identify Benefits of Delegation</h6>
+                <h1>Table goes here</h1>
+                <q-btn
+                    @click="ass3hToggle"
+                    color="blue-grey"
+                    label="Next"></q-btn>
+            </div>
+            <div class="mod3i" v-else-if="ass3i">
+                <h6>Identify Potential Challenges of Delegation</h6>
+                <p>Below are some examples of potential challenges of delegation.</p>
+                <ul>
+                    <li>“I can do better”</li>
+                    <li>Lack of confidence in the team member or “What if my team member fails?”</li>
+                    <li>“I don’t have anyone to delegate to”</li>
+                    <li>“I don’t want people to think I’m dumping on them”</li>
+                </ul>
+                <q-btn
+                    @click="ass3iToggle"
+                    color="blue-grey"
+                    label="Next"></q-btn>
+            </div>
+            <div class="mod3j" v-else-if="ass3j">
+                <h6>Create a Plan to Overcome Challenges of Delegation</h6>
+                <p>Click the challenge(s) that you would like to learn about overcoming.</p>
+                    <q-radio
+                    v-model="radioCha1"
+                    val="cha1"
+                    color="orange-11"
+                    label="'I can do better'"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <br>
+                    <q-radio
+                    v-model="radioCha1"
+                    val="cha2"
+                    color="orange-11"
+                    label="Lack of confidence in the team member or 'What if my team member fails?'"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <br>
+                    <q-radio
+                    v-model="radioCha1"
+                    val="cha3"
+                    color="orange-11"
+                    label="'I don't have anyone to delegate to'"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <br>
+                    <q-radio
+                    v-model="radioCha1"
+                    val="cha4"
+                    color="orange-11"
+                    label="'I don't want people to think I'm dumping on them'"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                        <div v-if="radioCha1 === 'cha1'">
+                            <br>
+                            <p><strong>“I can do better”</strong></p>
+                            <ul>
+                                <li>Think about whether you are adverse to others doing the work because they have a different style than you. Be open-minded to learn new ways of doing things—focus on the end result and not the process.</li>
+                                <li>Consider that they probably can do an adequate job (with appropriate supervision). This will also help them develop and learn so that they can do this on their own in the future.</li>
+                                <li>More junior team members can also do it at a lower charge out rate.</li>
+                            </ul>
+                        </div>
+                        <div v-else-if="radioCha1 === 'cha2'">
+                            <br>
+                            <p><strong>Lack of confidence in the team member or "What if my team member fails?"</strong></p>
+                            <ul>
+                                <li>Think of the cost of not taking the risk to delegate; consider the overall risk to the engagement if you are the only person doing “everything.”</li>
+                                <li>Consider it this way: when you first started driving a car, it probably entailed a certain amount of risk. However, your driving instructor managed the risk by providing the relevant instruction, practice, and time for you to develop the necessary skills.</li>
+                            </ul>
+                        </div>
+                        <div v-else-if="radioCha1 === 'cha3'">
+                            <br>
+                            <p><strong>“I don't have anyone to delegate to"</strong></p>
+                            <ul>
+                                <li>If you feel you can’t delegate within your team, look at why your team is so busy. Are any of the staff struggling with assignments, and not asking for training or help? Are some team members busier than others and, if so, how can you help even out their workloads? Are staff doing or correcting work that should have been done correctly by the client?</li>
+                                <li>Ask yourself if everyone else is busy or if you are showing a preference for those with styles similar to your own. There may be team members who are equally effective but different from your “usual” choices.</li>
+                                <li>Consider options outside of your immediate team. Help can come from peers, from your manager or from other teams.</li>
+                            </ul>
+                        </div>
+                        <div v-else-if="radioCha1 === 'cha4'">
+                            <br>
+                            <p><strong>“I don't want people to think I'm dumping on them”</strong></p>
+                            <ul>
+                                <li>People feel “dumped on” when they get only low-competency tasks and when you don’t help them see how learning that new skill or technical knowledge is important to them. If you teach, train and support them in their tasks, they are less likely to feel “dumped on.” Also recognize them for the work they did.</li>
+                                <li>Remember that you, like them, should increase your productivity. So, for you, delegating is the quickest way to improve your output.</li>
+                            </ul>
+                        </div>
+                        <br><br><br>
+                        <p>Think back to a task that you have delegated. What challenges did you face? What aspects could you improve on for next time?</p>
+                        <div style="width:650px;"><q-input type="textarea" /></div>
+                        <br>
+                        <q-btn
+                            @click="ass3jToggle"
+                            color="blue-grey"
+                            label="Next"></q-btn>
+            </div>
+            <div class="mod3k">
+                <p>As the project progresses, your team has to interview people in multiple roles from the client's organization.
+                This involves continuous email conversations everyday for around two weeks.
+                What would you do in this situation?</p>
+                    <q-radio
+                    v-model="radio3k"
+                    val="3k1"
+                    color="orange-11"
+                    label="Completely delegate sending emails to my subordinates showing that I trust in them"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <br>
+                    <q-radio
+                    v-model="radio3k"
+                    val="3k2"
+                    color="orange-11"
+                    label="Prepare a draft email and ask subordinates to use it and review any modifications"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <br>
+                    <q-radio
+                    v-model="radio3k"
+                    val="3k3"
+                    color="orange-11"
+                    label="It is not that straightforward"
+                    unchecked-icon="radio_button_unchecked"
+                    checked-icon="radio_button_checked"></q-radio>
+                    <br>
+            </div>
             <div class="mod3l" v-else-if="ass3l"></div>
             <div class="mod3m" v-else-if="ass3m"></div>
             <div class="mod3ca" v-else-if="mod3ba">
                 <h6>Defining Delegation</h6>
+                <!--TODO-->
+                <q-table
+                :data="tableData"
+                :columns="columns"
+                row-key="name"
+                hide-header
+                hide-bottom
+                />
+                <br>
+                <p>Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
+                <div style="width: 500px">
+                    <q-input v-model="defdginput"/>
+                </div>
+                <br>
+                <q-btn
+                    @click="mod3caToggle"
+                    :disable="defdginput === ''"
+                    color="blue-grey"
+                    label="Next"></q-btn>
             </div>
         </div>
     `,
+    data: function () {
+        return {
+            columns: [
+                {
+                    name: 'term',
+                    required: true,
+                    label: 'Term',
+                    align: 'left',
+                    field: 'name',
+                },
+                {
+                    name: 'def',
+                    required: true,
+                    label: 'Definition',
+                    align: 'left',
+                    field: 'def',
+                }
+            ],
+            tableData: [
+                {
+                    name: 'Delegation',
+                    def: 'Sharing responsibility and authority with others and holding them accountable for performance',
+                },
+                {
+                    name: 'Responsibility',
+                    def: 'Refers to the job assignment, the intended results, as well as the obligation to achieve the intended results\n' +
+                    'As a senior, it is your responsibility to make sure the work is completed.\n' +
+                    'When you delegate a task, you share responsibility with the delegatee in completing that task.\n',
+                },
+                {
+                    name: 'Accountability',
+                    def: 'Refers to being answerable for the end result. It also implies consequences.\n' +
+                    'Although you share responsibility of a task when you delegate it, you are still held accountable for its completion, just as you must hold the delegatee accountable\n',
+                },
+                {
+                    name: 'Authority',
+                    def: 'Refers to the right to act and make decisions. Successful delegation requires authority equal to the responsibility.\n' +
+                    'As a leader, you are still accountable for the work. You have the right to check the work and determine if it is satisfactory.\n',
+                }
+            ],
+            radioCha1: '',
+            radio3k: '',
+            ass3a: true,
+            ass3b: false,
+            ass3c: false,
+            ass3d: false,
+            ass3e: false,
+            ass3f: false,
+            ass3g: false,
+            ass3h: false,
+            ass3i: false,
+            ass3j: false,
+            ass3k: false,
+            ass3l: false,
+            ass3m: false,
+            dgTask: '',
+            dgEmailTask: '',
+            radioAuth: '',
+            radioResp: '',
+            radioAccn: '',
+            assCorrect: false,
+            mod3ba: false,
+            defdginput: '',
+            radioAuth1: '',
+            radioResp1: '',
+            radioAccn1: '',
+            ans3f1: '',
+            ans3f2: '',
+        }
+    },
     computed: {
         filledOut () {
             return (this.radioAuth === '' ||
@@ -456,14 +654,18 @@ const Assessment = {
     methods: {
         grade3c () {
             if (this.radioAuth === 'authdis' &&
-                this.radioResp === 'respagree' &&
-                this.radioAccn === 'accnagree') {
-                this.ass3c = false;
-                this.mod3ba = true;
-            } else {
+                (this.radioResp === 'respagree' || this.radioResp === 'respsa')&&
+                (this.radioAccn === 'accnagree' || this.radioAccn === 'accnsa')) {
                 this.ass3c = false;
                 this.ass3d = true;
+            } else {
+                this.ass3c = false;
+                this.mod3ba = true;
             }
+        },
+        mod3caToggle () {
+            this.mod3ba = false;
+            this.ass3d = true;
         },
         ass3aToggle () {
           this.ass3a = false;
