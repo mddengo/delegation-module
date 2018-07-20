@@ -511,10 +511,10 @@ const Assessment = {
                             color="blue-grey"
                             label="Next"></q-btn>
             </div>
-            <div class="mod3k">
-                <p>As the project progresses, your team has to interview people in multiple roles from the client's organization.
-                This involves continuous email conversations everyday for around two weeks.
-                What would you do in this situation?</p>
+            <div class="mod3k" v-else-if="ass3k">
+                    <p>As the project progresses, your team has to interview people in multiple roles from the client's organization.
+                    This involves continuous email conversations everyday for around two weeks.
+                    What would you do in this situation?</p>
                     <q-radio
                     v-model="radio3k"
                     val="3k1"
@@ -538,10 +538,111 @@ const Assessment = {
                     label="It is not that straightforward"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
-                    <br>
+                    <br><br>
+                <q-btn
+                    @click="ass3kToggle"
+                    :disable="radio3k === ''"
+                    color="blue-grey"
+                    label="Next"></q-btn>
             </div>
-            <div class="mod3l" v-else-if="ass3l"></div>
-            <div class="mod3m" v-else-if="ass3m"></div>
+            <div class="mod3l" v-else-if="ass3l">
+                <div v-if="radio3k ==='3k1'">
+                    <div style="width:750px;">
+                    <p>Good choice. It is important to let the team know that you trust them.
+                    However, some of the members might think that the work is being delegated because it is routine and not very important.
+                    Can you write 3–4 statements addressing this concern so that they take the work seriously?</p>
+                        <q-input type="textarea" />
+                        <br><br>
+                    </div>
+                </div>
+                <div v-else-if="radio3k ==='3k2'">
+                    <div style="width:750px;">
+                        <p>Clever Choice. It is important to focus on efficiency.
+                        However, some of the members might think that you do not trust them enough and you are practicing micro-management.
+                        Can you write 3–4 statements addressing this concern?</p>
+                        <q-input type="textarea" />
+                        <br><br>
+                    </div>
+                </div>
+                <div v-else-if="radio3k ==='3k3'">
+                    <div style="width:750px;">
+                        <p>Agreed. On the job situations are not always straightforward to make final decisions.
+                        Can you mention at least two conditions on which your decision depends upon?</p>
+                        <q-input type="textarea" />
+                        <br><br>
+                    </div>
+                </div>
+                <div style="width:750px;">
+                    <p>One of the ways to decide which tasks to delegate is to evaluate the importance and urgency of tasks.
+                    Importance here means, <strong>"how important it is that you do the task yourself."</strong></p>
+                    <p>Mention any 3 criteria which make a task important for you to do. (Ex: Task assigned to you by your manager)</p>
+                    <q-input type="textarea" />
+                    <br><br>
+                    <p>Which of the following are among the criteria of importance that you listed:</p>
+                    <q-checkbox
+                        v-model="checkGroup3l"
+                        color="orange-11"
+                        val="op1"
+                        label="Task meets or challenges your skill level" />
+                    <br>
+                    <q-checkbox
+                        v-model="checkGroup3l"
+                        color="orange-11"
+                        val="op2"
+                        label="Recognition from completion of task" />
+                    <br>
+                    <q-checkbox
+                        v-model="checkGroup3l"
+                        color="orange-11"
+                        val="op3"
+                        label="Quality expected upon task completion" />
+                    <br>
+                    <q-checkbox
+                        v-model="checkGroup3l"
+                        color="orange-11"
+                        val="op4"
+                        label="Manager/Client involved directly in task monitoring" />
+                    <br>
+                    <q-checkbox
+                        v-model="checkGroup3l"
+                        color="orange-11"
+                        val="op5"
+                        label="Other:" /> <div style="width:200px;"><q-input /></div>
+                    <br><br>
+                    <p>Which of the following types of tasks would you do yourself?</p>
+                    <q-checkbox
+                        v-model="checkGroup3l2"
+                        color="orange-11"
+                        val="op1"
+                        label="High Importance and Urgent" />
+                    <br>
+                    <q-checkbox
+                        v-model="checkGroup3l2"
+                        color="orange-11"
+                        val="op2"
+                        label="Low Importance and Urgent" />
+                    <br>
+                    <q-checkbox
+                        v-model="checkGroup3l2"
+                        color="orange-11"
+                        val="op3"
+                        label="High Importance and Not Urgent" />
+                    <br>
+                    <q-checkbox
+                        v-model="checkGroup3l2"
+                        color="orange-11"
+                        val="op4"
+                        label="Low Importance and Not Urgent" />
+                    <br><br><br>
+                    <p>Why?</p>
+                    <q-input />
+                    <br><br>
+                <q-btn
+                    @click="$router.push('/skip')"
+                    color="blue-grey"
+                    label="Next"></q-btn>
+                </div>
+            </div>
             <div class="mod3ca" v-else-if="mod3ba">
                 <h6>Defining Delegation</h6>
                 <!--TODO-->
@@ -608,6 +709,8 @@ const Assessment = {
             ],
             radioCha1: '',
             radio3k: '',
+            checkGroup3l: [],
+            checkGroup3l2: [],
             ass3a: true,
             ass3b: false,
             ass3c: false,
@@ -620,7 +723,6 @@ const Assessment = {
             ass3j: false,
             ass3k: false,
             ass3l: false,
-            ass3m: false,
             dgTask: '',
             dgEmailTask: '',
             radioAuth: '',
@@ -649,6 +751,9 @@ const Assessment = {
         },
         filled3f () {
             return (this.ans3f1 === '' || this.ans3f2 === '');
+        },
+        mod3kCheck () {
+            return (this.radio3k !== '');
         }
     },
     methods: {
@@ -709,10 +814,6 @@ const Assessment = {
         },
         ass3lToggle () {
             this.ass3l = false;
-            this.ass3m = true;
-        },
-        ass3mToggle () {
-            this.ass3m = false;
         },
     },
     watch: {
@@ -806,7 +907,6 @@ const Instruction = {
         }
     },
     template: `
-        <!--<div class="completion" v-if="skipped || test">-->
         <div class="completion" v-if="skipped">
             <p>SKIPPEd</p>
         </div>
