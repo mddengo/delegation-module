@@ -56,6 +56,10 @@ html, body {
     color: #496c94;
 }
 
+.assessment {
+    padding-top: 5%;
+}
+
 .dashboard-container {
     background-color: #f0f3f6;
     padding-bottom:5%;
