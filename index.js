@@ -51,12 +51,40 @@ const Home = {
         </div>
         
         <div v-else class="student">
-            <h3>Course Description</h3>
-            <p>{{this.isInstructor}}!</p>
-            <q-btn
-                @click="$router.push('/assessment')"
-                color="brand"
-                label="START"></q-btn>
+        <!--<div class="video">-->
+            <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Aragats_mountain%2C_Aragatsotn%2C_Armenia.jpg/1200px-Aragats_mountain%2C_Aragatsotn%2C_Armenia.jpg">-->
+        <!--</div>-->
+        <q-card flat inline style="width:100%">
+            <q-card-media overlay-position="full">
+                <img src="jumbo.jpg" width="1000px">
+            <q-card-title slot="overlay">
+                <div class="welcome"><h3>Welcome</h3></div>
+                <div class="welcome-text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                <q-btn
+                    style="background: #496c94;
+                    color: white"
+                    @click="$router.push('/assessment')"
+                    label="Start" />
+                <q-btn
+                    color="white"
+                    text-color="white"
+                    outline
+                    label="Learn More"></q-btn>
+            </div>
+            </q-card-title>
+            </q-card-media>
+        </q-card>
+        
+        <div class="benefits">
+            <h3>Benefits (WIP)</h3>
+            <div class="row">
+                <div class="col">First column</div>
+                <div class="col">Second column</div>
+                <div class="col">Third column</div>
+            </div>
+        </div>
         </div>
     `,
     data: function () {
@@ -872,7 +900,84 @@ const Dashboard = {
         }
     },
     template: `
-        <div class="dashboard">foo</div>
+    <div class="dashboard-container">
+        <div class="dashboard">
+            <h3>My Learning</h3>
+            <div class="row gutter-sm">
+                <div class="col-8">
+                    <q-card flat color="white" text-color="#496c94">
+                        <q-card-title>Learning Module</q-card-title>
+                        <!--<q-card-separator />-->
+                        <!--<q-card-main>-->
+                            <!--Card Content-->
+                        <!--</q-card-main>-->
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="white" text-color="#496c94">
+                        <q-card-title>Quick Details</q-card-title>
+                        <q-list highlight>
+                            <q-item>
+                                <q-item-side>
+                                    <q-item-tile icon="person_add" color="blue" />
+                                </q-item-side>
+                                <q-item-main label="Last 24 Hours" />
+                                <q-item-side right>
+                                    <q-item-main label="0 Recently Added" />
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-side>
+                                    <q-item-tile icon="refresh" color="green" />
+                                </q-item-side>
+                                <q-item-main label="Upcoming Modules" />
+                                <q-item-side right>
+                                    <q-item-main label="3" />
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-side>
+                                    <q-item-tile icon="timer" color="blue-10" />
+                                </q-item-side>
+                                <q-item-main label="On Hold" />
+                                <q-item-side right>
+                                    <q-item-main label="1" />
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-side>
+                                    <q-item-tile icon="error" color="yellow" />
+                                </q-item-side>
+                                <q-item-main label="Due in One Week" />
+                                <q-item-side right>
+                                    <q-item-main label="1" />
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-side>
+                                    <q-item-tile icon="report_problem" color="red" />
+                                </q-item-side>
+                                <q-item-main label="Overdue" />
+                                <q-item-side right>
+                                    <q-item-main label="1" />
+                                </q-item-side>
+                            </q-item>
+                        </q-list>
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="white" text-color="#496c94">
+                        <q-card-title>My Curricula</q-card-title>
+                    </q-card>
+                </div>
+                <div class="col-8">
+                    <q-card flat color="white" text-color="#496c94">
+                        <q-card-title>Learning Average Hours</q-card-title>
+                    </q-card>
+                </div>
+            </div>
+        </div>
+    </div>
     `,
 };
 const Instruction = {
@@ -1069,6 +1174,7 @@ const Instruction = {
  */
 const routes = [
     { path: '/login', name: 'Login', component: Login },
+    { path: '/dashboard', name: 'Dashboard', component: Dashboard },
     { path: '/', name: 'Home', component: Home },
     { path: '/skip', name: 'Skip', component: Skip },
     { path: '/assessment', name: 'Assessment', component: Assessment },
