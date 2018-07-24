@@ -56,7 +56,7 @@ const Home = {
         <!--</div>-->
         <q-card flat inline style="width:100%">
             <q-card-media overlay-position="full">
-                <img src="jumbo.jpg" width="1000px">
+                <div style="opacity:0.9;"><img src="assets/homepageBG.png" width="100%"></div>
             <q-card-title slot="overlay">
                 <div class="welcome"><h3>Welcome</h3></div>
                 <div class="welcome-text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -907,10 +907,34 @@ const Dashboard = {
                 <div class="col-8">
                     <q-card flat color="white" text-color="#496c94">
                         <q-card-title>Learning Module</q-card-title>
-                        <!--<q-card-separator />-->
-                        <!--<q-card-main>-->
-                            <!--Card Content-->
-                        <!--</q-card-main>-->
+                        <q-card-separator />
+                        <q-card-main>
+                            <q-list>
+                                <q-item>
+                                    <q-collapsible icon="explore" label="First">
+                                    <div>
+                                        Content
+                                    </div>
+                                    </q-collapsible>
+                                    <q-item-side right>
+                                        <q-item-main label="test" />
+                                    </q-item-side>
+                                    <q-item-side right>
+                                        <q-item-main label="test" />
+                                    </q-item-side>
+                                </q-item>
+                                <q-collapsible icon="perm_identity" label="Second">
+                                    <div>
+                                        Content
+                                    </div>
+                                </q-collapsible>
+                                <q-collapsible icon="shopping_cart" label="Third">
+                                    <div>
+                                        Content
+                                    </div>
+                                </q-collapsible>
+                            </q-list>
+                        </q-card-main>
                     </q-card>
                 </div>
                 <div class="col-4">
@@ -965,12 +989,19 @@ const Dashboard = {
                         </q-list>
                     </q-card>
                 </div>
-                <div class="col-4">
+                <div class="col-5">
                     <q-card flat color="white" text-color="#496c94">
-                        <q-card-title>My Curricula</q-card-title>
+                        <q-card-title>
+                            My Curricula
+                            <span slot="subtitle" style="color:#4d4f5c;">Total Modules: 4</span>
+                        </q-card-title>
+                        <q-card-separator />
+                        <q-card-title>
+                            <span slot="subtitle" style="color:#4d4f5c; text-align:left;">View Full Report</span>
+                        </q-card-title>
                     </q-card>
                 </div>
-                <div class="col-8">
+                <div class="col-7">
                     <q-card flat color="white" text-color="#496c94">
                         <q-card-title>Learning Average Hours</q-card-title>
                     </q-card>
