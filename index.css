@@ -1,3 +1,10 @@
+.text-brand {
+    color: #496c94;
+}
+.bg-brand {
+    background: #496c94;
+}
+
 html, body {
     height:100%;
 }

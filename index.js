@@ -53,22 +53,9 @@ const Home = {
         <div v-else class="student">
             <h3>Course Description</h3>
             <p>{{this.isInstructor}}!</p>
-            <q-radio
-            v-model="radio1"
-            val="one"
-            color="orange-11"
-            unchecked-icon="radio_button_unchecked"
-            checked-icon="radio_button_checked"></q-radio>
-            <q-radio
-            v-model="radio1"
-            val="two"
-            color="orange-11"
-            unchecked-icon="radio_button_unchecked"
-            checked-icon="radio_button_checked"></q-radio>
-            <p>{{radio1}}</p>
             <q-btn
                 @click="$router.push('/assessment')"
-                color="indigo-11"
+                color="brand"
                 label="START"></q-btn>
         </div>
     `,
@@ -904,11 +891,25 @@ const Instruction = {
             dg4bdecYes: false,
             dg4bdecNo: false,
             emailTask: store.state.suggestedTaskEmail,
+            dgTask: store.state.dgTask,
         }
     },
     template: `
         <div class="completion" v-if="skipped">
-            <p>SKIPPEd</p>
+            <p>In most organizations, tasks are not assigned unless there is a clear <strong>purpose to the task</strong>.</p>
+            <p>It’s important to understand the difference between the terms <i>task</i> and <i>purpose</i>.</p>
+            <p>The <strong><i>task</i></strong> is what must be accomplished.</p>
+            <p>The <strong><i>purpose</i></strong> is the reason that the task is being done—it gives meaning to the task.</p>
+            <p>The two terms may look different at different levels of the organization. At higher levels, the purpose of the work may be clear
+            (“we need to expand” or “we need to have safety in all our plants”), but the specific tasks needed to accomplish the work may be less clear.</p>
+            <br><br>
+            <p>What is the purpose of the original task you wanted to delegate? ("{{dgTask}}")</p>
+            <div style="width:600px;"><q-input type="textarea" /></div>
+            <br><br>
+            <q-btn
+                @click="$router.push('/')"
+                color="green"
+                label="Submit"></q-btn>
         </div>
         <div class="instruction" v-else>
             <div class="module-4a" v-if="ins4a">

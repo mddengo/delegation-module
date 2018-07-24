@@ -20,13 +20,16 @@
 <body>
 
 <div id="app">
-    <q-layout view="lHh Lpr fff">
+    <q-layout>
         <q-layout-header>
-            <!--<q-toolbar color="primary">-->
-                <!--<q-toolbar-title>-->
-                    <!--Header Test-->
-                <!--</q-toolbar-title>-->
-            <!--</q-toolbar>-->
+            <q-toolbar color="brand">
+                <span>MOMEGA (placeholder)</span>
+                <q-toolbar-title>
+                </q-toolbar-title>
+                <span><q-btn flat round dense icon="search" /></span>
+                <span><q-btn flat round dense icon="notifications" /></span>
+                <span><q-btn flat round dense icon="person" /></span>
+            </q-toolbar>
         </q-layout-header>
 
         <q-page-container>
@@ -38,6 +41,15 @@
                 <router-view></router-view>
             </q-page>
         </q-page-container>
+        <q-layout-footer>
+            <q-toolbar color="brand">
+                <q-toolbar-title>
+                    FOOTER
+                </q-toolbar-title>
+                <span>Test</span>
+                <span>Test</span>
+            </q-toolbar>
+        </q-layout-footer>
     </q-layout>
 </div>
 
