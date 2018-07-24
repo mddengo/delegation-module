@@ -896,6 +896,20 @@ const Skip = {
 const Dashboard = {
     data: function () {
         return {
+            select1: 'monthly',
+            select2: 'lastyear',
+            selectOptions1: [
+                {
+                    label: 'Monthly',
+                    value: 'monthly'
+                }
+            ],
+            selectOptions2: [
+                {
+                    label: 'Last Year',
+                    value: 'lastyear'
+                }
+            ],
 
         }
     },
@@ -907,40 +921,73 @@ const Dashboard = {
                 <div class="col-8">
                     <q-card flat color="white" text-color="#496c94">
                         <q-card-title>Learning Module</q-card-title>
-                        <q-card-separator />
                         <q-card-main>
                             <q-list>
+                                <q-item style="font-family:Dosis, sans-serif;font-weight:bold;font-variant-caps:all-small-caps;">
+                                <q-item-main label="Module Name" />
+                                <q-item-main label="Course No." />
+                                <q-item-side right><q-item-main label="Availability" /></q-item-side>
+                                </q-item>
                                 <q-item>
-                                    <q-collapsible icon="explore" label="First">
-                                    <div>
-                                        Content
-                                    </div>
-                                    </q-collapsible>
-                                    <q-item-side right>
-                                        <q-item-main label="test" />
+                                    <q-item-side>
+                                        <q-collapsible icon="explore" label="Fierce Negotiation">
+                                        <div>
+                                            Content
+                                        </div>
+                                        </q-collapsible>
                                     </q-item-side>
+                                    <q-item-main label="15-112" />
                                     <q-item-side right>
-                                        <q-item-main label="test" />
+                                        <q-item-main>
+                                        <q-btn
+                                        rounded
+                                        color="green"
+                                        size="xs"
+                                        label="Finished"/></q-item-main>
                                     </q-item-side>
                                 </q-item>
-                                <q-collapsible icon="perm_identity" label="Second">
-                                    <div>
-                                        Content
-                                    </div>
-                                </q-collapsible>
-                                <q-collapsible icon="shopping_cart" label="Third">
-                                    <div>
-                                        Content
-                                    </div>
-                                </q-collapsible>
+                                <q-item>
+                                    <q-collapsible icon="perm_identity" label="Executive Presence">
+                                        <div>
+                                            Content
+                                        </div>
+                                    </q-collapsible>
+                                    <q-item-main label="21-127" />
+                                    <q-item-side right>
+                                        <q-item-main>
+                                        <q-btn
+                                        rounded
+                                        color="red"
+                                        size="xs"
+                                        label="Overdue"/></q-item-main>
+                                    </q-item-side>
+                                        <q-item-tile icon="error_outline" color="red" />
+                                </q-item>
+                                <q-item>
+                                    <q-collapsible icon="shopping_cart" label="Make Money Work">
+                                        <div>
+                                            Content
+                                        </div>
+                                    </q-collapsible>
+                                    <q-item-main label="18-100" />
+                                    <q-item-side right>
+                                        <q-item-main>
+                                        <q-btn
+                                        rounded
+                                        color="primary"
+                                        size="xs"
+                                        label="Start"/></q-item-main>
+                                    </q-item-side>
+                                </q-item>
                             </q-list>
                         </q-card-main>
+                        <q-card-title><span slot="subtitle" style="color:#496c94;">Show More</span></q-card-title>
                     </q-card>
                 </div>
                 <div class="col-4">
                     <q-card flat color="white" text-color="#496c94">
                         <q-card-title>Quick Details</q-card-title>
-                        <q-list highlight>
+                        <q-card-main>
                             <q-item>
                                 <q-item-side>
                                     <q-item-tile icon="person_add" color="blue" />
@@ -987,23 +1034,48 @@ const Dashboard = {
                                 </q-item-side>
                             </q-item>
                         </q-list>
+                        </q-card-main>
                     </q-card>
                 </div>
-                <div class="col-5">
+                <div class="col-4">
                     <q-card flat color="white" text-color="#496c94">
                         <q-card-title>
                             My Curricula
                             <span slot="subtitle" style="color:#4d4f5c;">Total Modules: 4</span>
                         </q-card-title>
+                        <q-card-media>
+                        <div>
+                            <img src="assets/completeModule2x.jpg" width="70%">
+                        </div>
+                        </q-card-media>
                         <q-card-separator />
                         <q-card-title>
                             <span slot="subtitle" style="color:#4d4f5c; text-align:left;">View Full Report</span>
                         </q-card-title>
                     </q-card>
                 </div>
-                <div class="col-7">
+                <div class="col-8">
                     <q-card flat color="white" text-color="#496c94">
-                        <q-card-title>Learning Average Hours</q-card-title>
+                        <q-card-title>Learning Average Hours
+                        <div style="text-align:left;font-size:small;">
+                            <span slot="subtitle" style="color:#496c94;">Avg 5hrs</span>
+                        </div>
+                        <div style="left:50%;right:0;text-align:right;">
+                        <div style="width:95px;text-align:right;font-size:small;">
+                        <q-select
+                            v-model="select1"
+                            :options="selectOptions1"
+                        /></div>
+                        <div style="width:95px;font-size:small;">
+                            <q-select
+                                v-model="select2"
+                                :options="selectOptions2"
+                            /></div>
+                        </div>
+                        </q-card-title>
+                        <q-card-media>
+                            <img src="assets/studyGraph2x.jpg">
+                        </q-card-media>
                     </q-card>
                 </div>
             </div>
