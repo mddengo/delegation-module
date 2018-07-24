@@ -56,7 +56,7 @@ const Home = {
         <!--</div>-->
         <q-card flat inline style="width:100%">
             <q-card-media overlay-position="full">
-                <div style="opacity:0.9;"><img src="assets/homepageBG.png" width="100%"></div>
+                <div style="opacity:0.8;"><img src="assets/homepageBG.png" width="100%"></div>
             <q-card-title slot="overlay">
                 <div class="welcome"><h3>Welcome</h3></div>
                 <div class="welcome-text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -65,7 +65,7 @@ const Home = {
                 <q-btn
                     style="background: #496c94;
                     color: white"
-                    @click="$router.push('/assessment')"
+                    @click="$router.push('/login')"
                     label="Start" />
                 <q-btn
                     color="white"
@@ -80,9 +80,27 @@ const Home = {
         <div class="benefits">
             <h3>Benefits (WIP)</h3>
             <div class="row">
-                <div class="col">First column</div>
-                <div class="col">Second column</div>
-                <div class="col">Third column</div>
+                <div class="col">
+                    <img src="assets/benefitL.svg" width="35%">
+                    <h5>Pre-Assessment</h5>
+                    <p>Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero
+                    labore et dolore.</p>
+                </div>
+                <div class="col">
+                    <img src="assets/benefitM.svg" width="35%">
+                    <h5>Peer Review</h5>
+                    <p>Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero
+                    labore et dolore.</p>
+                </div>
+                <div class="col">
+                    <img src="assets/benefitR.svg" width="35%">
+                    <h5>Planning & On-the-Job</h5>
+                    <p>Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero
+                    labore et dolore.</p>
+                </div>
             </div>
         </div>
         </div>
@@ -108,9 +126,11 @@ const Login = {
                 <q-input v-model="pw" type="password" float-label="Password" />
                 <div style="position:absolute; left:40%; margin-top:15px">
                     <q-btn
-                    @click="$router.push('/')"
+                    style="background: #496c94;
+                    color: white"
+                    @click="$router.push('/dashboard')"
                     type="submit"
-                    color="teal" label="Login"></q-btn>
+                    label="Login"></q-btn>
                 </div>
             </div>
         </div>
@@ -964,7 +984,7 @@ const Dashboard = {
                                         <q-item-tile icon="error_outline" color="red" />
                                 </q-item>
                                 <q-item>
-                                    <q-collapsible icon="shopping_cart" label="Make Money Work">
+                                    <q-collapsible icon="shopping_cart" label="Essential Delegation Skills">
                                         <div>
                                             Content
                                         </div>
@@ -976,6 +996,7 @@ const Dashboard = {
                                         rounded
                                         color="primary"
                                         size="xs"
+                                        @click="$router.push('/assessment')"
                                         label="Start"/></q-item-main>
                                     </q-item-side>
                                 </q-item>

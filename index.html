@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://cdn.jsdelivr.net/npm/quasar-framework@^0.16.0/dist/umd/quasar.ios.min.css" rel="stylesheet" type="text/css">
 
@@ -29,15 +30,15 @@
                 <span><q-btn flat round dense icon="search" /></span>
                 <span><q-btn flat round dense icon="notifications" /></span>
                 <span><q-btn flat round dense icon="person" /></span>
-            </q-toolbar>
-        </q-layout-header>
-
-        <q-page-container>
-            <q-page padding>
                 <div class="logout">
                     <router-link to="/login">Logout</router-link>
                     <br><br>
                 </div>
+            </q-toolbar>
+        </q-layout-header>
+
+        <q-page-container style="padding-top:5px;">
+            <q-page>
                 <router-view></router-view>
             </q-page>
         </q-page-container>
