@@ -52,6 +52,7 @@ const Home = {
         
         <div v-else class="student">
             <div class="landing"></div>
+                <div style="margin: 0 auto;">
                 <div class="welcome"><h3>Welcome</h3></div>
                 <div class="welcome-text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -69,8 +70,9 @@ const Home = {
                     label="Learn More"></q-btn>
                 </div>
             </div>
+            </div>
         <div class="benefits">
-            <h3>Benefits</h3>
+            <h3>Features</h3>
             <div class="row gutter-md">
                 <div class="col">
                     <img src="assets/benefitL.svg" width="35%">
@@ -381,7 +383,7 @@ const Assessment = {
                 <div class="row">
                     <div class="col-4">
                         <q-card flat color="brand" text-color="lightbrand" style="height: 500px;">
-                            <q-card-title style="padding-left: 15%; padding-top: 25%;">Pre-Assessment</q-card-title>
+                            <q-card-title style="padding-left: 15%; padding-top: 25%;">Practice Delegation</q-card-title>
                             <q-card-main style="padding-left: 15%; padding-right: 10%;"> 
                                 <p>The following set of questions helps us identify instruction specific to you.
                                 <br>
@@ -529,7 +531,7 @@ const Assessment = {
                 </span>
                 <br>
                 <q-btn
-                    @click="ass3eToggle"
+                    @click="ass3dToggle"
                     :disable="filledOut1"
                     color="blue-grey"
                     label="Next"></q-btn>
@@ -547,14 +549,12 @@ const Assessment = {
                 </div>
                 <br><br>
                 <q-btn
-                    @click="ass3fToggle"
+                    @click="ass3eToggle"
                     :disable="filled3f"
                     color="blue-grey"
                     label="Next"></q-btn>
             </div>
             <div class="mod3f" v-else-if="ass3f">
-            </div>
-            <div class="mod3g" v-else-if="ass3g">
                 <h5>Benefits and Challenges of Delegation</h5>
                 <p>Features of Good Delegation</p>
                 <ul>
@@ -567,19 +567,19 @@ const Assessment = {
                     <li>Make sure the person is held accountable for these results</li>
                 </ul>
                 <q-btn
+                    @click="ass3fToggle"
+                    color="blue-grey"
+                    label="Next"></q-btn>
+            </div>
+            <div class="mod3g" v-else-if="ass3g">
+                <h6>Identify Benefits of Delegation</h6>
+                <h1>Table goes here</h1>
+                <q-btn
                     @click="ass3gToggle"
                     color="blue-grey"
                     label="Next"></q-btn>
             </div>
             <div class="mod3h" v-else-if="ass3h">
-                <h6>Identify Benefits of Delegation</h6>
-                <h1>Table goes here</h1>
-                <q-btn
-                    @click="ass3hToggle"
-                    color="blue-grey"
-                    label="Next"></q-btn>
-            </div>
-            <div class="mod3i" v-else-if="ass3i">
                 <h6>Identify Potential Challenges of Delegation</h6>
                 <p>Below are some examples of potential challenges of delegation.</p>
                 <ul>
@@ -589,11 +589,11 @@ const Assessment = {
                     <li>“I don’t want people to think I’m dumping on them”</li>
                 </ul>
                 <q-btn
-                    @click="ass3iToggle"
+                    @click="ass3hToggle"
                     color="blue-grey"
                     label="Next"></q-btn>
             </div>
-            <div class="mod3j" v-else-if="ass3j">
+            <div class="mod3i" v-else-if="ass3i">
                 <h6>Create a Plan to Overcome Challenges of Delegation</h6>
                 <p>Click the challenge(s) that you would like to learn about overcoming.</p>
                     <q-radio
@@ -666,11 +666,11 @@ const Assessment = {
                         <div style="width:650px;"><q-input type="textarea" /></div>
                         <br>
                         <q-btn
-                            @click="ass3jToggle"
+                            @click="ass3iToggle"
                             color="blue-grey"
                             label="Next"></q-btn>
             </div>
-            <div class="mod3k" v-else-if="ass3k">
+            <div class="mod3j" v-else-if="ass3j">
                     <p>As the project progresses, your team has to interview people in multiple roles from the client's organization.
                     This involves continuous email conversations everyday for around two weeks.
                     What would you do in this situation?</p>
@@ -699,12 +699,12 @@ const Assessment = {
                     checked-icon="radio_button_checked"></q-radio>
                     <br><br>
                 <q-btn
-                    @click="ass3kToggle"
+                    @click="ass3jToggle"
                     :disable="radio3k === ''"
                     color="blue-grey"
                     label="Next"></q-btn>
             </div>
-            <div class="mod3l" v-else-if="ass3l">
+            <div class="mod3k" v-else-if="ass3k">
                 <div v-if="radio3k ==='3k1'">
                     <div style="width:750px;">
                     <p>Good choice. It is important to let the team know that you trust them.
@@ -815,12 +815,12 @@ const Assessment = {
                 <br>
                 <p>Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
                 <div style="width: 500px">
-                    <q-input v-model="dgEmailTask"/>
+                    <q-input v-model="dgdefinput"/>
                 </div>
                 <br>
                 <q-btn
                     @click="mod3caToggle"
-                    :disable="dgEmailTask === ''"
+                    :disable="dgdefinput === ''"
                     color="blue-grey"
                     label="Next"></q-btn>
             </div>
@@ -884,6 +884,7 @@ const Assessment = {
             ass3l: false,
             dgTask: '',
             dgEmailTask: '',
+            dgdefinput: '',
             radioAuth: '',
             radioResp: '',
             radioAccn: '',
@@ -933,7 +934,7 @@ const Assessment = {
                 (this.radioResp === 'respagree' || this.radioResp === 'respsa')&&
                 (this.radioAccn === 'accnagree' || this.radioAccn === 'accnsa')) {
                 this.ass3b = false;
-                this.ass3c = true;
+                this.ass3f = true;
             } else {
                 this.ass3b = false;
                 this.mod3ba = true;
@@ -941,7 +942,7 @@ const Assessment = {
         },
         mod3caToggle () {
             this.mod3ba = false;
-            this.ass3d = true;
+            this.ass3c = true;
         },
         ass3aToggle () {
           this.ass3a = false;
@@ -954,6 +955,10 @@ const Assessment = {
         ass3cToggle () {
             this.ass3c = false;
             this.ass3d = true;
+        },
+        ass3dToggle () {
+            this.ass3d = false;
+            this.ass3e = true;
         },
         ass3eToggle () {
             this.ass3e = false;
@@ -978,13 +983,6 @@ const Assessment = {
         ass3jToggle () {
             this.ass3j = false;
             this.ass3k = true;
-        },
-        ass3kToggle () {
-            this.ass3k = false;
-            this.ass3l = true;
-        },
-        ass3lToggle () {
-            this.ass3l = false;
         },
     },
     watch: {
