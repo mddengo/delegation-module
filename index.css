@@ -91,3 +91,7 @@ html, body {
     font-family: 'Dosis', sans-serif;
     color: #496c94;
 }
+
+.selectors {
+    font-size: small;
+}

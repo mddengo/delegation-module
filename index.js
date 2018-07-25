@@ -954,7 +954,7 @@ const Dashboard = {
                                         <q-btn
                                         rounded
                                         color="green"
-                                        size="xs"
+                                        size="sm"
                                         label="Finished"/></q-item-main>
                                     </q-item-side>
                                 </q-item>
@@ -970,7 +970,7 @@ const Dashboard = {
                                         <q-btn
                                         rounded
                                         color="red"
-                                        size="xs"
+                                        size="sm"
                                         label="Overdue"/></q-item-main>
                                     </q-item-side>
                                         <q-item-tile icon="error_outline" color="red" />
@@ -987,7 +987,7 @@ const Dashboard = {
                                         <q-btn
                                         rounded
                                         color="primary"
-                                        size="xs"
+                                        size="sm"
                                         @click="$router.push('/assessment')"
                                         label="Start"/></q-item-main>
                                     </q-item-side>
@@ -1056,11 +1056,21 @@ const Dashboard = {
                             My Curricula
                             <span slot="subtitle" style="color:#4d4f5c;">Total Modules: 4</span>
                         </q-card-title>
+                        <q-card-separator />
+                        <br>
                         <q-card-media>
                         <div>
                             <img src="assets/completeModule2x.jpg" width="70%">
                         </div>
                         </q-card-media>
+                        <q-card-main>
+                            <div class="row">
+                                <div class="col-6">Total Hours</div>
+                                <div class="col-6">Finished Hours</div>
+                                <div class="col-6" style="color:#4d4f5c">48 hrs</div>
+                                <div class="col-6" style="color:#4d4f5c">23 hrs</div>
+                            </div>
+                        </q-card-main>
                         <q-card-separator />
                         <q-card-title>
                             <span slot="subtitle" style="color:#4d4f5c; text-align:left;">View Full Report</span>
@@ -1073,17 +1083,21 @@ const Dashboard = {
                         <div style="text-align:left;font-size:small;">
                             <span slot="subtitle" style="color:#496c94;">Avg 5hrs</span>
                         </div>
-                        <div style="left:50%;right:0;text-align:right;">
-                        <div style="width:95px;text-align:right;font-size:small;">
-                        <q-select
-                            v-model="select1"
-                            :options="selectOptions1"
-                        /></div>
-                        <div style="width:95px;font-size:small;">
-                            <q-select
-                                v-model="select2"
-                                :options="selectOptions2"
-                            /></div>
+                        <div class="selectors float-right"> 
+                            <div class="row gutter-sm">
+                                <div class="col-3" style="width:150px;">
+                                    <q-select
+                                    v-model="select1"
+                                    :options="selectOptions1"
+                                    />
+                                </div>
+                                <div class="col-3" style="width:190px;">
+                                    <q-select
+                                    v-model="select2"
+                                    :options="selectOptions2"
+                                    />
+                                </div>
+                            </div>
                         </div>
                         </q-card-title>
                         <q-card-media>
