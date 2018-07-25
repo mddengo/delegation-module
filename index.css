@@ -24,7 +24,7 @@
 }
 
 html, body {
-    height:100%;
+    height:100vh;
 }
 
 .login {
@@ -109,10 +109,12 @@ html, body {
 .assessment {
     padding-top: 5%;
     background-color: #f0f3f6;
+    width: 100%;
     height: 100vh;
     font-family: 'Dosis', sans-serif;
     padding-left: 10%;
     padding-right: 10%;
+    bottom: 0;
 }
 
 .selectors {

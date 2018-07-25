@@ -144,7 +144,6 @@ const Login = {
 const Assessment = {
     template: `
         <div class="assessment">
-            <br>
             <q-btn
             class="float-left"
              style="color: #496c94;"
@@ -213,7 +212,7 @@ const Assessment = {
                     </div>
                     <div class="col-8">
                         <q-card flat color="white" text-color="secbrand" style="height:500px;">
-                            <q-card-main style="padding: 12% 12% 12%;">
+                            <q-card-main style="padding: 5% 10% 10%;">
                                 <p>2. One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
                                 <p>Using this definition, reflect on the following situation:</p>
                                 <p>You recently attended a client meeting with your subordinate. After the meeting, you ask your subordinate to draft a thank you email to the client which you will then review and send to the client.</p>
@@ -225,6 +224,7 @@ const Assessment = {
                                     <div class="col-12 col-md-2">Agree</div>
                                     <div class="col-12 col-md-2">Strongly Agree</div>
                                 </div>
+                                <br>
                                 <div class="row justify-start">
                                     <div class="col-12 col-md-2">This delegation involves high sharing of Authority</div>
                                     <div class="col-12 col-md-2">
@@ -252,92 +252,114 @@ const Assessment = {
                                         checked-icon="radio_button_checked"></q-radio>
                                     </div>
                                     <div class="col-12 col-md-2">
-                    <q-radio
-                    v-model="radioAuth"
-                    val="authagree"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-</div>
+                                        <q-radio
+                                        v-model="radioAuth"
+                                        val="authagree"
+                                        color="brand"
+                                        unchecked-icon="radio_button_unchecked"
+                                        checked-icon="radio_button_checked"></q-radio>
+                                    </div>
                                     <div class="col-12 col-md-2">
-                    <q-radio
-                    v-model="radioAuth"
-                    val="authsa"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-</div>
-</div>
-                <br>
-                <span>This delegation involves high sharing of Responsibility
-                    <q-radio
-                    v-model="radioResp"
-                    val="respsd"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioResp"
-                    val="respdis"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioResp"
-                    val="respneither"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioResp"
-                    val="respagree"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioResp"
-                    val="respsa"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                </span>
-                <br>
-                <span>This delegation involves high sharing of Accountability 
-                    <q-radio
-                    v-model="radioAccn"
-                    val="accnsd"
-                    color="orange-11"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioAccn"
-                    val="accndis"
-                    color="orange-11"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioAccn"
-                    val="accnneither"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioAccn"
-                    val="accnagree"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioAccn"
-                    val="accnsa"
-                    color="brand"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                </span>
+                                        <q-radio
+                                        v-model="radioAuth"
+                                        val="authsa"
+                                        color="brand"
+                                        unchecked-icon="radio_button_unchecked"
+                                        checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row justify-start">
+                                    <div class="col-12 col-md-2">This delegation involves high sharing of Responsibility</div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                            v-model="radioResp"
+                                            val="authsd"
+                                            color="brand"
+                                            unchecked-icon="radio_button_unchecked"
+                                            checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                        v-model="radioResp"
+                                        val="authdis"
+                                        color="brand"
+                                        unchecked-icon="radio_button_unchecked"
+                                        checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                        v-model="radioResp"
+                                        val="authneither"
+                                        color="brand"
+                                        unchecked-icon="radio_button_unchecked"
+                                        checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                        v-model="radioResp"
+                                        val="authagree"
+                                        color="brand"
+                                        unchecked-icon="radio_button_unchecked"
+                                        checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                        v-model="radioResp"
+                                        val="authsa"
+                                        color="brand"
+                                        unchecked-icon="radio_button_unchecked"
+                                        checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row justify-start">
+                                    <div class="col-12 col-md-2">This delegation involves high sharing of Accountability</div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                            v-model="radioAccn"
+                                            val="accnsd"
+                                            color="brand"
+                                            unchecked-icon="radio_button_unchecked"
+                                            checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                            v-model="radioAccn"
+                                            val="accndis"
+                                            color="brand"
+                                            unchecked-icon="radio_button_unchecked"
+                                            checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                            v-model="radioAccn"
+                                            val="accnneither"
+                                            color="brand"
+                                            unchecked-icon="radio_button_unchecked"
+                                            checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                            v-model="radioAccn"
+                                            val="accnagree"
+                                            color="brand"
+                                            unchecked-icon="radio_button_unchecked"
+                                            checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                        v-model="radioAccn"
+                                        val="accnsa"
+                                        color="brand"
+                                        unchecked-icon="radio_button_unchecked"
+                                        checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                </div>
                             </q-card-main>
-</q-card>
-</div>
-</div>
+                        </q-card>
+                    </div>
+                </div>
                 <br>
                 <div class="float-right">
                     <q-btn
@@ -352,8 +374,9 @@ const Assessment = {
                     color: #605f5e;"
                     label="Save & Continue"></q-btn>
                 </div>
-                <br>
+                <br><br><br>
             </div>
+            
             <div class="mod3c" v-else-if="ass3c">
                 <h5>Email Task</h5>
                 <p>One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
