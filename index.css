@@ -65,9 +65,14 @@ html, body {
 }
 
 .benefits {
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
     font-family: 'Dosis', sans-serif;
     color: #496c94;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 5%
 }
 
 .assessment {

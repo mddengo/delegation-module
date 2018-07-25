@@ -71,7 +71,7 @@ const Home = {
             </div>
         <div class="benefits">
             <h3>Benefits (WIP)</h3>
-            <div class="row">
+            <div class="row gutter-md">
                 <div class="col">
                     <img src="assets/benefitL.svg" width="35%">
                     <h5>Pre-Assessment</h5>
