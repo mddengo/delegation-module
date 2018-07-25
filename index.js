@@ -144,96 +144,160 @@ const Login = {
 const Assessment = {
     template: `
         <div class="assessment">
+            <br>
+            <q-btn
+            class="float-left"
+             style="color: #496c94;"
+             flat round dense
+             icon="menu"
+            />
+            <p @click="$router.push('/dashboard')" class="float-right" style="color: #496c94;">Go Back to Module</p>
+            <br><br>
             <div class="mod3a" v-if="ass3a">
-                <p>The following set of questions helps us identify instruction specific to you. We assess your inputs to make more efficient use of your learning time. Please note that there is no pass/fail and your results will not be shared with your counselor, manager, nor supervisor.</p>
-                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <q-card flat color="brand" text-color="lightbrand" style="height:450px;">
+                            <q-card-title style="padding-left: 15%; padding-top: 25%;">Integrated Delegation Task</q-card-title>
+                            <q-card-main style="padding-left: 15%; padding-right: 10%;"> 
+                                <p>The following set of questions helps us identify instruction specific to you.
+                                <br>
+                                <br>We assess your inputs to make more efficient use of your learning time.
+                                <br>
+                                <br>Please note that there is no pass/fail and your results will not be shared with your counselor, manager, nor supervisor.</p>
+                                <br>
+                            </q-card-main>
+                        </q-card>
+                    </div>
+                    <div class="col-8">
+                        <q-card flat color="white" text-color="secbrand" style="height:450px;">
+                            <q-card-main style="padding: 15% 15% 15%;">
+                                <p>1. Think of the tasks for which you are responsible for completing on the job. Which tasks can you complete on your own? Which tasks should you delegate?</p>
+                                <p>Below, enter a task that you would like to delegate.</p>
+                                <div style="width:400px; max-width:100vw;">
+                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                </div>
+                                <br><br><br><br>
+                            </q-card-main>
+                        </q-card>
+                    </div>
+                    </div>
+                    <br>
+                    <div class="float-right">
+                <q-btn
+                    @click="saved"
+                    style="background: #e9d985;
+                    color: #605f5e;"
+                    label="Save"></q-btn>
                 <q-btn
                     @click="ass3aToggle"
-                    color="blue-grey"
-                    label="Next"></q-btn>
+                    style="background: #e9d985;
+                    color: #605f5e;"
+                    :disable="ass3aSaveCont"
+                    label="Save & Continue"></q-btn>
+                    </div>
             </div>
             <div class="mod3b" v-else-if="ass3b">
-                <p>Think of the tasks for which you are responsible for completing on the job. Which tasks can you complete on your own? Which tasks should you delegate?</p>
-                <p>Below, enter a task that you would like to delegate.</p>
-                <div style="width:400px; max-width:100vw;">
-                    <q-input v-model="dgTask" />
-                </div>
-                <br>
-                <q-btn
-                    @click="ass3bToggle"
-                    :disable="dgTask.length < 5"
-                    color="blue-grey"
-                    label="Next"></q-btn>
-            </div>
-            <div class="mod3c" v-else-if="ass3c">
-                <p>One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
-                <p>Using this definition, reflect on the following situation:</p>
-                <p>You recently attended a client meeting with your subordinate. After the meeting, you ask your subordinate to draft a thank you email to the client which you will then review and send to the client.</p>
-                <!--TODO-->
-                <!--disagree agree agree-->
-                <p>Strongly Disagree | Disagree | Neither agree nor disagree | Agree | Strongly Agree</p>
-                <span>This delegation involves high sharing of Authority
-                    <q-radio
-                    v-model="radioAuth"
-                    val="authsd"
-                    color="orange-11"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioAuth"
-                    val="authdis"
-                    color="orange-11"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
-                    <q-radio
-                    v-model="radioAuth"
-                    val="authneither"
-                    color="orange-11"
-                    unchecked-icon="radio_button_unchecked"
-                    checked-icon="radio_button_checked"></q-radio>
+                <div class="row">
+                    <div class="col-4">
+                        <q-card flat color="brand" text-color="lightbrand" style="height: 500px;">
+                            <q-card-title style="padding-left: 15%; padding-top: 25%;">Pre-Assessment</q-card-title>
+                            <q-card-main style="padding-left: 15%; padding-right: 10%;"> 
+                                <p>The following set of questions helps us identify instruction specific to you.
+                                <br>
+                                <br>We assess your inputs to make more efficient use of your learning time.
+                                <br>
+                                <br>Please note that there is no pass/fail and your results will not be shared with your counselor, manager, nor supervisor.</p>
+                                <br>
+                            </q-card-main>
+                        </q-card>
+                    </div>
+                    <div class="col-8">
+                        <q-card flat color="white" text-color="secbrand" style="height:500px;">
+                            <q-card-main style="padding: 12% 12% 12%;">
+                                <p>2. One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
+                                <p>Using this definition, reflect on the following situation:</p>
+                                <p>You recently attended a client meeting with your subordinate. After the meeting, you ask your subordinate to draft a thank you email to the client which you will then review and send to the client.</p>
+                                <!--disagree agree agree-->
+                                <div class="row justify-end">
+                                    <div class="col-12 col-md-2">Strongly Disagree</div>
+                                    <div class="col-12 col-md-2">Disagree</div>
+                                    <div class="col-12 col-md-2">Neither Agree nor Disagree</div>
+                                    <div class="col-12 col-md-2">Agree</div>
+                                    <div class="col-12 col-md-2">Strongly Agree</div>
+                                </div>
+                                <div class="row justify-start">
+                                    <div class="col-12 col-md-2">This delegation involves high sharing of Authority</div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                            v-model="radioAuth"
+                                            val="authsd"
+                                            color="brand"
+                                            unchecked-icon="radio_button_unchecked"
+                                            checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                        v-model="radioAuth"
+                                        val="authdis"
+                                        color="brand"
+                                        unchecked-icon="radio_button_unchecked"
+                                        checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <q-radio
+                                        v-model="radioAuth"
+                                        val="authneither"
+                                        color="brand"
+                                        unchecked-icon="radio_button_unchecked"
+                                        checked-icon="radio_button_checked"></q-radio>
+                                    </div>
+                                    <div class="col-12 col-md-2">
                     <q-radio
                     v-model="radioAuth"
                     val="authagree"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
+</div>
+                                    <div class="col-12 col-md-2">
                     <q-radio
                     v-model="radioAuth"
                     val="authsa"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
-                </span>
+</div>
+</div>
                 <br>
                 <span>This delegation involves high sharing of Responsibility
                     <q-radio
                     v-model="radioResp"
                     val="respsd"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioResp"
                     val="respdis"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioResp"
                     val="respneither"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioResp"
                     val="respagree"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioResp"
                     val="respsa"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                 </span>
@@ -254,30 +318,43 @@ const Assessment = {
                     <q-radio
                     v-model="radioAccn"
                     val="accnneither"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAccn"
                     val="accnagree"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAccn"
                     val="accnsa"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                 </span>
+                            </q-card-main>
+</q-card>
+</div>
+</div>
                 <br>
-                <q-btn
-                    @click="grade3c"
+                <div class="float-right">
+                    <q-btn
+                    @click="saved"
+                    style="background: #e9d985;
+                    color: #605f5e;"
+                    label="Save"></q-btn>
+                    <q-btn
+                    @click="grade3b"
                     :disable="filledOut"
-                    color="blue-grey"
-                    label="Next"></q-btn>
+                    style="background: #e9d985;
+                    color: #605f5e;"
+                    label="Save & Continue"></q-btn>
+                </div>
+                <br>
             </div>
-            <div class="mod3d" v-else-if="ass3d">
+            <div class="mod3c" v-else-if="ass3c">
                 <h5>Email Task</h5>
                 <p>One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
                 <p>Using this definition, reflect on the following situation:</p>
@@ -293,7 +370,7 @@ const Assessment = {
                     color="blue-grey"
                     label="Next"></q-btn>
             </div>
-            <div class="mod3e" v-else-if="ass3e">
+            <div class="mod3d" v-else-if="ass3d">
                 <p>You suggested: "{{dgEmailTask}}"</p>
                 <p>How does the alternate way you suggested change the responsibility, authority, and accountability for the task?</p>
                 <p>For reference: One of the definitions of delegation is "sharing responsibility and authority with others and holding them accountable for performance."</p>
@@ -303,31 +380,31 @@ const Assessment = {
                     <q-radio
                     v-model="radioAuth1"
                     val="authsd"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAuth1"
                     val="authdis"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAuth1"
                     val="authneither"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAuth1"
                     val="authagree"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAuth1"
                     val="authsa"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                 </span>
@@ -336,31 +413,31 @@ const Assessment = {
                     <q-radio
                     v-model="radioResp1"
                     val="respsd"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioResp1"
                     val="respdis"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioResp1"
                     val="respneither"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioResp1"
                     val="respagree"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioResp1"
                     val="respsa"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                 </span>
@@ -369,31 +446,31 @@ const Assessment = {
                     <q-radio
                     v-model="radioAccn1"
                     val="accnsd"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAccn1"
                     val="accndis"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAccn1"
                     val="accnneither"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAccn1"
                     val="accnagree"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                     <q-radio
                     v-model="radioAccn1"
                     val="accnsa"
-                    color="orange-11"
+                    color="brand"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
                 </span>
@@ -404,7 +481,7 @@ const Assessment = {
                     color="blue-grey"
                     label="Next"></q-btn>
             </div>
-            <div class="mod3f" v-else-if="ass3f">
+            <div class="mod3e" v-else-if="ass3e">
                 <p>One of the suggested ways to modify the original task is: "Allow the subordinate to send email directly to the client after your review." </p>
                 <p>You suggested: "{{dgEmailTask}}"</p>
                 <br><br>
@@ -421,6 +498,8 @@ const Assessment = {
                     :disable="filled3f"
                     color="blue-grey"
                     label="Next"></q-btn>
+            </div>
+            <div class="mod3f" v-else-if="ass3f">
             </div>
             <div class="mod3g" v-else-if="ass3g">
                 <h5>Benefits and Challenges of Delegation</h5>
@@ -467,7 +546,7 @@ const Assessment = {
                     <q-radio
                     v-model="radioCha1"
                     val="cha1"
-                    color="orange-11"
+                    color="brand"
                     label="'I can do better'"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
@@ -475,7 +554,7 @@ const Assessment = {
                     <q-radio
                     v-model="radioCha1"
                     val="cha2"
-                    color="orange-11"
+                    color="brand"
                     label="Lack of confidence in the team member or 'What if my team member fails?'"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
@@ -483,7 +562,7 @@ const Assessment = {
                     <q-radio
                     v-model="radioCha1"
                     val="cha3"
-                    color="orange-11"
+                    color="brand"
                     label="'I don't have anyone to delegate to'"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
@@ -491,7 +570,7 @@ const Assessment = {
                     <q-radio
                     v-model="radioCha1"
                     val="cha4"
-                    color="orange-11"
+                    color="brand"
                     label="'I don't want people to think I'm dumping on them'"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
@@ -545,7 +624,7 @@ const Assessment = {
                     <q-radio
                     v-model="radio3k"
                     val="3k1"
-                    color="orange-11"
+                    color="brand"
                     label="Completely delegate sending emails to my subordinates showing that I trust in them"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
@@ -553,7 +632,7 @@ const Assessment = {
                     <q-radio
                     v-model="radio3k"
                     val="3k2"
-                    color="orange-11"
+                    color="brand"
                     label="Prepare a draft email and ask subordinates to use it and review any modifications"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
@@ -561,7 +640,7 @@ const Assessment = {
                     <q-radio
                     v-model="radio3k"
                     val="3k3"
-                    color="orange-11"
+                    color="brand"
                     label="It is not that straightforward"
                     unchecked-icon="radio_button_unchecked"
                     checked-icon="radio_button_checked"></q-radio>
@@ -608,56 +687,56 @@ const Assessment = {
                     <p>Which of the following are among the criteria of importance that you listed:</p>
                     <q-checkbox
                         v-model="checkGroup3l"
-                        color="orange-11"
+                        color="brand"
                         val="op1"
                         label="Task meets or challenges your skill level" />
                     <br>
                     <q-checkbox
                         v-model="checkGroup3l"
-                        color="orange-11"
+                        color="brand"
                         val="op2"
                         label="Recognition from completion of task" />
                     <br>
                     <q-checkbox
                         v-model="checkGroup3l"
-                        color="orange-11"
+                        color="brand"
                         val="op3"
                         label="Quality expected upon task completion" />
                     <br>
                     <q-checkbox
                         v-model="checkGroup3l"
-                        color="orange-11"
+                        color="brand"
                         val="op4"
                         label="Manager/Client involved directly in task monitoring" />
                     <br>
                     <q-checkbox
                         v-model="checkGroup3l"
-                        color="orange-11"
+                        color="brand"
                         val="op5"
                         label="Other:" /> <div style="width:200px;"><q-input /></div>
                     <br><br>
                     <p>Which of the following types of tasks would you do yourself?</p>
                     <q-checkbox
                         v-model="checkGroup3l2"
-                        color="orange-11"
+                        color="brand"
                         val="op1"
                         label="High Importance and Urgent" />
                     <br>
                     <q-checkbox
                         v-model="checkGroup3l2"
-                        color="orange-11"
+                        color="brand"
                         val="op2"
                         label="Low Importance and Urgent" />
                     <br>
                     <q-checkbox
                         v-model="checkGroup3l2"
-                        color="orange-11"
+                        color="brand"
                         val="op3"
                         label="High Importance and Not Urgent" />
                     <br>
                     <q-checkbox
                         v-model="checkGroup3l2"
-                        color="orange-11"
+                        color="brand"
                         val="op4"
                         label="Low Importance and Not Urgent" />
                     <br><br><br>
@@ -781,17 +860,30 @@ const Assessment = {
         },
         mod3kCheck () {
             return (this.radio3k !== '');
-        }
+        },
+        ass3aSaveCont () {
+            return (this.dgTask.length < 5);
+        },
     },
     methods: {
-        grade3c () {
+        saved () {
+            this.$q.notify({
+                color: 'posbrand',
+                textColor: 'white',
+                icon: 'check',
+                message: 'Progress Saved',
+                position: 'bottom',
+                timeout: 3000
+            });
+        },
+        grade3b () {
             if (this.radioAuth === 'authdis' &&
                 (this.radioResp === 'respagree' || this.radioResp === 'respsa')&&
                 (this.radioAccn === 'accnagree' || this.radioAccn === 'accnsa')) {
-                this.ass3c = false;
-                this.ass3d = true;
+                this.ass3b = false;
+                this.ass3c = true;
             } else {
-                this.ass3c = false;
+                this.ass3b = false;
                 this.mod3ba = true;
             }
         },
@@ -875,7 +967,7 @@ const Skip = {
             v-model="radio1"
             val="skip"
             label="I would like to skip further instruction and go to the final section."
-            color="orange-11"
+            color="brand"
             unchecked-icon="radio_button_unchecked"
             checked-icon="radio_button_checked"></q-radio>
             <br>
@@ -883,7 +975,7 @@ const Skip = {
             v-model="radio1"
             val="noskip"
             label="I would like to go through the instruction and learn more before proceeding."
-            color="orange-11"
+            color="brand"
             unchecked-icon="radio_button_unchecked"
             checked-icon="radio_button_checked"></q-radio>
             <br><br>
@@ -1229,7 +1321,7 @@ const Instruction = {
                         v-model="radio4b"
                         val="yes"
                         label="Yes"
-                        color="orange-11"
+                        color="brand"
                         unchecked-icon="radio_button_unchecked"
                         checked-icon="radio_button_checked"></q-radio>
                         <br>
@@ -1237,7 +1329,7 @@ const Instruction = {
                         v-model="radio4b"
                         val="no"
                         label="No"
-                        color="orange-11"
+                        color="brand"
                         unchecked-icon="radio_button_unchecked"
                         checked-icon="radio_button_checked"></q-radio>
                  </div>

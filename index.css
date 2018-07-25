@@ -4,6 +4,24 @@
 .bg-brand {
     background: #496c94;
 }
+.text-lightbrand {
+    color: #f0f3f6;
+}
+.bg-lightbrand {
+    background: #f0f3f6;
+}
+.text-secbrand{
+    color: #605f5e;
+}
+.bg-secbrand {
+    background: #605f5e;
+}
+.text-posbrand {
+    background: #64bf56;
+}
+.bg-posbrand {
+    background: #64bf56;
+}
 
 html, body {
     height:100%;
@@ -75,10 +93,6 @@ html, body {
     padding-bottom: 5%
 }
 
-.assessment {
-    padding-top: 5%;
-}
-
 .dashboard-container {
     background-color: #f0f3f6;
     padding-bottom:5%;
@@ -90,6 +104,15 @@ html, body {
     width: 70%;
     font-family: 'Dosis', sans-serif;
     color: #496c94;
+}
+
+.assessment {
+    padding-top: 5%;
+    background-color: #f0f3f6;
+    height: 100vh;
+    font-family: 'Dosis', sans-serif;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .selectors {
