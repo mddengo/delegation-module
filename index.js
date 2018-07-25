@@ -1076,7 +1076,7 @@ const Dashboard = {
             <h3>My Learning</h3>
             <div class="row gutter-sm">
                 <div class="col-8">
-                    <q-card flat color="white" text-color="#496c94" style="height:350px;">
+                    <q-card flat color="white" text-color="#496c94" style="min-height:350px;">
                         <q-card-title>Learning Module</q-card-title>
                         <q-card-main>
                             <q-list>
@@ -1123,7 +1123,7 @@ const Dashboard = {
                                 <q-item>
                                     <q-collapsible icon="shopping_cart" label="Essential Delegation Skills">
                                         <div>
-                                            Content
+                                            Essential delegation skills module.
                                         </div>
                                     </q-collapsible>
                                     <q-item-main label="18-100" />
