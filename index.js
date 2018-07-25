@@ -51,17 +51,12 @@ const Home = {
         </div>
         
         <div v-else class="student">
-        <!--<div class="video">-->
-            <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Aragats_mountain%2C_Aragatsotn%2C_Armenia.jpg/1200px-Aragats_mountain%2C_Aragatsotn%2C_Armenia.jpg">-->
-        <!--</div>-->
-        <q-card flat inline style="width:100%">
-            <q-card-media overlay-position="full">
-                <div style="opacity:0.8;"><img src="assets/homepageBG.png" width="100%"></div>
-            <q-card-title slot="overlay">
+            <div class="landing"></div>
                 <div class="welcome"><h3>Welcome</h3></div>
                 <div class="welcome-text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                <div class="welcome-buttons">
                 <q-btn
                     style="background: #496c94;
                     color: white"
@@ -69,14 +64,11 @@ const Home = {
                     label="Start" />
                 <q-btn
                     color="white"
-                    text-color="white"
+                    text-color="black"
                     outline
                     label="Learn More"></q-btn>
+                </div>
             </div>
-            </q-card-title>
-            </q-card-media>
-        </q-card>
-        
         <div class="benefits">
             <h3>Benefits (WIP)</h3>
             <div class="row">
