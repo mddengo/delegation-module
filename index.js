@@ -378,20 +378,50 @@ const Assessment = {
             </div>
             
             <div class="mod3c" v-else-if="ass3c">
-                <h5>Email Task</h5>
-                <p>One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
-                <p>Using this definition, reflect on the following situation:</p>
-                <p>You recently attended a client meeting with your subordinate. After the meeting, you ask your subordinate to draft a thank you email to the client which you will then review and send to the client.</p>
-                <p>Can you suggest an alternate way of delegating the thank you email task?</p>
-                <div style="width:500px">
-                    <q-input type="textarea" v-model="dgEmailTask" :max-height="20" /> 
+                <div class="row">
+                    <div class="col-4">
+                        <q-card flat color="brand" text-color="lightbrand" style="height: 500px;">
+                            <q-card-title style="padding-left: 15%; padding-top: 25%;">Pre-Assessment</q-card-title>
+                            <q-card-main style="padding-left: 15%; padding-right: 10%;"> 
+                                <p>The following set of questions helps us identify instruction specific to you.
+                                <br>
+                                <br>We assess your inputs to make more efficient use of your learning time.
+                                <br>
+                                <br>Please note that there is no pass/fail and your results will not be shared with your counselor, manager, nor supervisor.</p>
+                                <br>
+                            </q-card-main>
+                        </q-card>
+                    </div>
+                    <div class="col-8">
+                        <q-card flat color="white" text-color="secbrand" style="height:500px;">
+                            <q-card-title style="padding-left: 10%; padding-top: 15%;">Email Task</q-card-title>
+                            <q-card-main style="padding-left: 10%;">
+                                <p>One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
+                                <p>Using this definition, reflect on the following situation:</p>
+                                <p>You recently attended a client meeting with your subordinate. After the meeting, you ask your subordinate to draft a thank you email to the client which you will then review and send to the client.</p>
+                                <p>Can you suggest an alternate way of delegating the thank you email task?</p>
+                                <div style="width:500px">
+                                    <q-input type="textarea" v-model="dgEmailTask" :max-height="20" /> 
+                                </div>
+                            </q-card-main>
+                        </q-card>
+                    </div>
                 </div>
-                <br>
-                <q-btn
-                    @click="ass3dToggle"
-                    :disable="dgEmailTask.length < 5"
-                    color="blue-grey"
-                    label="Next"></q-btn>
+                    <div class="float-right">
+                    <br>
+                        <q-btn
+                            @click="saved"
+                            style="background: #e9d985;
+                            color: #605f5e;"
+                            label="Save"></q-btn>
+                        <q-btn
+                            @click="ass3cToggle"
+                            style="background: #e9d985;
+                            color: #605f5e;"
+                            :disable="dgEmailTask.length < 5"
+                            label="Save & Continue"></q-btn>
+                    <br>
+                    </div>
             </div>
             <div class="mod3d" v-else-if="ass3d">
                 <p>You suggested: "{{dgEmailTask}}"</p>
@@ -840,9 +870,9 @@ const Assessment = {
             radio3k: '',
             checkGroup3l: [],
             checkGroup3l2: [],
-            ass3a: true,
+            ass3a: false,
             ass3b: false,
-            ass3c: false,
+            ass3c: true,
             ass3d: false,
             ass3e: false,
             ass3f: false,
@@ -922,9 +952,9 @@ const Assessment = {
             this.ass3b = false;
             this.ass3c = true;
         },
-        ass3dToggle () {
-            this.ass3d = false;
-            this.ass3e = true;
+        ass3cToggle () {
+            this.ass3c = false;
+            this.ass3d = true;
         },
         ass3eToggle () {
             this.ass3e = false;
