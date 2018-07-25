@@ -274,7 +274,7 @@ const Assessment = {
                                     <div class="col-12 col-md-2">
                                         <q-radio
                                             v-model="radioResp"
-                                            val="authsd"
+                                            val="respsd"
                                             color="brand"
                                             unchecked-icon="radio_button_unchecked"
                                             checked-icon="radio_button_checked"></q-radio>
@@ -282,7 +282,7 @@ const Assessment = {
                                     <div class="col-12 col-md-2">
                                         <q-radio
                                         v-model="radioResp"
-                                        val="authdis"
+                                        val="respdis"
                                         color="brand"
                                         unchecked-icon="radio_button_unchecked"
                                         checked-icon="radio_button_checked"></q-radio>
@@ -290,7 +290,7 @@ const Assessment = {
                                     <div class="col-12 col-md-2">
                                         <q-radio
                                         v-model="radioResp"
-                                        val="authneither"
+                                        val="respneither"
                                         color="brand"
                                         unchecked-icon="radio_button_unchecked"
                                         checked-icon="radio_button_checked"></q-radio>
@@ -298,7 +298,7 @@ const Assessment = {
                                     <div class="col-12 col-md-2">
                                         <q-radio
                                         v-model="radioResp"
-                                        val="authagree"
+                                        val="respagree"
                                         color="brand"
                                         unchecked-icon="radio_button_unchecked"
                                         checked-icon="radio_button_checked"></q-radio>
@@ -306,7 +306,7 @@ const Assessment = {
                                     <div class="col-12 col-md-2">
                                         <q-radio
                                         v-model="radioResp"
-                                        val="authsa"
+                                        val="respsa"
                                         color="brand"
                                         unchecked-icon="radio_button_unchecked"
                                         checked-icon="radio_button_checked"></q-radio>
@@ -815,12 +815,12 @@ const Assessment = {
                 <br>
                 <p>Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
                 <div style="width: 500px">
-                    <q-input v-model="defdginput"/>
+                    <q-input v-model="dgEmailTask"/>
                 </div>
                 <br>
                 <q-btn
                     @click="mod3caToggle"
-                    :disable="defdginput === ''"
+                    :disable="dgEmailTask === ''"
                     color="blue-grey"
                     label="Next"></q-btn>
             </div>
@@ -870,9 +870,9 @@ const Assessment = {
             radio3k: '',
             checkGroup3l: [],
             checkGroup3l2: [],
-            ass3a: false,
+            ass3a: true,
             ass3b: false,
-            ass3c: true,
+            ass3c: false,
             ass3d: false,
             ass3e: false,
             ass3f: false,
