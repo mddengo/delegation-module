@@ -889,7 +889,6 @@ const Assessment = {
             radioAccn: '',
             assCorrect: false,
             mod3ba: false,
-            defdginput: '',
             radioAuth1: '',
             radioResp1: '',
             radioAccn1: '',
@@ -1077,7 +1076,7 @@ const Dashboard = {
             <h3>My Learning</h3>
             <div class="row gutter-sm">
                 <div class="col-8">
-                    <q-card flat color="white" text-color="#496c94">
+                    <q-card flat color="white" text-color="#496c94" style="height:350px;">
                         <q-card-title>Learning Module</q-card-title>
                         <q-card-main>
                             <q-list>
@@ -1144,7 +1143,7 @@ const Dashboard = {
                     </q-card>
                 </div>
                 <div class="col-4">
-                    <q-card flat color="white" text-color="#496c94">
+                    <q-card flat color="white" text-color="#496c94" style="height:350px;">
                         <q-card-title>Quick Details</q-card-title>
                         <q-card-main>
                             <q-item>
@@ -1197,7 +1196,7 @@ const Dashboard = {
                     </q-card>
                 </div>
                 <div class="col-4">
-                    <q-card flat color="white" text-color="#496c94">
+                    <q-card flat color="white" text-color="#496c94" style="height:450px;">
                         <q-card-title>
                             My Curricula
                             <span slot="subtitle" style="color:#4d4f5c;">Total Modules: 4</span>
@@ -1224,13 +1223,14 @@ const Dashboard = {
                     </q-card>
                 </div>
                 <div class="col-8">
-                    <q-card flat color="white" text-color="#496c94">
+                    <q-card flat color="white" text-color="#496c94" style="height:450px;">
                         <q-card-title>Learning Average Hours
-                        <div style="text-align:left;font-size:small;">
+                        <br>
+                        <div style="font-size:small;" class="float-left">
                             <span slot="subtitle" style="color:#496c94;">Avg 5hrs</span>
                         </div>
-                        <div class="selectors float-right"> 
-                            <div class="row gutter-sm">
+                        <div class="selectors"> 
+                            <div class="row gutter-sm float-right">
                                 <div class="col-3" style="width:150px;">
                                     <q-select
                                     v-model="select1"
