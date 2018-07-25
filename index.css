@@ -44,7 +44,7 @@ html, body {
     text-align: center;
     color: #496c94;
     position: absolute;
-    top: 13%;
+    top: 15%;
     left: 45%;
 }
 
@@ -53,7 +53,7 @@ html, body {
     width: 760px;
     text-align: center;
     left: 30%;
-    top: 22%;
+    top: 25%;
     font-size: 16px;
     line-height: 1.2;
 }
@@ -94,4 +94,16 @@ html, body {
 
 .selectors {
     font-size: small;
+}
+
+.skip {
+    padding-top: 5%;
+}
+
+.completion {
+    padding-top: 5%;
+}
+
+.instruction {
+    padding-top: 5%;
 }

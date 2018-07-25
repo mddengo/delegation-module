@@ -878,6 +878,7 @@ const Skip = {
             color="orange-11"
             unchecked-icon="radio_button_unchecked"
             checked-icon="radio_button_checked"></q-radio>
+            <br>
             <q-radio
             v-model="radio1"
             val="noskip"
@@ -1142,7 +1143,7 @@ const Instruction = {
             <div style="width:600px;"><q-input type="textarea" /></div>
             <br><br>
             <q-btn
-                @click="$router.push('/')"
+                @click="$router.push('/dashboard')"
                 color="green"
                 label="Submit"></q-btn>
         </div>
