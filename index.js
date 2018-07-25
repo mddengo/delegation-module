@@ -70,7 +70,7 @@ const Home = {
                 </div>
             </div>
         <div class="benefits">
-            <h3>Benefits (WIP)</h3>
+            <h3>Benefits</h3>
             <div class="row gutter-md">
                 <div class="col">
                     <img src="assets/benefitL.svg" width="35%">
