@@ -937,74 +937,69 @@ const Assessment = {
                 </div>
             </div>
             <div class="mod3ca" v-else-if="mod3ba">
-                <h6>Defining Delegation</h6>
-                <!--TODO-->
-                <q-table
-                :data="tableData"
-                :columns="columns"
-                row-key="name"
-                hide-header
-                hide-bottom
-                />
-                <br>
-                <p>Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
-                <div style="width: 500px">
-                    <q-input v-model="dgdefinput"/>
+                <div class="row">
+                    <div class="col-4">
+                        <q-card flat color="brand" text-color="lightbrand" style="height:800px;">
+                            <q-card-main style="padding-top: 10em;padding-left:5em; padding-right:10em;">
+                                <p style="font-size:30px;">Defining Delegation</p>
+                                <p style="font-size:17.5px;">Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
+                                    <div style="width: 379px; font-size:17.5px;">
+                                        <q-input v-model="dgdefinput" float-label="Input Text Here" />
+                                    </div>
+                            </q-card-main>
+                        </q-card>
+                    </div>
+                    <div class="col-8">
+                        <q-card flat color="white" text-color="secbrand" style="height:800px;">
+                            <q-card-main style="padding: 10em 10em 10em;font-size:17.5px;">
+                                <p style="color:#496c94">Delegation</p>
+                                <p>Sharing <strong>responsibility</strong> and <strong>authority</strong> with others and holding them <strong>accountable</strong> for performance</p>
+                                <p style="color:#496c94">Responsibility</p>
+                                <p>Refers to the job assignment, the intended results, as well as the obligation to achieve the intended results</p>
+                                <ul>
+                                    <li>As a senior, it is your responsibility to make sure the work is completed.</li>
+                                    <li>When you delegate a task, you share responsibility with the delegatee in completing that task.</li>
+                                </ul>
+                                <p style="color:#496c94">Accountability</p>
+                                <p>Refers to being answerable for the end result. It also implies consequences.</p>
+                                <ul>
+                                    <li>Although you share responsibility of a task when you delegate it,
+                                    you are still held accountable for its completion, just as you must hold the delegatee accountable.</li>
+                                </ul>
+                                <p style="color:#496c94">Authority</p>
+                                <p>Refers to the right to act and make decisions. Successful delegation requires authority equal to the responsibility.</p>
+                                <ul>
+                                    <li>As a leader, you are still accountable for the work. You have the right to check the work and determine if it is satisfactory.</li>
+                                </ul>
+                            </q-card-main>
+                        </q-card>
+                    </div>
                 </div>
-                <br>
-                <q-btn
-                    @click="mod3caToggle"
-                    :disable="dgdefinput === ''"
-                    color="blue-grey"
-                    label="Next"></q-btn>
+                    <div class="float-right">
+                    <br>
+                        <q-btn
+                            @click="saved"
+                            style="background: #e9d985;
+                            color: #605f5e;"
+                            label="Save"></q-btn>
+                        <q-btn
+                            @click="mod3caToggle"
+                            style="background: #e9d985;
+                            color: #605f5e;"
+                            :disable="dgdefinput === ''"
+                            label="Save & Continue"></q-btn>
+                    <br>
+                    </div>
             </div>
         </div>
     `,
     data: function () {
         return {
-            columns: [
-                {
-                    name: 'term',
-                    required: true,
-                    label: 'Term',
-                    align: 'left',
-                    field: 'name',
-                },
-                {
-                    name: 'def',
-                    required: true,
-                    label: 'Definition',
-                    align: 'left',
-                    field: 'def',
-                }
-            ],
-            tableData: [
-                {
-                    name: 'Delegation',
-                    def: 'Sharing responsibility and authority with others and holding them accountable for performance',
-                },
-                {
-                    name: 'Responsibility',
-                    def: 'Refers to the job assignment, the intended results, as well as the obligation to achieve the intended results\n' +
-                    'As a senior, it is your responsibility to make sure the work is completed.\n' +
-                    'When you delegate a task, you share responsibility with the delegatee in completing that task.\n',
-                },
-                {
-                    name: 'Accountability',
-                    def: 'Refers to being answerable for the end result. It also implies consequences.\n' +
-                    'Although you share responsibility of a task when you delegate it, you are still held accountable for its completion, just as you must hold the delegatee accountable\n',
-                },
-                {
-                    name: 'Authority',
-                    def: 'Refers to the right to act and make decisions. Successful delegation requires authority equal to the responsibility.\n' +
-                    'As a leader, you are still accountable for the work. You have the right to check the work and determine if it is satisfactory.\n',
-                }
-            ],
             radioCha1: '',
             radio3k: '',
             checkGroup3l: [],
             checkGroup3l2: [],
-            ass3a: true,
+            ass3a: false,
             ass3b: false,
             ass3c: false,
             ass3d: false,
@@ -1023,7 +1018,7 @@ const Assessment = {
             radioResp: '',
             radioAccn: '',
             assCorrect: false,
-            mod3ba: false,
+            mod3ba: true,
             radioAuth1: '',
             radioResp1: '',
             radioAccn1: '',
