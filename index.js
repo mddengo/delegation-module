@@ -54,9 +54,9 @@ const Modules = {
                         @click="$router.push('/welcome')"
                         style="background:#e9d985;
                             color: #605f5e;
-                            font-family:'Titillium Web', sans-serif;" 
+                            font-family:'Lato', sans-serif;" 
                         label="Start Chapter 1"></q-btn>
-                    <div class="float-right" wait-for-ripple style="width: 400px; max-width:666px;font-family:'Titillium Web', sans-serif;">
+                    <div class="float-right" wait-for-ripple style="width: 400px; max-width:666px;font-family:'Lato', sans-serif;">
                         <div class="float-left" style="font-size:small;">0 out of 4 Modules Complete</div>
                         <q-icon class="float-right" name="school" />
                         <q-progress :percentage="progress" color="#707070" width="666px" height="20px" />
@@ -69,7 +69,7 @@ const Modules = {
                     <div>
                         <q-list separator style="background-color: white; color: #605f5e">
                             <q-item>
-                                <q-item-main label="Welcome to Delegation Module" />
+                                <q-item-main label="Welcome to the Delegation Module" />
                                 <q-item-side right>
                                     <q-radio v-model="moduleRadio" val="welc"/>
                                 </q-item-side>
@@ -140,7 +140,7 @@ const Welcome = {
             <div class="main">
                 <q-card flat color="white" text-color="secbrand" style="min-width: 400px; max-width: 828px; margin:0 auto;">
                     <q-card-main style="padding:5em;">
-                        <p style="font-size:30px;font-family:'Dosis',sans-serif;color:#496c94;">Welcome to Delegation Module</p>
+                        <p style="font-size:30px;font-family:'Dosis',sans-serif;color:#496c94;">Welcome to the Delegation Module</p>
                         <p>Welcome to the course!</p>
                         <p>By the end of this course, you should be well-equipped to:</p>
                         <ul>
@@ -283,7 +283,51 @@ const Login = {
 const Assessment = {
     template: `
         <div class="assessment">
+            <q-layout-drawer overlay behavior="mobile" side="left" v-model="left" style="width:380px;">
+                <q-list separator>
+                    <q-item style="color:#496c94;font-size:25px;">
+                        Module List
+                    </q-item>
+                            <q-item @click="clickToggle" class="cursor-pointer" style="background-color:#496c94;color:#f0f3f6;">
+                                Module 1
+                            </q-item>
+                                <q-item>
+                                    <q-item-main>Welcome to Delegation Module</q-item-main>
+                                    <q-item-side right>
+                                        <q-radio />
+                                    </q-item-side>
+                                </q-item>
+                                <q-item>
+                                    <q-item-main>Integrated Delegation Task</q-item-main>
+                                    <q-item-side right>
+                                        <q-radio />
+                                    </q-item-side>
+                                </q-item>
+                                <q-item>
+                                    <q-item-main>Intro to Delegation: Pre-Assessment</q-item-main>
+                                    <q-item-side right>
+                                        <q-radio />
+                                    </q-item-side>
+                                </q-item>
+                                <q-item style="background-color:#e9d985;color:#605f5e;">
+                                    <q-item-main>Intro to Delegation: Instruction</q-item-main>
+                                    <q-item-side right>
+                                        <q-radio v-model="mod1radio"/>
+                                    </q-item-side>
+                                </q-item>
+                            <q-item style="background-color:white;color:#496c94;">
+                                Module 2
+                            </q-item>
+                            <q-item style="background-color:white;color:#496c94;">
+                                Module 3
+                            </q-item>
+                            <q-item style="background-color:white;color:#496c94;">
+                                Module 4
+                            </q-item>
+                </q-list>
+            </q-layout-drawer>
             <q-btn
+            @click="left = !left"
             class="float-left"
              style="color: #496c94;"
              flat round dense
@@ -694,7 +738,7 @@ const Assessment = {
                     <div class="col-4">
                         <q-card flat color="brand" text-color="lightbrand" style="height:500px;">
                             <q-card-main style="font-size:17px;padding-left:2em;padding-top:5em;">
-                                <p style="font-size:30px;">Benefits and Challenges of Delegation</p>
+                                <p style="font-family:'Dosis',sans-serif;font-size:30px;">Benefits and Challenges of Delegation</p>
                             </q-card-main>         
                         </q-card>
                     </div>
@@ -1047,6 +1091,9 @@ const Assessment = {
             radioAccn1: '',
             ans3f1: '',
             ans3f2: '',
+            left: false,
+            clicked: false,
+            mod1radio: '',
         }
     },
     computed: {
@@ -1135,6 +1182,10 @@ const Assessment = {
         ass3jToggle () {
             this.ass3j = false;
             this.ass3k = true;
+        },
+        clickToggle () {
+            console.log('clicked');
+            this.clicked = !this.clicked;
         },
     },
     watch: {
@@ -1229,7 +1280,7 @@ const Dashboard = {
                     <q-card flat color="white" text-color="#496c94" style="min-height:350px;">
                         <q-card-title>Learning Module</q-card-title>
                         <q-card-main>
-                            <q-list style="font-family:'Titillium Web', sans-serif;">
+                            <q-list style="font-family:'Lato', sans-serif;">
                                 <q-item style="font-family:Dosis, sans-serif;font-weight:bold;font-variant-caps:all-small-caps;">
                                 <q-item-main label="Module Name" />
                                 <q-item-main label="Course No." />
@@ -1296,7 +1347,7 @@ const Dashboard = {
                 <div class="col-4">
                     <q-card flat color="white" text-color="#496c94" style="height:350px;">
                         <q-card-title>Quick Details</q-card-title>
-                        <q-card-main style="font-family:'Titillium Web', sans-serif;">
+                        <q-card-main style="font-family:'Lato', sans-serif;">
                             <q-item>
                                 <q-item-side>
                                     <q-item-tile icon="person_add" color="blue" />
@@ -1359,7 +1410,7 @@ const Dashboard = {
                             <img src="assets/completeModule2x.jpg" width="70%">
                         </div>
                         </q-card-media>
-                        <q-card-main style="font-family:'Titillium Web', sans-serif;">
+                        <q-card-main style="font-family:'Lato', sans-serif;">
                             <div class="row">
                                 <div class="col-6">Total Hours</div>
                                 <div class="col-6">Finished Hours</div>
@@ -1382,13 +1433,13 @@ const Dashboard = {
                         </div>
                         <div class="selectors"> 
                             <div class="row gutter-sm float-right">
-                                <div class="col-3" style="width:150px;">
+                                <div class="col-3" style="width:190px;">
                                     <q-select
                                     v-model="select1"
                                     :options="selectOptions1"
                                     />
                                 </div>
-                                <div class="col-3" style="width:190px;">
+                                <div class="col-3" style="width:200px;">
                                     <q-select
                                     v-model="select2"
                                     :options="selectOptions2"
@@ -1663,7 +1714,7 @@ const DgLog = {
                             </div>
                             <div class="col-2">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web',sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato',sans-serif;max-width:400px;">
                                         Think about how not everything urgent is important, and people make mistakes doing the urgent tasks. Review ‘the matrix!’
                                     </q-tooltip>
                                 </q-icon>
@@ -1676,7 +1727,7 @@ const DgLog = {
                             </div>
                             <div class="col-2">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1688,7 +1739,7 @@ const DgLog = {
                             </div>
                             <div class="col-2">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1700,7 +1751,7 @@ const DgLog = {
                             </div>
                             <div class="col-2">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1712,7 +1763,7 @@ const DgLog = {
                             </div>
                             <div class="col-2">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1724,7 +1775,7 @@ const DgLog = {
                             </div>
                             <div class="col-2">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1736,7 +1787,7 @@ const DgLog = {
                             </div>
                             <div class="col-2">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1777,7 +1828,7 @@ const DgLog = {
                             </div>
                             <div class="col-1">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web',sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato',sans-serif;max-width:400px;">
                                         Think about how not everything urgent is important, and people make mistakes doing the urgent tasks. Review ‘the matrix!’
                                     </q-tooltip>
                                 </q-icon>
@@ -1793,7 +1844,7 @@ const DgLog = {
                             </div>
                             <div class="col-1">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1808,7 +1859,7 @@ const DgLog = {
                             </div>
                             <div class="col-1">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1823,7 +1874,7 @@ const DgLog = {
                             </div>
                             <div class="col-1">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1838,7 +1889,7 @@ const DgLog = {
                             </div>
                             <div class="col-1">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1853,7 +1904,7 @@ const DgLog = {
                             </div>
                             <div class="col-1">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
@@ -1868,7 +1919,7 @@ const DgLog = {
                             </div>
                             <div class="col-1">
                                 <q-icon name="help" style="color:#496c94">
-                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Lato', sans-serif;max-width:400px;">
                                     </q-tooltip>
                                 </q-icon>
                             </div>
