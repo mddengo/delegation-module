@@ -517,8 +517,8 @@ const Assessment = {
                 <div class="row">
                     <div class="col-4">
                         <q-card flat color="brand" text-color="lightbrand" style="height: 500px;">
-                            <q-card-title style="padding-left: 15%; padding-top: 25%;">Practice Delegation</q-card-title>
-                            <q-card-main style="padding-left: 15%; padding-right: 10%;"> 
+                            <q-card-main style="font-size:17px;padding-top:5em;padding-left: 15%; padding-right: 10%;"> 
+                                <p style="font-size:30px;">Practice Delegation</p>
                                 <p>The following set of questions helps us identify instruction specific to you.
                                 <br>
                                 <br>We assess your inputs to make more efficient use of your learning time.
@@ -530,13 +530,13 @@ const Assessment = {
                     </div>
                     <div class="col-8">
                         <q-card flat color="white" text-color="secbrand" style="height:500px;">
-                            <q-card-title style="padding-left: 10%; padding-top: 15%;">Email Task</q-card-title>
-                            <q-card-main style="padding-left: 10%;">
+                            <q-card-title style="padding-left:3em; padding-top:10%;">Email Task</q-card-title>
+                            <q-card-main style="padding-left:3em; padding-right:3em;font-size:17px;">
                                 <p>One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
                                 <p>Using this definition, reflect on the following situation:</p>
                                 <p>You recently attended a client meeting with your subordinate. After the meeting, you ask your subordinate to draft a thank you email to the client which you will then review and send to the client.</p>
                                 <p>Can you suggest an alternate way of delegating the thank you email task?</p>
-                                <div style="width:500px">
+                                <div style="max-width:500px">
                                     <q-input type="textarea" v-model="dgEmailTask" :max-height="20" /> 
                                 </div>
                             </q-card-main>
