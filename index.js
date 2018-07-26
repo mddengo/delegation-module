@@ -51,6 +51,7 @@ const Modules = {
                     This first course in the Delegation track focuses on determining which tasks to delegate.</p>
                     <q-btn
                         class="float-left"
+                        @click="$router.push('/welcome')"
                         style="background:#e9d985;
                             color: #605f5e;" 
                         label="Start Module 1"></q-btn>
@@ -66,7 +67,7 @@ const Modules = {
                     <q-collapsible opened label="Module 1: Intro to Delegation">
                     <div>
                         <q-list separator style="background-color: white; color: #605f5e">
-                            <q-item to="welcome">
+                            <q-item>
                                 <q-item-main label="Welcome to Delegation Module" />
                                 <q-item-side right>
                                     <q-radio v-model="moduleRadio" val="welc"/>
@@ -287,7 +288,7 @@ const Assessment = {
              flat round dense
              icon="menu"
             />
-            <p @click="$router.push('/dashboard')" class="float-right" style="color: #496c94;">Go Back to Module</p>
+            <p @click="$router.push('/modules')" class="float-right cursor-pointer" style="color: #496c94;">Go Back to Module</p>
             <br><br>
             <div class="mod3a" v-if="ass3a">
                 <div class="row">
@@ -688,21 +689,43 @@ const Assessment = {
                     label="Next"></q-btn>
             </div>
             <div class="mod3f" v-else-if="ass3f">
-                <h5>Benefits and Challenges of Delegation</h5>
-                <p>Features of Good Delegation</p>
-                <ul>
-                    <li>Focus on what is important to for you to do personally, not just the urgent</li>
-                    <li>Clarify the responsibility and results intended</li>
-                    <li>Select appropriate person taking into account developmental needs</li>
-                    <li>Communicate level of authority and accountability</li>
-                    <li>Communicate the checkpoints</li>
-                    <li>Create a motivating environment</li>
-                    <li>Make sure the person is held accountable for these results</li>
-                </ul>
+                <div class="row">
+                    <div class="col-4">
+                        <q-card flat color="brand" text-color="lightbrand" style="height:500px;">
+                            <q-card-main style="font-size:17px;padding-left:2em;padding-top:5em;">
+                                <p style="font-size:30px;">Benefits and Challenges of Delegation</p>
+                            </q-card-main>         
+                        </q-card>
+                    </div>
+                    <div class="col-8">
+                        <q-card flat color="white" text-color="secbrand" style="height:500px;">
+                            <q-card-main style="font-size:17px; padding-top:5em;padding-left:2em;">
+                                <p>Features of Good Delegation</p>
+                                <ul>
+                                    <li>Focus on what is important to for you to do personally, not just the urgent</li>
+                                    <li>Clarify the responsibility and results intended</li>
+                                    <li>Select appropriate person taking into account developmental needs</li>
+                                    <li>Communicate level of authority and accountability</li>
+                                    <li>Communicate the checkpoints</li>
+                                    <li>Create a motivating environment</li>
+                                    <li>Make sure the person is held accountable for these results</li>
+                                </ul>
+                            </q-card-main>
+                        </q-card>
+                    </div>
+</div>
+                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
+                <!--<q-btn-->
+                    <!--@click="saved"-->
+                    <!--style="background: #e9d985;-->
+                    <!--color: #605f5e;"-->
+                    <!--label="Save"></q-btn>-->
                 <q-btn
                     @click="ass3fToggle"
-                    color="blue-grey"
-                    label="Next"></q-btn>
+                    style="background: #e9d985;
+                    color: #605f5e;"
+                    label="Save & Continue"></q-btn>
+                    </div>
             </div>
             <div class="mod3g" v-else-if="ass3g">
                 <h6>Identify Benefits of Delegation</h6>
