@@ -53,9 +53,10 @@ const Modules = {
                         class="float-left"
                         @click="$router.push('/welcome')"
                         style="background:#e9d985;
-                            color: #605f5e;" 
+                            color: #605f5e;
+                            font-family:'Titillium Web', sans-serif;" 
                         label="Start Module 1"></q-btn>
-                    <div class="float-right" style="width: 400px; max-width:666px;">
+                    <div class="float-right" wait-for-ripple style="width: 400px; max-width:666px;font-family:'Titillium Web', sans-serif;">
                         <div class="float-left" style="font-size:small;">0 out of 4 Modules Complete</div>
                         <q-icon class="float-right" name="school" />
                         <q-progress :percentage="progress" color="#707070" width="666px" height="20px" />
@@ -139,7 +140,7 @@ const Welcome = {
             <div class="main">
                 <q-card flat color="white" text-color="secbrand" style="min-width: 400px; max-width: 828px; margin:0 auto;">
                     <q-card-main style="padding:5em;">
-                        <p style="font-size:30px; color:#496c94;">Welcome to Delegation Module</p>
+                        <p style="font-size:30px;font-family:'Dosis',sans-serif;color:#496c94;">Welcome to Delegation Module</p>
                         <p>Welcome to the course!</p>
                         <p>By the end of this course, you should be well-equipped to:</p>
                         <ul>
@@ -294,8 +295,8 @@ const Assessment = {
                 <div class="row">
                     <div class="col-4">
                         <q-card flat color="brand" text-color="lightbrand" style="height:450px;">
-                            <q-card-main style="font-size:17.5px;padding-top:5em;padding-left:2em; padding-right:2em;"> 
-                                <p style="font-size:24px;">Integrated Delegation Task</p>
+                            <q-card-main style="font-size:17px;padding-top:3em;padding-left:2em; padding-right:2em;"> 
+                                <p style="font-size:24px;font-family:'Dosis',sans-serif;">Integrated Delegation Task</p>
                                 <p>The following set of questions helps us identify instruction specific to you.
                                 <br>
                                 <br>We assess your inputs to make more efficient use of your learning time.
@@ -337,8 +338,8 @@ const Assessment = {
                 <div class="row">
                     <div class="col-4">
                         <q-card flat color="brand" text-color="lightbrand" style="height: 700px; max-height: 1000px;">
-                            <q-card-main style="font-size:17.5px;padding-top:5em;padding-left: 15%; padding-right: 10%;"> 
-                                <p style="font-size:30px;">Pre-Assessment</p>
+                            <q-card-main style="font-size:17px;padding-top:5em;padding-left: 15%; padding-right: 10%;"> 
+                                <p style="font-size:30px;font-family:'Dosis',sans-serif;">Pre-Assessment</p>
                                 <p>The following set of questions helps us identify instruction specific to you.
                                 <br>
                                 <br>We assess your inputs to make more efficient use of your learning time.
@@ -350,12 +351,12 @@ const Assessment = {
                     </div>
                     <div class="col-8">
                         <q-card flat color="white" text-color="secbrand" style="min-width:600px;height:700px; max-height: 1000px;">
-                            <q-card-main style="padding: 5% 10% 10%;font-size:16px;">
+                            <q-card-main style="padding: 5% 10% 10%;font-size:17px;">
                                 <p>2. One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
                                 <p>Using this definition, reflect on the following situation:</p>
                                 <p>You recently attended a client meeting with your subordinate. After the meeting, you ask your subordinate to draft a thank you email to the client which you will then review and send to the client.</p>
                                 <!--disagree agree agree-->
-                                <div class="row justify-end">
+                                <div class="row justify-end" style="font-size:14px;">
                                     <div class="col-12 col-md-2">Strongly Disagree</div>
                                     <div class="col-12 col-md-2">Disagree</div>
                                     <div class="col-12 col-md-2">Neither Agree nor Disagree</div>
@@ -363,7 +364,7 @@ const Assessment = {
                                     <div class="col-12 col-md-2">Strongly Agree</div>
                                 </div>
                                 <div class="row justify-start">
-                                    <div class="col-12 col-md-2">This delegation involves high sharing of Authority</div>
+                                    <div class="col-12 col-md-2" style="font-size:14px;">This delegation involves high sharing of Authority</div>
                                     <div class="col-12 col-md-2">
                                         <q-radio
                                             v-model="radioAuth"
@@ -407,7 +408,7 @@ const Assessment = {
                                 </div>
                                 <br>
                                 <div class="row justify-start">
-                                    <div class="col-12 col-md-2">This delegation involves high sharing of Responsibility</div>
+                                    <div class="col-12 col-md-2" style="font-size:14px;">This delegation involves high sharing of Responsibility</div>
                                     <div class="col-12 col-md-2">
                                         <q-radio
                                             v-model="radioResp"
@@ -451,7 +452,7 @@ const Assessment = {
                                 </div>
                                 <br>
                                 <div class="row justify-start">
-                                    <div class="col-12 col-md-2">This delegation involves high sharing of Accountability</div>
+                                    <div class="col-12 col-md-2" style="font-size:14px;">This delegation involves high sharing of Accountability</div>
                                     <div class="col-12 col-md-2">
                                         <q-radio
                                             v-model="radioAccn"
@@ -518,7 +519,7 @@ const Assessment = {
                     <div class="col-4">
                         <q-card flat color="brand" text-color="lightbrand" style="height: 500px;">
                             <q-card-main style="font-size:17px;padding-top:5em;padding-left: 15%; padding-right: 10%;"> 
-                                <p style="font-size:30px;">Practice Delegation</p>
+                                <p style="font-size:30px;font-family:'Dosis',sans-serif;">Practice Delegation</p>
                                 <p>The following set of questions helps us identify instruction specific to you.
                                 <br>
                                 <br>We assess your inputs to make more efficient use of your learning time.
@@ -530,7 +531,7 @@ const Assessment = {
                     </div>
                     <div class="col-8">
                         <q-card flat color="white" text-color="secbrand" style="height:500px;">
-                            <q-card-title style="padding-left:3em; padding-top:10%;">Email Task</q-card-title>
+                            <q-card-title style="font-family:'Dosis',sans-serif;padding-left:3em;padding-top:10%;">Email Task</q-card-title>
                             <q-card-main style="padding-left:3em; padding-right:3em;font-size:17px;">
                                 <p>One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
                                 <p>Using this definition, reflect on the following situation:</p>
@@ -953,7 +954,7 @@ const Assessment = {
                     <q-input />
                     <br><br>
                 <q-btn
-                    @click="$router.push('/skip')"
+                    @click="$router.push('/dashboard')"
                     color="blue-grey"
                     label="Next"></q-btn>
                 </div>
@@ -962,9 +963,9 @@ const Assessment = {
                 <div class="row">
                     <div class="col-4">
                         <q-card flat color="brand" text-color="lightbrand" style="height:800px;">
-                            <q-card-main style="padding-top: 10em;padding-left:5em; padding-right:5em;">
-                                <p style="font-size:30px;">Defining Delegation</p>
-                                <p style="font-size:17.5px;">Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
+                            <q-card-main style="padding-top:5em;padding-left:5em; padding-right:5em;">
+                                <p style="font-size:30px;font-family:'Dosis',sans-serif;">Defining Delegation</p>
+                                <p style="font-size:17px;">Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
                                     <div style="max-width:379px; font-size:17.5px;">
                                         <q-input v-model="dgdefinput" float-label="Input Text Here" />
                                     </div>
@@ -972,8 +973,8 @@ const Assessment = {
                         </q-card>
                     </div>
                     <div class="col-8">
-                        <q-card flat color="white" text-color="secbrand" style="height:800px;">
-                            <q-card-main style="padding: 5em 5em 5em;font-size:17.5px;">
+                        <q-card flat color="white" text-color="secbrand" style="height:800px;max-height:1000px;">
+                            <q-card-main style="padding: 3em 5em 5em;font-size:17.5px;">
                                 <p style="color:#496c94">Delegation</p>
                                 <p>Sharing <strong>responsibility</strong> and <strong>authority</strong> with others and holding them <strong>accountable</strong> for performance</p>
                                 <p style="color:#496c94">Responsibility</p>
@@ -1228,7 +1229,7 @@ const Dashboard = {
                     <q-card flat color="white" text-color="#496c94" style="min-height:350px;">
                         <q-card-title>Learning Module</q-card-title>
                         <q-card-main>
-                            <q-list>
+                            <q-list style="font-family:'Titillium Web', sans-serif;">
                                 <q-item style="font-family:Dosis, sans-serif;font-weight:bold;font-variant-caps:all-small-caps;">
                                 <q-item-main label="Module Name" />
                                 <q-item-main label="Course No." />
@@ -1295,7 +1296,7 @@ const Dashboard = {
                 <div class="col-4">
                     <q-card flat color="white" text-color="#496c94" style="height:350px;">
                         <q-card-title>Quick Details</q-card-title>
-                        <q-card-main>
+                        <q-card-main style="font-family:'Titillium Web', sans-serif;">
                             <q-item>
                                 <q-item-side>
                                     <q-item-tile icon="person_add" color="blue" />
@@ -1358,7 +1359,7 @@ const Dashboard = {
                             <img src="assets/completeModule2x.jpg" width="70%">
                         </div>
                         </q-card-media>
-                        <q-card-main>
+                        <q-card-main style="font-family:'Titillium Web', sans-serif;">
                             <div class="row">
                                 <div class="col-6">Total Hours</div>
                                 <div class="col-6">Finished Hours</div>
@@ -1596,6 +1597,89 @@ const Instruction = {
 };
 
 /**
+ * Delegation Log Component
+ */
+const DgLog = {
+    template: `
+        <div class="dglog">
+            <q-layout-drawer overlay behavior="mobile" side="left" v-model="showLeft">
+                <q-list>
+                    <q-item style="color:#496c94;font-size:25px;">
+                        Jane Doe's Task Log
+                    </q-item>
+                        <q-collapsible opened label="Steps" style="width:100%;background-color:#496c94;color:#f0f3f6">
+                                <q-list separator style="background-color:white;color:#605f5e;">
+                                    <q-item>
+                                        Definition of Delegation
+                                    </q-item>
+                                    <q-item style="background-color:#e9d985;color:#605f5e;">
+                                        Features of Good Delegation
+                                    </q-item>
+                                    <q-item>
+                                        Challenges of Delegation
+                                    </q-item>
+                                    <q-item>
+                                        Considering the Delegatees
+                                    </q-item>
+                                </q-list>
+                        </q-collapsible>
+                </q-list>
+            </q-layout-drawer>
+            <div style="padding-top:5em;padding-left:5em;">
+            <q-btn
+                @click="showLeft= !showLeft"
+                style="color:#496c94;"
+                flat
+                round
+                icon="menu"
+            />
+            <div class="float-right cursor-pointer" style="padding-right:5em">
+                <p>Go to Calendar</p>
+            </div>
+            <div class="row" v-if="plan">
+                <div class="col-4">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:800px;">
+                    <div style="max-width:300px;padding-top:3em;padding-left:3em;">
+                        <q-select
+                        style="color:white;"
+                        dark
+                        v-model="planselect"
+                        :options="planOptions"
+                        />
+                    <p
+                    style="
+                    padding-top:1em;
+                    font-size:24px;">Write down more specifics for the task you are planning for.</p>
+                    </div>
+                    </q-card>
+                </div>
+                <div class="col-8">
+                    <q-card falt color="white" text-color="secbrand" style="height:800px;">
+                </q-card>
+            </div>
+</div>
+            
+</div>
+</div>
+    `,
+    data: function () {
+        return {
+            showLeft: true,
+            plan: true,
+            reminder: false,
+            reflect: false,
+            planselect: 'plan',
+            planOptions: [
+                {
+                    label: 'Delegation - Plan',
+                    value: 'plan',
+                }
+            ],
+        }
+    },
+};
+
+/**
  * ROUTER SECTION
  */
 const routes = [
@@ -1607,6 +1691,7 @@ const routes = [
     { path: '/skip', name: 'Skip', component: Skip },
     { path: '/assessment', name: 'Assessment', component: Assessment },
     { path: '/instruction', name: 'Instruction', component: Instruction },
+    { path: '/dglog', name: 'Delegation Log', component: DgLog},
 ];
 const router = new VueRouter({
     routes

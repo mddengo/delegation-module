@@ -33,6 +33,7 @@ html, body {
     left: 35%;
     margin-left:-50px;
     margin-top:-50px;
+    font-family: 'Titillium Web', sans-serif;
 }
 .instruction {
     line-height: 1.5em;
@@ -74,6 +75,7 @@ html, body {
     top: 25%;
     font-size: 16px;
     line-height: 1.2;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .welcome-buttons {
@@ -91,6 +93,10 @@ html, body {
     padding-left: 15%;
     padding-right: 15%;
     padding-bottom: 5%
+}
+
+.benefits p {
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .dashboard-container {
@@ -128,9 +134,14 @@ html, body {
     padding-right: 25%;
 }
 
+.modules p {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 .modules .main-section {
     color: #496c94;
     padding: 5em 10em;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .welcome-cmp {
@@ -140,9 +151,10 @@ html, body {
 }
 
 .welcome-cmp .main {
-    padding-top: 10em;
+    padding-top: 5em;
     padding-right: 10em;
     padding-left: 10em;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .welcome-cmp .main p {
@@ -156,16 +168,18 @@ html, body {
     background-color: #f0f3f6;
     width: 100%;
     min-height: 100vh;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     padding: 8em 5em 5em;
 }
 
 .selectors {
     font-size: small;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .skip {
     padding-top: 5%;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .completion {
@@ -174,4 +188,22 @@ html, body {
 
 .instruction {
     padding-top: 5%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.dglog {
+    background-color: #f0f3f6;
+    font-family: 'Titillium Web', sans-serif;
+    min-height: 100vh;
+    padding-right: 5em;
+    padding-bottom: 5em;
+}
+
+.dglog .title {
+    padding-top: 2em;
+    padding-left: 2em;
+}
+
+.dglog h1,h2,h3,h4,h5,h6 {
+    font-family: 'Dosis', sans-serif;
 }
