@@ -1633,8 +1633,9 @@ const DgLog = {
                 round
                 icon="menu"
             />
-            <div class="float-right cursor-pointer" style="padding-right:5em">
-                <p>Go to Calendar</p>
+            </div>
+            <div class="float-right cursor-pointer" style="color:#496c94;padding-right:5em">
+                <p><q-icon name="calendar_today" /> Go to Calendar</p>
             </div>
             <div class="row" v-if="plan">
                 <div class="col-4">
@@ -1659,7 +1660,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Focus on what is important for you to do personally, not just the urgent.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                    <q-input float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1672,7 +1673,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Clarify the responsibility and results intended.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                    <q-input float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1684,7 +1685,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Select appropriate person taking into account developmental needs.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                    <q-input float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1696,7 +1697,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate level of authority and accountability.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                    <q-input float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1708,7 +1709,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate the checkpoints.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                    <q-input float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1720,7 +1721,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Create a motivating environment.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                    <q-input float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1732,7 +1733,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Make sure the person is held accountable for these results.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                    <q-input float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1744,14 +1745,167 @@ const DgLog = {
                         </div>
                 </q-card>
             </div>
-</div>
-            
-</div>
+        </div>
+        
+            <div class="row" v-else-if="reflect">
+                <div class="col-4">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:800px; max-height:1000px;">
+                    <div style="max-width:300px;padding-top:3em;padding-left:3em;">
+                        <q-select
+                        style="color:white;"
+                        dark
+                        v-model="planselect"
+                        :options="planOptions"
+                        />
+                    <p
+                    style="
+                    padding-top:1em;
+                    font-size:24px;">
+                    In the following steps as a delegator, which have you completed? If yes, what did you do?</p>
+                    </div>
+                    </q-card>
+                </div>
+                <div class="col-8">
+                    <q-card flat color="white" text-color="secbrand" style="height:800px;max-height:1000px;">
+                        <div class="row" style="padding: 3em 3em 0 3em;">
+                            <div class="col-1">
+                                <q-checkbox v-model="checked" />
+                            </div>
+                            <div class="col-10">
+                                <p>Focus on what is important for you to do personally, not just the urgent.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" />
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web',sans-serif;max-width:400px;">
+                                        Think about how not everything urgent is important, and people make mistakes doing the urgent tasks. Review ‘the matrix!’
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-1">
+                                <q-checkbox v-model="checked1" />
+                            </div>
+                            <div class="col-10">
+                                <p>Clarify the responsibility and results intended.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" />
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-1">
+                                <q-checkbox v-model="checked2" />
+                            </div>
+                            <div class="col-10">
+                                <p>Select appropriate person taking into account developmental needs.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" />
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-1">
+                                <q-checkbox v-model="checked3" />
+                            </div>
+                            <div class="col-10">
+                                <p>Communicate level of authority and accountability.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" />
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-1">
+                                <q-checkbox v-model="checked4" />
+                            </div>
+                            <div class="col-10">
+                                <p>Communicate the checkpoints.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" />
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-1">
+                                <q-checkbox v-model="checked5" />
+                            </div>
+                            <div class="col-10">
+                                <p>Create a motivating environment.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" />
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-1">
+                                <q-checkbox v-model="checked6" />
+                            </div>
+                            <div class="col-10">
+                                <p>Make sure the person is held accountable for these results.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" />
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                        </div>
+                </q-card>
+            </div>
+        </div>
+        
+            <div>
+                <q-modal v-model="reminder">
+                    <h4>Basic Modal</h4>
+                    <q-btn
+                        color="primary"
+                        @click="reminder = false"
+                        label="Close"
+                     />
+                </q-modal>
+            </div>
+                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
+                        <q-btn
+                        @click="saved"
+                        style="background: #e9d985;
+                        color: #605f5e;"
+                        label="Save"></q-btn>
+                        <q-btn
+                        @click="planToggle"
+                        style="background: #e9d985;
+                        color: #605f5e;"
+                        label="Save & Continue"></q-btn>
+                    </div>
 </div>
     `,
     data: function () {
         return {
-            showLeft: true,
+            showLeft: false,
             plan: true,
             reminder: false,
             reflect: false,
@@ -1760,10 +1914,42 @@ const DgLog = {
                 {
                     label: 'Delegation - Plan',
                     value: 'plan',
+                },
+                {
+                    label: 'Delegation - Reflect',
+                    value: 'reflect',
                 }
             ],
+            checked: false,
+            checked1: false,
+            checked2: false,
+            checked3: false,
+            checked4: false,
+            checked5: false,
+            checked6: false,
         }
     },
+    methods: {
+        saved () {
+            this.$q.notify({
+                color: 'posbrand',
+                textColor: 'white',
+                icon: 'check',
+                message: 'Progress Saved',
+                position: 'bottom',
+                timeout: 3000
+            });
+        },
+        planToggle () {
+            this.reminder = true;
+        },
+        reminderToggle () {
+            this.reminder = false;
+            this.plan = false;
+            this.reflect = true;
+            this.planselect = 'reflect';
+        }
+    }
 };
 
 /**
