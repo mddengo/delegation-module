@@ -54,7 +54,7 @@ const Modules = {
                         style="background:#e9d985;
                             color: #605f5e;" 
                         label="Start Module 1"></q-btn>
-                    <div class="float-right" style="min-width: 500px; max-width:666px;">
+                    <div class="float-right" style="width: 400px; max-width:666px;">
                         <div class="float-left" style="font-size:small;">0 out of 4 Modules Complete</div>
                         <q-icon class="float-right" name="school" />
                         <q-progress :percentage="progress" color="#707070" width="666px" height="20px" />
@@ -293,8 +293,8 @@ const Assessment = {
                 <div class="row">
                     <div class="col-4">
                         <q-card flat color="brand" text-color="lightbrand" style="height:450px;">
-                            <q-card-title style="padding-left: 15%; padding-top: 25%;">Integrated Delegation Task</q-card-title>
-                            <q-card-main style="padding-left: 15%; padding-right: 10%;"> 
+                            <q-card-main style="font-size:17.5px;padding-top:5em;padding-left:2em; padding-right:2em;"> 
+                                <p style="font-size:24px;">Integrated Delegation Task</p>
                                 <p>The following set of questions helps us identify instruction specific to you.
                                 <br>
                                 <br>We assess your inputs to make more efficient use of your learning time.
@@ -306,10 +306,10 @@ const Assessment = {
                     </div>
                     <div class="col-8">
                         <q-card flat color="white" text-color="secbrand" style="height:450px;">
-                            <q-card-main style="padding: 15% 15% 15%;">
+                            <q-card-main style="padding: 15% 15% 15%; font-size:17.5px;">
                                 <p>1. Think of the tasks for which you are responsible for completing on the job. Which tasks can you complete on your own? Which tasks should you delegate?</p>
                                 <p>Below, enter a task that you would like to delegate.</p>
-                                <div style="width:400px; max-width:100vw;">
+                                <div style="max-width:400px;">
                                     <q-input float-label="Input Text Here" v-model="dgTask" />
                                 </div>
                                 <br><br><br><br>
@@ -318,7 +318,7 @@ const Assessment = {
                     </div>
                     </div>
                     <br>
-                    <div class="float-right">
+                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
                 <q-btn
                     @click="saved"
                     style="background: #e9d985;
@@ -335,9 +335,9 @@ const Assessment = {
             <div class="mod3b" v-else-if="ass3b">
                 <div class="row">
                     <div class="col-4">
-                        <q-card flat color="brand" text-color="lightbrand" style="height: 500px; max-height: 700px;">
-                            <q-card-title style="padding-left: 15%; padding-top: 25%;">Pre-Assessment</q-card-title>
-                            <q-card-main style="padding-left: 15%; padding-right: 10%;"> 
+                        <q-card flat color="brand" text-color="lightbrand" style="height: 700px; max-height: 1000px;">
+                            <q-card-main style="font-size:17.5px;padding-top:5em;padding-left: 15%; padding-right: 10%;"> 
+                                <p style="font-size:30px;">Pre-Assessment</p>
                                 <p>The following set of questions helps us identify instruction specific to you.
                                 <br>
                                 <br>We assess your inputs to make more efficient use of your learning time.
@@ -348,8 +348,8 @@ const Assessment = {
                         </q-card>
                     </div>
                     <div class="col-8">
-                        <q-card flat color="white" text-color="secbrand" style="min-width:600px;height:500px; max-height: 700px;">
-                            <q-card-main style="padding: 5% 10% 10%;">
+                        <q-card flat color="white" text-color="secbrand" style="min-width:600px;height:700px; max-height: 1000px;">
+                            <q-card-main style="padding: 5% 10% 10%;font-size:16px;">
                                 <p>2. One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
                                 <p>Using this definition, reflect on the following situation:</p>
                                 <p>You recently attended a client meeting with your subordinate. After the meeting, you ask your subordinate to draft a thank you email to the client which you will then review and send to the client.</p>
@@ -361,7 +361,6 @@ const Assessment = {
                                     <div class="col-12 col-md-2">Agree</div>
                                     <div class="col-12 col-md-2">Strongly Agree</div>
                                 </div>
-                                <br>
                                 <div class="row justify-start">
                                     <div class="col-12 col-md-2">This delegation involves high sharing of Authority</div>
                                     <div class="col-12 col-md-2">
@@ -498,7 +497,7 @@ const Assessment = {
                     </div>
                 </div>
                 <br>
-                <div class="float-right">
+                <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
                     <q-btn
                     @click="saved"
                     style="background: #e9d985;
@@ -543,7 +542,7 @@ const Assessment = {
                         </q-card>
                     </div>
                 </div>
-                    <div class="float-right">
+                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
                     <br>
                         <q-btn
                             @click="saved"
@@ -940,10 +939,10 @@ const Assessment = {
                 <div class="row">
                     <div class="col-4">
                         <q-card flat color="brand" text-color="lightbrand" style="height:800px;">
-                            <q-card-main style="padding-top: 10em;padding-left:5em; padding-right:10em;">
+                            <q-card-main style="padding-top: 10em;padding-left:5em; padding-right:5em;">
                                 <p style="font-size:30px;">Defining Delegation</p>
                                 <p style="font-size:17.5px;">Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
-                                    <div style="width: 379px; font-size:17.5px;">
+                                    <div style="max-width:379px; font-size:17.5px;">
                                         <q-input v-model="dgdefinput" float-label="Input Text Here" />
                                     </div>
                             </q-card-main>
@@ -951,7 +950,7 @@ const Assessment = {
                     </div>
                     <div class="col-8">
                         <q-card flat color="white" text-color="secbrand" style="height:800px;">
-                            <q-card-main style="padding: 10em 10em 10em;font-size:17.5px;">
+                            <q-card-main style="padding: 5em 5em 5em;font-size:17.5px;">
                                 <p style="color:#496c94">Delegation</p>
                                 <p>Sharing <strong>responsibility</strong> and <strong>authority</strong> with others and holding them <strong>accountable</strong> for performance</p>
                                 <p style="color:#496c94">Responsibility</p>
@@ -975,7 +974,7 @@ const Assessment = {
                         </q-card>
                     </div>
                 </div>
-                    <div class="float-right">
+                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
                     <br>
                         <q-btn
                             @click="saved"
@@ -999,7 +998,7 @@ const Assessment = {
             radio3k: '',
             checkGroup3l: [],
             checkGroup3l2: [],
-            ass3a: false,
+            ass3a: true,
             ass3b: false,
             ass3c: false,
             ass3d: false,
@@ -1018,7 +1017,7 @@ const Assessment = {
             radioResp: '',
             radioAccn: '',
             assCorrect: false,
-            mod3ba: true,
+            mod3ba: false,
             radioAuth1: '',
             radioResp1: '',
             radioAccn1: '',
@@ -1250,7 +1249,8 @@ const Dashboard = {
                                 <q-item>
                                     <q-collapsible icon="shopping_cart" label="Essential Delegation Skills">
                                         <div>
-                                            Essential delegation skills module.
+                                            This course will introduce you to the basics of delegation as a new leader in your organization.
+                                            This first course in the Delegation track focuses on determining which tasks to delegate.
                                         </div>
                                     </q-collapsible>
                                     <q-item-main label="18-100" />
