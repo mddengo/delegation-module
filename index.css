@@ -24,7 +24,7 @@
 }
 
 html, body {
-    height:100vh;
+    min-height:100vh;
 }
 
 .login {
@@ -106,15 +106,56 @@ html, body {
     color: #496c94;
 }
 
-.assessment {
+.modules {
+    background-color: #f0f3f6;
+    min-height: 100vh;
+    font-family: 'Dosis', sans-serif;
+}
+
+.modules .top-bar {
+    background-color: #605f5e;
+    width:100%;
+    height: 375px;
+    /*line-height:60px;*/
+    color: white;
+    position:relative;
+}
+
+.modules .top-bar .text {
+    margin: 0 auto;
     padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 25%;
+}
+
+.modules .main-section {
+    color: #496c94;
+    padding: 5em 10em;
+}
+
+.welcome-cmp {
+    background-color: #f0f3f6;
+    min-height: 100vh;
+    font-family: 'Dosis', sans-serif;
+}
+
+.welcome-cmp .main {
+    padding: 10em 10em 10em 10em;
+}
+
+.welcome-cmp .main p {
+    font-size: 20px;
+}
+.welcome-cmp .main ul {
+    font-size: 18px;
+}
+
+.assessment {
     background-color: #f0f3f6;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Dosis', sans-serif;
-    padding-left: 10%;
-    padding-right: 10%;
-    bottom: 0;
+    padding: 8em 10% 5em;
 }
 
 .selectors {

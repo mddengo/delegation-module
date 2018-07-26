@@ -39,6 +39,136 @@ var store = {
 };
 
 /**
+ * Modules Component
+ */
+const Modules = {
+    template: `
+        <div class="modules">
+            <div class="top-bar">
+                <div class="text">
+                    <h3><q-icon name="people_outline" size="60px" />Essential Delegation Skills</h3>
+                    <p style="padding-right: 7em">This course will introduce you to the basics of delegation as a new leader in your organization.
+                    This first course in the Delegation track focuses on determining which tasks to delegate.</p>
+                    <q-btn
+                        class="float-left"
+                        style="background:#e9d985;
+                            color: #605f5e;" 
+                        label="Start Module 1"></q-btn>
+                    <div class="float-right" style="min-width: 500px; max-width:666px;">
+                        <div class="float-left" style="font-size:small;">0 out of 4 Modules Complete</div>
+                        <q-icon class="float-right" name="school" />
+                        <q-progress :percentage="progress" color="#707070" width="666px" height="20px" />
+                    </div>
+                </div>
+            </div>
+            <div class="main-section">
+                <q-list style="background-color:#496c94; color:#f0f3f6;">
+                    <q-collapsible opened label="Module 1: Intro to Delegation">
+                    <div>
+                        <q-list separator style="background-color: white; color: #605f5e">
+                            <q-item to="welcome">
+                                <q-item-main label="Welcome to Delegation Module" />
+                                <q-item-side right>
+                                    <q-radio v-model="moduleRadio" val="welc"/>
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-main label="Integrated Delegation Task" />
+                                <q-item-side right>
+                                    <q-radio v-model="moduleRadio" val="intdgtask"/>
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-main label="Intro to Delegation: Pre-Assessment" />
+                                <q-item-side right>
+                                    <q-radio v-model="moduleRadio" val="preass"/>
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-main label="Intro to  Delegation: Instruction" />
+                                <q-item-side right>
+                                    <q-radio v-model="moduleRadio" val="instr"/>
+                                </q-item-side>
+                            </q-item>
+                        </q-list>
+                    </div>
+                    </q-collapsible>
+                </q-list>
+                <br>
+                <q-list style="background-color:white;">
+                    <q-collapsible label="Module 2: Benefits & Challenges of Delegation">
+                    <div>
+                        Content
+                    </div>
+                    </q-collapsible>
+                </q-list>
+                <br>
+                <q-list style="background-color:white;">
+                    <q-collapsible label="Module 3: Rules of Delegation">
+                    <div>
+                        Content
+                    </div>
+                    </q-collapsible>
+                </q-list>
+                <br>
+                <q-list style="background-color:white;">
+                    <q-collapsible label="Module 4: Purpose of Task">
+                    <div>
+                        Content
+                    </div>
+                    </q-collapsible>
+                </q-list>
+            </div>
+        </div>
+    `,
+    data: function () {
+        return {
+            progress: 1,
+            moduleRadio: '',
+        }
+    },
+};
+
+/**
+ * Welcome Component
+ */
+const Welcome = {
+    template: `
+        <div class="welcome-cmp">
+            <div class="main">
+                <q-card flat color="white" text-color="secbrand" style="min-width: 400px; max-width: 828px; margin:0 auto;">
+                    <q-card-main style="padding:5em;">
+                        <p style="font-size:30px; color:#496c94;">Welcome to Delegation Module</p>
+                        <p>Welcome to the course!</p>
+                        <p>By the end of this course, you should be well-equipped to:</p>
+                        <ul>
+                        <li><strong>Define delegation</strong> and identify <strong>features of good delegation</strong></li>
+                        <li>Identify potential <strong>benefits and challenges</strong> of delegation</li>
+                        <li>Identify <strong>which tasks should be delegated</strong> and <strong>which tasks you must do yourself</strong>, and explain why</li>
+                        <li>Identify a <strong>clear purpose of the delegated tasks</strong> and communicate it effectively</li>
+                        </ul>
+                    </q-card-main>
+                </q-card>
+                <br>
+                <div style="position:absolute; left:45%;">
+                <q-btn
+                    @click="$router.push('/assessment')"
+                    style="background:#e9d985;
+                        color: #605f5e;"
+                    label="Continue"></q-btn>
+                 </div>
+                    
+</div>
+</div>
+    `,
+    data: function () {
+        return {
+
+        }
+    },
+};
+
+/**
  * Home Component with Instructor or Student views that lead to Instruction
  *
  * @type {{template: string, data: (function(): {isInstructor: boolean, radio1: string})}}
@@ -106,6 +236,11 @@ const Home = {
         }
     },
 };
+
+/**
+ * Login Component
+ * @type {{data: (function(): {user: string, pw: string}), template: string, watch: {user(*): void}}}
+ */
 const Login = {
     data: function () {
         return {
@@ -200,7 +335,7 @@ const Assessment = {
             <div class="mod3b" v-else-if="ass3b">
                 <div class="row">
                     <div class="col-4">
-                        <q-card flat color="brand" text-color="lightbrand" style="height: 500px;">
+                        <q-card flat color="brand" text-color="lightbrand" style="height: 500px; max-height: 700px;">
                             <q-card-title style="padding-left: 15%; padding-top: 25%;">Pre-Assessment</q-card-title>
                             <q-card-main style="padding-left: 15%; padding-right: 10%;"> 
                                 <p>The following set of questions helps us identify instruction specific to you.
@@ -213,7 +348,7 @@ const Assessment = {
                         </q-card>
                     </div>
                     <div class="col-8">
-                        <q-card flat color="white" text-color="secbrand" style="height:500px;">
+                        <q-card flat color="white" text-color="secbrand" style="min-width:600px;height:500px; max-height: 700px;">
                             <q-card-main style="padding: 5% 10% 10%;">
                                 <p>2. One of the definitions of delegation is "Sharing responsibility and authority with others and holding them accountable for performance."</p>
                                 <p>Using this definition, reflect on the following situation:</p>
@@ -376,7 +511,6 @@ const Assessment = {
                     color: #605f5e;"
                     label="Save & Continue"></q-btn>
                 </div>
-                <br><br><br>
             </div>
             
             <div class="mod3c" v-else-if="ass3c">
@@ -1131,7 +1265,7 @@ const Dashboard = {
                                         rounded
                                         color="primary"
                                         size="sm"
-                                        @click="$router.push('/assessment')"
+                                        @click="$router.push('/modules')"
                                         label="Start"/></q-item-main>
                                     </q-item-side>
                                 </q-item>
@@ -1194,7 +1328,7 @@ const Dashboard = {
                     </q-card>
                 </div>
                 <div class="col-4">
-                    <q-card flat color="white" text-color="#496c94" style="height:450px;">
+                    <q-card flat color="white" text-color="#496c94" style="min-height:450px;">
                         <q-card-title>
                             My Curricula
                             <span slot="subtitle" style="color:#4d4f5c;">Total Modules: 4</span>
@@ -1450,6 +1584,8 @@ const routes = [
     { path: '/login', name: 'Login', component: Login },
     { path: '/dashboard', name: 'Dashboard', component: Dashboard },
     { path: '/', name: 'Home', component: Home },
+    { path: '/modules', name: 'Modules', component: Modules },
+    { path: '/welcome', name: 'Welcome Delegation', component: Welcome },
     { path: '/skip', name: 'Skip', component: Skip },
     { path: '/assessment', name: 'Assessment', component: Assessment },
     { path: '/instruction', name: 'Instruction', component: Instruction },
