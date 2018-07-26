@@ -55,7 +55,7 @@ const Modules = {
                         style="background:#e9d985;
                             color: #605f5e;
                             font-family:'Titillium Web', sans-serif;" 
-                        label="Start Module 1"></q-btn>
+                        label="Start Chapter 1"></q-btn>
                     <div class="float-right" wait-for-ripple style="width: 400px; max-width:666px;font-family:'Titillium Web', sans-serif;">
                         <div class="float-left" style="font-size:small;">0 out of 4 Modules Complete</div>
                         <q-icon class="float-right" name="school" />
@@ -65,7 +65,7 @@ const Modules = {
             </div>
             <div class="main-section">
                 <q-list style="background-color:#496c94; color:#f0f3f6;">
-                    <q-collapsible opened label="Module 1: Intro to Delegation">
+                    <q-collapsible opened label="Chapter 1: Intro to Delegation">
                     <div>
                         <q-list separator style="background-color: white; color: #605f5e">
                             <q-item>
@@ -98,7 +98,7 @@ const Modules = {
                 </q-list>
                 <br>
                 <q-list style="background-color:white;">
-                    <q-collapsible label="Module 2: Benefits & Challenges of Delegation">
+                    <q-collapsible label="Chapter 2: Benefits & Challenges of Delegation">
                     <div>
                         Content
                     </div>
@@ -106,7 +106,7 @@ const Modules = {
                 </q-list>
                 <br>
                 <q-list style="background-color:white;">
-                    <q-collapsible label="Module 3: Rules of Delegation">
+                    <q-collapsible label="Chapter 3: Rules of Delegation">
                     <div>
                         Content
                     </div>
@@ -114,7 +114,7 @@ const Modules = {
                 </q-list>
                 <br>
                 <q-list style="background-color:white;">
-                    <q-collapsible label="Module 4: Purpose of Task">
+                    <q-collapsible label="Chapter 4: Purpose of Task">
                     <div>
                         Content
                     </div>
@@ -1603,30 +1603,27 @@ const DgLog = {
     template: `
         <div class="dglog">
             <q-layout-drawer overlay behavior="mobile" side="left" v-model="showLeft">
-                <q-list>
+                <q-list separator>
                     <q-item style="color:#496c94;font-size:25px;">
                         Jane Doe's Task Log
                     </q-item>
-                        <q-collapsible opened label="Steps" style="width:100%;background-color:#496c94;color:#f0f3f6">
-                                <q-list separator style="background-color:white;color:#605f5e;">
-                                    <q-item>
-                                        Definition of Delegation
-                                    </q-item>
-                                    <q-item style="background-color:#e9d985;color:#605f5e;">
-                                        Features of Good Delegation
-                                    </q-item>
-                                    <q-item>
-                                        Challenges of Delegation
-                                    </q-item>
-                                    <q-item>
-                                        Considering the Delegatees
-                                    </q-item>
-                                </q-list>
-                        </q-collapsible>
+                            <q-item>
+                                Definition of Delegation
+                            </q-item>
+                            <q-item style="background-color:#e9d985;color:#605f5e;">
+                                Features of Good Delegation
+                            </q-item>
+                            <q-item>
+                                Challenges of Delegation
+                             </q-item>
+                             <q-item>
+                                Considering the Delegatees
+                             </q-item>
                 </q-list>
             </q-layout-drawer>
             <div style="padding-top:5em;padding-left:5em;">
             <q-btn
+                class="float-left"
                 @click="showLeft= !showLeft"
                 style="color:#496c94;"
                 flat
@@ -1635,9 +1632,10 @@ const DgLog = {
             />
             </div>
             <div class="float-right cursor-pointer" style="color:#496c94;padding-right:5em">
-                <p><q-icon name="calendar_today" /> Go to Calendar</p>
+                <p @click="reminder = true"><q-icon name="calendar_today" /> Calendar</p>
             </div>
-            <div class="row" v-if="plan">
+            <br><br>
+            <div class="row" v-if="planselect === 'plan'">
                 <div class="col-4">
                     <q-card flat color="brand" text-color="lightbrand" style="height:800px; max-height:1000px;">
                     <div style="max-width:300px;padding-top:3em;padding-left:3em;">
@@ -1660,7 +1658,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Focus on what is important for you to do personally, not just the urgent.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input1" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1673,7 +1671,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Clarify the responsibility and results intended.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input2" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1685,7 +1683,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Select appropriate person taking into account developmental needs.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input3" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1697,7 +1695,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate level of authority and accountability.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input4" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1709,7 +1707,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate the checkpoints.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input5" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1721,7 +1719,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Create a motivating environment.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input6" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1733,7 +1731,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Make sure the person is held accountable for these results.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input7" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1747,7 +1745,7 @@ const DgLog = {
             </div>
         </div>
         
-            <div class="row" v-else-if="reflect">
+            <div class="row" v-else-if="planselect === 'reflect'">
                 <div class="col-4">
                     <q-card flat color="brand" text-color="lightbrand" style="height:800px; max-height:1000px;">
                     <div style="max-width:300px;padding-top:3em;padding-left:3em;">
@@ -1774,7 +1772,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Focus on what is important for you to do personally, not just the urgent.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input1" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1790,7 +1788,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Clarify the responsibility and results intended.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input2" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1805,7 +1803,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Select appropriate person taking into account developmental needs.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input3" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1820,7 +1818,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate level of authority and accountability.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input4" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1835,7 +1833,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate the checkpoints.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input5" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1850,7 +1848,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Create a motivating environment.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input6" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1865,7 +1863,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Make sure the person is held accountable for these results.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" />
+                                    <q-input v-model="input7" float-label="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1881,12 +1879,9 @@ const DgLog = {
         
             <div>
                 <q-modal v-model="reminder">
-                    <h4>Basic Modal</h4>
-                    <q-btn
-                        color="primary"
-                        @click="reminder = false"
-                        label="Close"
-                     />
+                    <div style="width:868px;text-align:center;">
+                        <img src="assets/Calendar@2x.jpg" width="80%">
+                    </div>
                 </q-modal>
             </div>
                     <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
@@ -1896,7 +1891,6 @@ const DgLog = {
                         color: #605f5e;"
                         label="Save"></q-btn>
                         <q-btn
-                        @click="planToggle"
                         style="background: #e9d985;
                         color: #605f5e;"
                         label="Save & Continue"></q-btn>
@@ -1927,7 +1921,16 @@ const DgLog = {
             checked4: false,
             checked5: false,
             checked6: false,
+            input1: '',
+            input2: '',
+            input3: '',
+            input4: '',
+            input5: '',
+            input6: '',
+            input7: '',
         }
+    },
+    computed : {
     },
     methods: {
         saved () {
@@ -1940,15 +1943,6 @@ const DgLog = {
                 timeout: 3000
             });
         },
-        planToggle () {
-            this.reminder = true;
-        },
-        reminderToggle () {
-            this.reminder = false;
-            this.plan = false;
-            this.reflect = true;
-            this.planselect = 'reflect';
-        }
     }
 };
 
