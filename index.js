@@ -1638,7 +1638,7 @@ const DgLog = {
             </div>
             <div class="row" v-if="plan">
                 <div class="col-4">
-                    <q-card flat color="brand" text-color="lightbrand" style="height:800px;">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:800px; max-height:1000px;">
                     <div style="max-width:300px;padding-top:3em;padding-left:3em;">
                         <q-select
                         style="color:white;"
@@ -1654,7 +1654,94 @@ const DgLog = {
                     </q-card>
                 </div>
                 <div class="col-8">
-                    <q-card falt color="white" text-color="secbrand" style="height:800px;">
+                    <q-card flat color="white" text-color="secbrand" style="height:800px;max-height:1000px;">
+                        <div class="row" style="padding: 3em 3em 0 3em;">
+                            <div class="col-10">
+                                <p>Focus on what is important for you to do personally, not just the urgent.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web',sans-serif;max-width:400px;">
+                                        Think about how not everything urgent is important, and people make mistakes doing the urgent tasks. Review ‘the matrix!’
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-10">
+                                <p>Clarify the responsibility and results intended.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-10">
+                                <p>Select appropriate person taking into account developmental needs.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-10">
+                                <p>Communicate level of authority and accountability.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-10">
+                                <p>Communicate the checkpoints.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-10">
+                                <p>Create a motivating environment.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                            <div class="col-10">
+                                <p>Make sure the person is held accountable for these results.</p>
+                                <div style="max-width:400px;">
+                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <q-icon name="help" style="color:#496c94">
+                                    <q-tooltip style="background-color:#e9d985;font-family:'Titillium Web', sans-serif;max-width:400px;">
+                                    </q-tooltip>
+                                </q-icon>
+                            </div>
+                        </div>
                 </q-card>
             </div>
 </div>

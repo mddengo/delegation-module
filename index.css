@@ -199,11 +199,6 @@ html, body {
     padding-bottom: 5em;
 }
 
-.dglog .title {
-    padding-top: 2em;
-    padding-left: 2em;
-}
-
 .dglog h1,h2,h3,h4,h5,h6 {
     font-family: 'Dosis', sans-serif;
 }
