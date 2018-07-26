@@ -140,7 +140,9 @@ html, body {
 }
 
 .welcome-cmp .main {
-    padding: 10em 10em 10em 10em;
+    padding-top: 10em;
+    padding-right: 10em;
+    padding-left: 10em;
 }
 
 .welcome-cmp .main p {
