@@ -1268,7 +1268,9 @@ const Dashboard = {
                     value: 'lastyear'
                 }
             ],
-
+            model: 48,
+            min: 0,
+            max: 100,
         }
     },
     template: `
@@ -1398,7 +1400,7 @@ const Dashboard = {
                     </q-card>
                 </div>
                 <div class="col-4">
-                    <q-card flat color="white" text-color="#496c94" style="min-height:450px;">
+                    <q-card flat color="white" text-color="#496c94" style="height:450px;">
                         <q-card-title>
                             My Curricula
                             <span slot="subtitle" style="color:#4d4f5c;">Total Modules: 4</span>
@@ -1407,7 +1409,16 @@ const Dashboard = {
                         <br>
                         <q-card-media>
                         <div>
-                            <img src="assets/completeModule2x.jpg" width="70%">
+                            <q-knob
+                                v-model="model"
+                                :min="min"
+                                :max="max"
+                                color="brand"
+                                size="12em"
+                                readonly
+                            >
+                            {{model}}% Finished
+                            </q-knob>
                         </div>
                         </q-card-media>
                         <q-card-main style="font-family:'Lato', sans-serif;">
