@@ -17,14 +17,26 @@
     background: #605f5e;
 }
 .text-posbrand {
-    background: #64bf56;
+    color: #64bf56;
 }
 .bg-posbrand {
     background: #64bf56;
 }
+.text-yellowbrand {
+    color: #e9d985;
+}
+.bg-yellowbrand {
+    color: #e9d985;
+}
 
 html, body {
     min-height:100vh;
+}
+
+.save-buttons {
+    z-index: 99;
+    padding-right: 8em;
+    padding-bottom: 3em;
 }
 
 .login {

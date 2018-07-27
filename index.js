@@ -364,7 +364,7 @@ const Assessment = {
                     </div>
                     </div>
                     <br>
-                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
+                    <div class="fixed-bottom-right save-buttons">
                 <q-btn
                     @click="saved"
                     style="background: #e9d985;
@@ -543,7 +543,7 @@ const Assessment = {
                     </div>
                 </div>
                 <br>
-                <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
+                <div class="fixed-bottom-right save-buttons">
                     <q-btn
                     @click="saved"
                     style="background: #e9d985;
@@ -588,7 +588,7 @@ const Assessment = {
                         </q-card>
                     </div>
                 </div>
-                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
+                    <div class="fixed-bottom-right save-buttons">
                     <br>
                         <q-btn
                             @click="saved"
@@ -759,7 +759,7 @@ const Assessment = {
                         </q-card>
                     </div>
 </div>
-                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
+                    <div class="fixed-bottom-right save-buttons">
                 <!--<q-btn-->
                     <!--@click="saved"-->
                     <!--style="background: #e9d985;-->
@@ -1042,7 +1042,7 @@ const Assessment = {
                         </q-card>
                     </div>
                 </div>
-                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
+                    <div class="fixed-bottom-right save-buttons">
                     <br>
                         <q-btn
                             @click="saved"
@@ -1325,7 +1325,7 @@ const Dashboard = {
                                 </q-item>
                                 <q-item>
                                     <q-collapsible icon="shopping_cart" label="Essential Delegation Skills">
-                                        <div>
+                                        <div style="width:25em">
                                             This course will introduce you to the basics of delegation as a new leader in your organization.
                                             This first course in the Delegation track focuses on determining which tasks to delegate.
                                         </div>
@@ -1443,8 +1443,8 @@ const Dashboard = {
                             <span slot="subtitle" style="color:#496c94;">Avg 5hrs</span>
                         </div>
                         <div class="selectors"> 
-                            <div class="row gutter-sm float-right">
-                                <div class="col-3" style="width:190px;">
+                            <div class="row gutter-sm on-right">
+                                <div class="col-3" style="max-width:150px;">
                                     <q-select
                                     v-model="select1"
                                     :options="selectOptions1"
@@ -1696,7 +1696,7 @@ const DgLog = {
             <div class="float-right cursor-pointer" style="color:#496c94;padding-right:5em">
                 <p @click="reminder = true"><q-icon name="calendar_today" /> Calendar</p>
             </div>
-            <br><br>
+            <br><br><br>
             <div class="row" v-if="planselect === 'plan'">
                 <div class="col-4">
                     <q-card flat color="brand" text-color="lightbrand" style="height:800px; max-height:1000px;">
@@ -1946,7 +1946,7 @@ const DgLog = {
                     </div>
                 </q-modal>
             </div>
-                    <div class="fixed-bottom-right" style="z-index:99; padding-right:5em; padding-bottom:1em;">
+                    <div class="fixed-bottom-right save-buttons">
                         <q-btn
                         @click="saved"
                         style="background: #e9d985;
@@ -2009,6 +2009,19 @@ const DgLog = {
 };
 
 /**
+ *  Peer Review
+ */
+const PeerReview = {
+    template: `
+        <div class="peer-review"></div>`,
+    data: function () {
+        return {
+
+        }
+    },
+}
+
+/**
  * ROUTER SECTION
  */
 const routes = [
@@ -2020,6 +2033,7 @@ const routes = [
     { path: '/skip', name: 'Skip', component: Skip },
     { path: '/assessment', name: 'Assessment', component: Assessment },
     { path: '/instruction', name: 'Instruction', component: Instruction },
+    { path: '/peerreview', name: 'Peer Review', component: PeerReview},
     { path: '/dglog', name: 'Delegation Log', component: DgLog},
 ];
 const router = new VueRouter({
