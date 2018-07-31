@@ -22,6 +22,12 @@
 .bg-posbrand {
     background: #64bf56;
 }
+.text-negbrand {
+    color: #e03c3c;
+}
+.bg-negbrand {
+    background: #e03c3c;
+}
 .text-yellowbrand {
     color: #e9d985;
 }
@@ -243,4 +249,5 @@ html, body {
     font-family: 'Lato', sans-serif;
     padding-top: 8em;
     padding-bottom:5em;
+    color: #496c94;
 }

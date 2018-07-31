@@ -596,7 +596,7 @@ const Assessment = {
                             color: #605f5e;"
                             label="Save"></q-btn>
                         <q-btn
-                            @click="$router.push('/dashboard')"
+                            @click="$router.push('/casestudy')"
                             style="background: #e9d985;
                             color: #605f5e;"
                             :disable="dgEmailTask.length < 5"
@@ -766,7 +766,7 @@ const Assessment = {
                     <!--color: #605f5e;"-->
                     <!--label="Save"></q-btn>-->
                 <q-btn
-                    @click="$router.push('/dashboard')"
+                    @click="$router.push('/casestudy')"
                     style="background: #e9d985;
                     color: #605f5e;"
                     label="Save & Continue"></q-btn>
@@ -2238,6 +2238,8 @@ const Feedback = {
 const PeerReview = {
     template: `
         <div class="peer-review">
+            <div @click="$router.push('/modules')" class="cursor-pointer" style="font-family:'Dosis',sans-serif;font-size:18px;padding-left:5em;">Back to Module</div>
+            <br>
             <div class="row gutter-y-md" style="font-size:17px">
                 <div class="col-4" style="font-family:'Dosis',sans-serif;font-size:30px;text-align:center;">Reviewing Criteria</div>
                 <div class="col-4" style="font-family:'Dosis',sans-serif;font-size:30px;text-align:center;">Review this Submission</div>
@@ -2248,6 +2250,8 @@ const PeerReview = {
                         <div style="padding:2em">
                             <p>Does the submission clearly describe at least three criteria to evaluate the
                         importance of personally doing a task?</p>
+                            <q-icon class="on-left" name="check_circle_outline" color="posbrand" size="30px" />
+                            <q-icon class="on-right" name="highlight_off" color="negbrand" size="30px"/>
                         </div>
                     </q-card>
                 </div>
@@ -2280,9 +2284,20 @@ const PeerReview = {
                     <q-card flat color="brand" text-color="lightbrand" style="height:587px">
                         <div style="padding:2em">
                             <p>Does the submission select an on-the-job situation and clearly explain why they selected this situation?</p>
+                            <q-icon class="on-left" name="check_circle_outline" color="posbrand" size="30px" />
+                            <q-icon class="on-right" name="highlight_off" color="negbrand" size="30px"/>
+                            <br><br>
                             <p>Is the selected situation challenging?</p>
+                            <q-icon class="on-left" name="check_circle_outline" color="posbrand" size="30px" />
+                            <q-icon class="on-right" name="highlight_off" color="negbrand" size="30px"/>
+                            <br><br>
                             <p>Does the selected situation involve 2 or more different deadlines?</p>
+                            <q-icon class="on-left" name="check_circle_outline" color="posbrand" size="30px" />
+                            <q-icon class="on-right" name="highlight_off" color="negbrand" size="30px"/>
+                            <br><br>
                             <p>Does the selected situation involve 2 or more people responsible and/or accountable for the tasks?</p>
+                            <q-icon class="on-left" name="check_circle_outline" color="posbrand" size="30px" />
+                            <q-icon class="on-right" name="highlight_off" color="negbrand" size="30px"/>
                         </div>
                     </q-card>
                 </div>
@@ -2365,8 +2380,11 @@ const PeerReview = {
                     <q-card flat color="brand" text-color="lightbrand" style="height:324px">
                         <div style="padding:2em">
                             <p>Which submission does a better job identifying the tasks involved in the situation?</p>
+                                  <q-btn class="on-left" outline rounded color="yellowbrand" label="Left" />
+                                  <q-btn class="on-right" outline rounded color="yellowbrand" label="Right" />
+                                  <br><br>
                             <p>Give your peer on the left some constructive feedback: Compared to the righthand submission, what does the lefthand submission do well?</p>
-                            <div style="width:402px"><q-input dark placeholder="Input Text Here" /></div>
+                            <div style="max-width:402px"><q-input dark placeholder="Input Text Here" /></div>
                         </div>
                     </q-card>
                 </div>
@@ -2396,14 +2414,16 @@ const PeerReview = {
                 </div>
                 
                 <div class="col-4">
-                    <q-card flat color="brand" text-color="lightbrand" style="height:285px">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:300px">
                         <div style="padding:2em;">
                             <p>Does the submission provide a clear rationale for delegating or not delegating each task?</p>
+                            <q-icon class="on-left" name="check_circle_outline" color="posbrand" size="30px" />
+                            <q-icon class="on-right" name="highlight_off" color="negbrand" size="30px"/>
                         </div>
                     </q-card>
                 </div>
                 <div class="col-4">
-                    <q-card flat color="white" text-color="secbrand" style="height:285px">
+                    <q-card flat color="white" text-color="secbrand" style="height:300px">
                         <div style="padding:2em;">
                             <p><strong> For each task, decide whether to delegate the task or do it yourself.
                             Specify when you will delegate or do the task. Provide a clear rationale for each decision.
@@ -2416,7 +2436,7 @@ const PeerReview = {
                     </q-card>
                 </div>
                 <div class="col-4">
-                    <q-card flat color="grey-4" text-color="secbrand" style="height:285px">
+                    <q-card flat color="grey-4" text-color="secbrand" style="height:300px">
                         <div style="padding:2em;">
                             <p><strong>For each task, decide whether to delegate the task or do it yourself.
                             Specify when you will delegate or do the task. Provide a clear rationale for each decision.
@@ -2440,7 +2460,6 @@ const PeerReview = {
                             @click="$router.push('/dashboard')"
                             style="background: #e9d985;
                             color: #605f5e;"
-                            :disable="dgdefinput === ''"
                             label="Save & Submit"></q-btn>
                     <br>
                     </div>
