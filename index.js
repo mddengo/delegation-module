@@ -1289,13 +1289,11 @@ const Dashboard = {
                                 <q-item-side right><q-item-main label="Availability" /></q-item-side>
                                 </q-item>
                                 <q-item>
-                                    <q-item-side>
                                         <q-collapsible icon="explore" label="Fierce Negotiation">
                                         <div>
                                             Content
                                         </div>
                                         </q-collapsible>
-                                    </q-item-side>
                                     <q-item-main label="15-112" />
                                     <q-item-side right>
                                         <q-item-main>
@@ -2022,6 +2020,7 @@ const CaseStudy = {
             />
             <p @click="$router.push('/modules')" class="float-right cursor-pointer" style="color: #496c94;">Go Back to Module</p>
             <br><br>
+            <h3 style="text-align:center;">Case Study</h3>
             <div class="row gutter-y-lg" style="margin: 0 auto;">
                 <div class="col-5">
                     <q-card flat color="brand" text-color="lightbrand" style="height:285px;">
@@ -2142,6 +2141,7 @@ const CaseStudy = {
                     color: #605f5e;"
                     label="Save"></q-btn>
                 <q-btn
+                    @click="$router.push('/dashboard')"
                     style="background: #e9d985;
                     color: #605f5e;"
                     label="Save & Continue"></q-btn>
@@ -2172,6 +2172,7 @@ const CaseStudy = {
 const Feedback = {
     template: `
         <div class="feedback">
+            <h3 style="text-align:center;">Peer Feedback</h3>
                 <q-list style="background-color:#496c94; color:#f0f3f6;">
                     <q-collapsible opened label="Chapter 1: Intro to Delegation">
                     <div>
@@ -2448,6 +2449,21 @@ const PeerReview = {
                         </div>
                     </q-card>
                 </div>
+                
+                <div>
+                <q-modal v-model="submit" style="font-family:'Dosis', sans-serif;">
+                    <div style="font-size:30px;max-height:400px;max-width:500px;text-align:left;padding:2em;">
+                        <p>Thank you.</p>
+                        <p>Your assignment has been submitted.</p>
+                        <br>
+                        <q-btn
+                            @click="$router.push('/dashboard')"
+                            style="background:#e9d985;
+                                color:#605f5e;"
+                                label="Go Back to My Dashboard" />
+                    </div>
+                </q-modal>
+                </div>
 </div>
                     <div class="fixed-bottom-right save-buttons">
                     <br>
@@ -2457,7 +2473,7 @@ const PeerReview = {
                             color: #605f5e;"
                             label="Save"></q-btn>
                         <q-btn
-                            @click="$router.push('/dashboard')"
+                            @click="submitToggle"
                             style="background: #e9d985;
                             color: #605f5e;"
                             label="Save & Submit"></q-btn>
@@ -2508,6 +2524,7 @@ const PeerReview = {
             '2. Delegate, but also observe the colleague while he is analyzing balance sheets. \n' +
             '\n' +
             '3. Creating report - do myself',
+            submit: false,
         }
     },
     methods: {
@@ -2520,6 +2537,9 @@ const PeerReview = {
                 position: 'bottom',
                 timeout: 3000
             });
+        },
+        submitToggle () {
+            this.submit = true;
         },
     }
 };
