@@ -292,7 +292,7 @@ const Assessment = {
                                 Chapter 1
                             </q-item>
                                 <q-item>
-                                    <q-item-main>Welcome to Delegation Module</q-item-main>
+                                    <q-item-main>Welcome to the Delegation Module</q-item-main>
                                     <q-item-side right>
                                         <q-radio />
                                     </q-item-side>
@@ -333,7 +333,7 @@ const Assessment = {
              flat round dense
              icon="menu"
             />
-            <p @click="$router.push('/modules')" class="float-right cursor-pointer" style="color: #496c94;">Go Back to Module</p>
+            <p @click="$router.push('/modules')" class="float-right cursor-pointer" style="color: #496c94;">Return to Course</p>
             <br><br>
             <div class="mod3a" v-if="ass3a">
                 <div class="row">
@@ -1011,7 +1011,7 @@ const Assessment = {
                                 <p style="font-size:30px;font-family:'Dosis',sans-serif;">Defining Delegation</p>
                                 <p style="font-size:17px;">Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
                                     <div style="max-width:379px; font-size:17.5px;">
-                                        <q-input v-model="dgdefinput" placeholder="Input Text Here" />
+                                        <q-input dark v-model="dgdefinput" placeholder="Input Text Here" />
                                     </div>
                             </q-card-main>
                         </q-card>
@@ -1280,7 +1280,7 @@ const Dashboard = {
             <div class="row gutter-sm">
                 <div class="col-8">
                     <q-card flat color="white" text-color="#496c94" style="min-height:350px;">
-                        <q-card-title>Learning Module</q-card-title>
+                        <q-card-title>Learning Modules</q-card-title>
                         <q-card-main>
                             <q-list style="font-family:'Lato', sans-serif;">
                                 <q-item style="font-family:Dosis, sans-serif;font-weight:bold;font-variant-caps:all-small-caps;">
@@ -1819,7 +1819,7 @@ const DgLog = {
                     style="
                     padding-top:1em;
                     font-size:24px;">
-                    In the following steps as a delegator, which have you completed? If yes, what did you do?</p>
+                    For the steps you completed, what did you do?</p>
                     </div>
                     </q-card>
                 </div>
@@ -2018,7 +2018,7 @@ const CaseStudy = {
              flat round dense
              icon="menu"
             />
-            <p @click="$router.push('/modules')" class="float-right cursor-pointer" style="color: #496c94;">Go Back to Module</p>
+            <p @click="$router.push('/modules')" class="float-right cursor-pointer" style="color: #496c94;">Return to Course</p>
             <br><br>
             <h3 style="text-align:center;">Case Study</h3>
             <div class="row gutter-y-lg" style="margin: 0 auto;">
@@ -2239,7 +2239,7 @@ const Feedback = {
 const PeerReview = {
     template: `
         <div class="peer-review">
-            <div @click="$router.push('/modules')" class="cursor-pointer" style="font-family:'Dosis',sans-serif;font-size:18px;padding-left:5em;">Back to Module</div>
+            <div @click="$router.push('/modules')" class="cursor-pointer" style="font-family:'Dosis',sans-serif;font-size:18px;padding-left:5em;">Return to Course</div>
             <br>
             <div class="row gutter-y-md" style="font-size:17px">
                 <div class="col-4" style="font-family:'Dosis',sans-serif;font-size:30px;text-align:center;">Reviewing Criteria</div>
