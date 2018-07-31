@@ -28,6 +28,12 @@
 .bg-yellowbrand {
     color: #e9d985;
 }
+.text-greybrand {
+    color: #b9b9b9;
+}
+.bg-greybrand {
+    color: #b9b9b9;
+}
 
 html, body {
     min-height:100vh;
@@ -212,9 +218,29 @@ html, body {
     padding-bottom: 5em;
 }
 
-.dglog .container {
-}
-
 .dglog h1,h2,h3,h4,h5,h6 {
     font-family: 'Dosis', sans-serif;
+}
+
+.casestudy {
+    background-color: #f0f3f6;
+    min-height: 100vh;
+    padding: 5em 3em 5em 3em;
+    font-family: 'Lato', sans-serif;
+}
+.feedback {
+    background-color: #f0f3f6;
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    padding-top: 8em;
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+.peer-review {
+    background-color: #f0f3f6;
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    padding-top: 8em;
+    padding-bottom:5em;
 }

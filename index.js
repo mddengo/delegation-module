@@ -57,7 +57,7 @@ const Modules = {
                             font-family:'Lato', sans-serif;" 
                         label="Start Chapter 1"></q-btn>
                     <div class="float-right" wait-for-ripple style="width: 400px; max-width:666px;font-family:'Lato', sans-serif;">
-                        <div class="float-left" style="font-size:small;">0 out of 4 Modules Complete</div>
+                        <div class="float-left" style="font-size:small;">0 out of 4 Chapters Complete</div>
                         <q-icon class="float-right" name="school" />
                         <q-progress :percentage="progress" color="#707070" width="666px" height="20px" />
                     </div>
@@ -286,10 +286,10 @@ const Assessment = {
             <q-layout-drawer overlay behavior="mobile" side="left" v-model="left" style="width:380px;">
                 <q-list separator>
                     <q-item style="color:#496c94;font-size:25px;">
-                        Module List
+                        Chapter List
                     </q-item>
-                            <q-item @click="clickToggle" class="cursor-pointer" style="background-color:#496c94;color:#f0f3f6;">
-                                Module 1
+                            <q-item class="cursor-pointer" style="background-color:#496c94;color:#f0f3f6;">
+                                Chapter 1
                             </q-item>
                                 <q-item>
                                     <q-item-main>Welcome to Delegation Module</q-item-main>
@@ -316,13 +316,13 @@ const Assessment = {
                                     </q-item-side>
                                 </q-item>
                             <q-item style="background-color:white;color:#496c94;">
-                                Module 2
+                                Chapter 2
                             </q-item>
                             <q-item style="background-color:white;color:#496c94;">
-                                Module 3
+                                Chapter 3
                             </q-item>
                             <q-item style="background-color:white;color:#496c94;">
-                                Module 4
+                                Chapter 4
                             </q-item>
                 </q-list>
             </q-layout-drawer>
@@ -356,7 +356,7 @@ const Assessment = {
                                 <p>1. Think of the tasks for which you are responsible for completing on the job. Which tasks can you complete on your own? Which tasks should you delegate?</p>
                                 <p>Below, enter a task that you would like to delegate.</p>
                                 <div style="max-width:400px;">
-                                    <q-input float-label="Input Text Here" v-model="dgTask" />
+                                    <q-input placeholder="Input Text Here" v-model="dgTask" />
                                 </div>
                                 <br><br><br><br>
                             </q-card-main>
@@ -596,7 +596,7 @@ const Assessment = {
                             color: #605f5e;"
                             label="Save"></q-btn>
                         <q-btn
-                            @click="ass3cToggle"
+                            @click="$router.push('/dashboard')"
                             style="background: #e9d985;
                             color: #605f5e;"
                             :disable="dgEmailTask.length < 5"
@@ -766,7 +766,7 @@ const Assessment = {
                     <!--color: #605f5e;"-->
                     <!--label="Save"></q-btn>-->
                 <q-btn
-                    @click="ass3fToggle"
+                    @click="$router.push('/dashboard')"
                     style="background: #e9d985;
                     color: #605f5e;"
                     label="Save & Continue"></q-btn>
@@ -1011,7 +1011,7 @@ const Assessment = {
                                 <p style="font-size:30px;font-family:'Dosis',sans-serif;">Defining Delegation</p>
                                 <p style="font-size:17px;">Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
                                     <div style="max-width:379px; font-size:17.5px;">
-                                        <q-input v-model="dgdefinput" float-label="Input Text Here" />
+                                        <q-input v-model="dgdefinput" placeholder="Input Text Here" />
                                     </div>
                             </q-card-main>
                         </q-card>
@@ -1027,16 +1027,16 @@ const Assessment = {
                                     <li>As a senior, it is your responsibility to make sure the work is completed.</li>
                                     <li>When you delegate a task, you share responsibility with the delegatee in completing that task.</li>
                                 </ul>
+                                <p style="color:#496c94">Authority</p>
+                                <p>Refers to the right to act and make decisions. Successful delegation requires authority equal to the responsibility.</p>
+                                <ul>
+                                    <li>As a leader, you are still accountable for the work. You have the right to check the work and determine if it is satisfactory.</li>
+                                </ul>
                                 <p style="color:#496c94">Accountability</p>
                                 <p>Refers to being answerable for the end result. It also implies consequences.</p>
                                 <ul>
                                     <li>Although you share responsibility of a task when you delegate it,
                                     you are still held accountable for its completion, just as you must hold the delegatee accountable.</li>
-                                </ul>
-                                <p style="color:#496c94">Authority</p>
-                                <p>Refers to the right to act and make decisions. Successful delegation requires authority equal to the responsibility.</p>
-                                <ul>
-                                    <li>As a leader, you are still accountable for the work. You have the right to check the work and determine if it is satisfactory.</li>
                                 </ul>
                             </q-card-main>
                         </q-card>
@@ -1720,7 +1720,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Focus on what is important for you to do personally, not just the urgent.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input1" float-label="Input Text Here" />
+                                    <q-input v-model="input1" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1733,7 +1733,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Clarify the responsibility and results intended.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input2" float-label="Input Text Here" />
+                                    <q-input v-model="input2" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1745,7 +1745,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Select appropriate person taking into account developmental needs.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input3" float-label="Input Text Here" />
+                                    <q-input v-model="input3" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1757,7 +1757,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate level of authority and accountability.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input4" float-label="Input Text Here" />
+                                    <q-input v-model="input4" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1769,7 +1769,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate the checkpoints.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input5" float-label="Input Text Here" />
+                                    <q-input v-model="input5" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1781,7 +1781,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Create a motivating environment.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input6" float-label="Input Text Here" />
+                                    <q-input v-model="input6" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1793,7 +1793,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Make sure the person is held accountable for these results.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input7" float-label="Input Text Here" />
+                                    <q-input v-model="input7" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-2">
@@ -1834,7 +1834,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Focus on what is important for you to do personally, not just the urgent.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input1" float-label="Input Text Here" />
+                                    <q-input v-model="input1" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1850,7 +1850,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Clarify the responsibility and results intended.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input2" float-label="Input Text Here" />
+                                    <q-input v-model="input2" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1865,7 +1865,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Select appropriate person taking into account developmental needs.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input3" float-label="Input Text Here" />
+                                    <q-input v-model="input3" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1880,7 +1880,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate level of authority and accountability.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input4" float-label="Input Text Here" />
+                                    <q-input v-model="input4" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1895,7 +1895,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Communicate the checkpoints.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input5" float-label="Input Text Here" />
+                                    <q-input v-model="input5" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1910,7 +1910,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Create a motivating environment.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input6" float-label="Input Text Here" />
+                                    <q-input v-model="input6" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -1925,7 +1925,7 @@ const DgLog = {
                             <div class="col-10">
                                 <p>Make sure the person is held accountable for these results.</p>
                                 <div style="max-width:400px;">
-                                    <q-input v-model="input7" float-label="Input Text Here" />
+                                    <q-input v-model="input7" placeholder="Input Text Here" />
                                 </div>
                             </div>
                             <div class="col-1">
@@ -2009,17 +2009,501 @@ const DgLog = {
 };
 
 /**
- *  Peer Review
+ * Case Study
+ */
+const CaseStudy = {
+    template: `
+        <div class="casestudy">
+            <q-btn
+            class="float-left"
+             style="color: #496c94;"
+             flat round dense
+             icon="menu"
+            />
+            <p @click="$router.push('/modules')" class="float-right cursor-pointer" style="color: #496c94;">Go Back to Module</p>
+            <br><br>
+            <div class="row gutter-y-lg" style="margin: 0 auto;">
+                <div class="col-5">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:285px;">
+                        <q-card-main style="font-size:17px;padding-top:3em;padding-left:3em;padding-right:3em;">
+                            <p>In this section, please describe at least three criteria that make a task
+                            important for you to do personally (50-100 words).</p>
+                        </q-card-main>
+                    </q-card>
+                </div>
+                <div class="col-7">
+                    <q-card flat color="white" text-color="secbrand" style="height:285px;">
+                        <q-card-main style="font-size:20px;padding-top:3em;padding-left:3em;padding-right:3em;">
+                            <p>In this section, please describe at least three criteria
+                            that make a task important for you to do personally (50-100 words).</p>
+                                <div style="max-width:544px;font-size:17px">
+                                    <q-input placeholder="Input Text Here" />
+                                </div>
+                        </q-card-main>
+                    </q-card>
+                </div>
+                
+                <div class="col-5">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:800px;">
+                        <q-card-main style="line-height:1.5em;padding-top:3em;padding-left:3em;padding-right:3em;font-size:17px;">
+                            <p>You have two options:</p>
+                            <ol>
+                                <li>Describe (100-150 words) a challenging situation you have encountered or may encounter
+                                on the job with:</li>
+                                    <ul>
+                                        <li>Three or more tasks to be done</li> 
+                                        <li>Two or more different deadlines</li>
+                                        <li>Two or more people (including yourself)
+                                        responsible and/or accountable for the tasks</li>
+                                    </ul>
+                                <li>Use the following situation:</li>
+                                    <ul>
+                                        <li>As an employee with two years of experience in investment banking, you have been made
+                                        responsible for conducting financial analyses of a company and creating reports of your findings.</li>
+                                        <li>You are good at analyzing income statements and cash flows, but you are not confident
+                                        about analyzing balance sheets. Three months from now, you will be taking a
+                                        certification exam where your financial analysis skills will be tested.</li>
+                                        <li>You know a recently hired employee who is good at financial analysis and
+                                        who has expressed interest to work with you. The typical time allocated for financial analysis
+                                        at your organization is seven days. You are required to complete the task in ten days.</li>
+                                    </ul>
+                            </ol>
+                        </q-card-main>
+                    </q-card>
+                </div>
+                <div class="col-7">
+                    <q-card flat color="white" text-color="secbrand" style="height:800px;">
+                        <q-card-main style="font-size:20px;padding-top:3em;padding-left:3em;padding-right:3em;">
+                            <p>Select a delegating situation to analyze, and describe why you selected this situation.</p>
+                                <div style="max-width:544px;font-size:17px;">
+                                    <q-input placeholder="Input Text Here" />
+                                </div>
+                           <br>
+                            <p style="padding-top:3em;">If you chose to describe your own situation,
+                            please input some tags that relate to the situation. </p>
+                                <div style="max-width:544px;font-size:17px;">
+                                    <q-chips-input
+                                    color="brand"
+                                    chips-color="brand"
+                                    chips-bg-color="lightbrand"
+                                    v-model="model" placeholder="Type Tags & Press Enter to Input" />
+
+                                </div>
+                        </q-card-main>
+                    </q-card>
+                </div>
+                
+                <div class="col-5">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:285px;">
+                        <q-card-main style="font-size:17px;padding-top:3em;padding-left:3em;padding-right:3em;">
+                            <p>Identify all tasks in the selected situation and classify them according to importance and urgency.
+                            Explain why you classified each task accordingly (75-150 words).</p>
+                        </q-card-main>
+                    </q-card>
+                </div>
+                <div class="col-7">
+                    <q-card flat color="white" text-color="secbrand" style="height:285px;">
+                        <q-card-main style="font-size:20px;padding-top:3em;padding-left:3em;padding-right:3em;">
+                            <p>Identify all tasks in the selected situation and classify them according to importance and urgency.
+                            Explain why you classified each task accordingly (75-150 words).</p>
+                                <div style="max-width:544px;font-size:17px">
+                                    <q-input placeholder="Input Text Here" />
+                                </div>
+                        </q-card-main>
+                    </q-card>
+                </div>
+                
+                <div class="col-5">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:325px;">
+                        <q-card-main style="font-size:17px;padding-top:3em;padding-left:3em;padding-right:3em;">
+                            <p> For each task, decide whether to delegate the task or do it yourself.
+                            Specify when you will delegate or do the task. Provide a clear rationale for each decision.
+                            (You can refer to your previous classifications.) </p>
+                        </q-card-main>
+                    </q-card>
+                </div>
+                <div class="col-7">
+                    <q-card flat color="white" text-color="secbrand" style="height:325px;">
+                        <q-card-main style="font-size:20px;padding-top:3em;padding-left:3em;padding-right:3em;">
+                            <p> For each task, decide whether to delegate the task or do it yourself.
+                            Specify when you will delegate or do the task. Provide a clear rationale for each decision.
+                            (You can refer to your previous classifications.) </p>
+                                <div style="max-width:544px;font-size:17px">
+                                    <q-input placeholder="Input Text Here" />
+                                </div>
+                        </q-card-main>
+                    </q-card>
+                </div>
+</div>
+                    <div class="fixed-bottom-right save-buttons">
+                <q-btn
+                    @click="saved"
+                    style="background: #e9d985;
+                    color: #605f5e;"
+                    label="Save"></q-btn>
+                <q-btn
+                    style="background: #e9d985;
+                    color: #605f5e;"
+                    label="Save & Continue"></q-btn>
+                    </div>
+</div>`,
+    data: function () {
+        return {
+            model: [],
+        }
+    },
+    methods: {
+        saved () {
+            this.$q.notify({
+                color: 'posbrand',
+                textColor: 'white',
+                icon: 'check',
+                message: 'Progress Saved',
+                position: 'bottom',
+                timeout: 3000
+            });
+        },
+    }
+}
+
+/**
+ * Feedback
+ */
+const Feedback = {
+    template: `
+        <div class="feedback">
+                <q-list style="background-color:#496c94; color:#f0f3f6;">
+                    <q-collapsible opened label="Chapter 1: Intro to Delegation">
+                    <div>
+                        <q-list separator style="background-color: white; color: #605f5e">
+                            <q-item>
+                                <q-item-main label="Reviewer 1 evaluated your submission in comparison to submission A" />
+                                <q-item-side right>
+                                    <q-icon name="keyboard_arrow_right" color="brand" />
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-main label="Reviewer 2 evaluated your submission in comparison to submission B" />
+                                <q-item-side right>
+                                    <q-icon name="keyboard_arrow_right" color="brand" />
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-main label="Reviewer 3 evaluated your submission in comparison to submission C" />
+                                <q-item-side right>
+                                    <q-icon name="keyboard_arrow_right" color="brand" />
+                                </q-item-side>
+                            </q-item>
+                            <q-item>
+                                <q-item-main label="Reviewer 4 evaluated your submission in comparison to submission D"/>
+                                <q-item-side right>
+                                    <q-icon name="keyboard_arrow_right" color="brand" />
+                                </q-item-side>
+                            </q-item>
+                        </q-list>
+                    </div>
+                    </q-collapsible>
+                </q-list>
+                <br>
+                <q-list style="background-color:white; color:#496c94;">
+                    <q-collapsible label="Chapter 2: Benefits & Challenges of Delegation">
+                    <div>
+                        Content
+                    </div>
+                    </q-collapsible>
+                </q-list>
+                <br>
+                <q-list style="background-color:white;color:#496c94">
+                    <q-collapsible label="Chapter 3: Rules of Delegation">
+                    <div>
+                        Content
+                    </div>
+                    </q-collapsible>
+                </q-list>
+                <br>
+                <q-list style="background-color:white;color:#496c94">
+                    <q-collapsible label="Chapter 4: Purpose of Task">
+                    <div>
+                        Content
+                    </div>
+                    </q-collapsible>
+                </q-list>
+            
+</div>`,
+}
+
+/**
+ * Peer Review
  */
 const PeerReview = {
     template: `
-        <div class="peer-review"></div>`,
+        <div class="peer-review">
+            <div class="row gutter-y-md" style="font-size:17px">
+                <div class="col-4" style="font-family:'Dosis',sans-serif;font-size:30px;text-align:center;">Reviewing Criteria</div>
+                <div class="col-4" style="font-family:'Dosis',sans-serif;font-size:30px;text-align:center;">Review this Submission</div>
+                <div class="col-4" style="font-family:'Dosis',sans-serif;font-size:30px;text-align:center;">In Comparison to This Submission</div>
+                
+                <div class="col-4">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:285px">
+                        <div style="padding:2em">
+                            <p>Does the submission clearly describe at least three criteria to evaluate the
+                        importance of personally doing a task?</p>
+                        </div>
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="white" text-color="secbrand" style="height:285px">
+                        <div style="padding: 2em">
+                            <p><strong>In this section, please describe at least three criteria that make a task important
+                            for you to do personally (50-100 words).</strong></p>
+                            <br><br>
+                            <div style="max-width:544px">
+                                <q-input v-model="one" type="textarea" color="brand"/>
+                            </div>
+                        </div>
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="grey-4" text-color="secbrand" style="height:285px">
+                        <div style="padding:2em;">
+                            <p><strong>In this section, please describe at least three criteria that make a task important
+                            for you to do personally (50-100 words).</strong></p>
+                            <br><br>
+                            <div style="max-width:544px">
+                                <q-input v-model="two" type="textarea" color="brand" :max-height="63" />
+                            </div>
+                        </div>
+                    </q-card>
+                </div>
+                
+                <div class="col-4">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:587px">
+                        <div style="padding:2em">
+                            <p>Does the submission select an on-the-job situation and clearly explain why they selected this situation?</p>
+                            <p>Is the selected situation challenging?</p>
+                            <p>Does the selected situation involve 2 or more different deadlines?</p>
+                            <p>Does the selected situation involve 2 or more people responsible and/or accountable for the tasks?</p>
+                        </div>
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="white" text-color="secbrand" style="min-height:587px">
+                        <div style="padding:2em;">
+                        <q-list style="font-weight:bold;width=688px">
+                            <q-collapsible label="Select a delegating situation to analyze, and describe why you selected this situation. You have two options:">
+                                <div>
+                            <ol>
+                                <li>Describe (100-150 words) a challenging situation you have encountered or may encounter
+                                on the job with:</li>
+                                    <ul>
+                                        <li>Three or more tasks to be done</li> 
+                                        <li>Two or more different deadlines</li>
+                                        <li>Two or more people (including yourself)
+                                        responsible and/or accountable for the tasks</li>
+                                    </ul>
+                                <li>Use the following situation:</li>
+                                    <ul>
+                                        <li>As an employee with two years of experience in investment banking, you have been made
+                                        responsible for conducting financial analyses of a company and creating reports of your findings.</li>
+                                        <li>You are good at analyzing income statements and cash flows, but you are not confident
+                                        about analyzing balance sheets. Three months from now, you will be taking a
+                                        certification exam where your financial analysis skills will be tested.</li>
+                                        <li>You know a recently hired employee who is good at financial analysis and
+                                        who has expressed interest to work with you. The typical time allocated for financial analysis
+                                        at your organization is seven days. You are required to complete the task in ten days.</li>
+                                    </ul>
+                            </ol>
+                                </div>
+                            </q-collapsible>
+                        </q-list>
+                        <br><br>
+                        <div style="max-width:544px;text-align:center;">
+                            <q-input v-model="three" type="textarea" color="brand" :max-height="325" />
+                        </div>
+                        </div>
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="grey-4" text-color="secbrand" style="min-height:587px">
+                        <div style="padding:2em;">
+                        <q-list style="font-weight:bold">
+                            <q-collapsible label="Select a delegating situation to analyze, and describe why you selected this situation. You have two options:">
+                                <div>
+                            <ol>
+                                <li>Describe (100-150 words) a challenging situation you have encountered or may encounter
+                                on the job with:</li>
+                                    <ul>
+                                        <li>Three or more tasks to be done</li> 
+                                        <li>Two or more different deadlines</li>
+                                        <li>Two or more people (including yourself)
+                                        responsible and/or accountable for the tasks</li>
+                                    </ul>
+                                <li>Use the following situation:</li>
+                                    <ul>
+                                        <li>As an employee with two years of experience in investment banking, you have been made
+                                        responsible for conducting financial analyses of a company and creating reports of your findings.</li>
+                                        <li>You are good at analyzing income statements and cash flows, but you are not confident
+                                        about analyzing balance sheets. Three months from now, you will be taking a
+                                        certification exam where your financial analysis skills will be tested.</li>
+                                        <li>You know a recently hired employee who is good at financial analysis and
+                                        who has expressed interest to work with you. The typical time allocated for financial analysis
+                                        at your organization is seven days. You are required to complete the task in ten days.</li>
+                                    </ul>
+                            </ol>
+                                </div>
+                            </q-collapsible>
+                        </q-list>
+                        <br><br>
+                            <div style="max-width:544px">
+                                <q-input v-model="four" type="textarea" color="brand" :max-height="325" />
+                            </div>
+                        </div>
+                    </q-card>
+                </div>
+                
+                <div class="col-4">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:324px">
+                        <div style="padding:2em">
+                            <p>Which submission does a better job identifying the tasks involved in the situation?</p>
+                            <p>Give your peer on the left some constructive feedback: Compared to the righthand submission, what does the lefthand submission do well?</p>
+                            <div style="width:402px"><q-input dark placeholder="Input Text Here" /></div>
+                        </div>
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="white" text-color="secbrand" style="height:324px">
+                        <div style="padding:2em">
+                            <p><strong>Identify all tasks in the selected situation and classify them according to importance and urgency.
+                            Explain why you classified each task accordingly (75-150 words).</strong></p>
+                            <br><br>
+                            <div style="max-width:544px">
+                                <q-input v-model="five" type="textarea" color="brand" :max-height="114" />
+                            </div>
+                        </div>
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="grey-4" text-color="secbrand" style="height:324px">
+                        <div style="padding:2em;">
+                            <p><strong>Identify all tasks in the selected situation and classify them according to importance and urgency.
+                            Explain why you classified each task accordingly (75-150 words).</strong></p>
+                            <br><br>
+                            <div style="max-width:544px">
+                                <q-input v-model="six" type="textarea" color="brand" :max-height="114" />
+                            </div>
+                        </div>
+                    </q-card>
+                </div>
+                
+                <div class="col-4">
+                    <q-card flat color="brand" text-color="lightbrand" style="height:285px">
+                        <div style="padding:2em;">
+                            <p>Does the submission provide a clear rationale for delegating or not delegating each task?</p>
+                        </div>
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="white" text-color="secbrand" style="height:285px">
+                        <div style="padding:2em;">
+                            <p><strong> For each task, decide whether to delegate the task or do it yourself.
+                            Specify when you will delegate or do the task. Provide a clear rationale for each decision.
+                            (You can refer to your previous classifications.) </strong></p>
+                            <br><br>
+                            <div style="max-width:544px">
+                                <q-input v-model="two" type="textarea" color="brand" :max-height="63" />
+                            </div>
+                        </div>
+                    </q-card>
+                </div>
+                <div class="col-4">
+                    <q-card flat color="grey-4" text-color="secbrand" style="height:285px">
+                        <div style="padding:2em;">
+                            <p><strong>For each task, decide whether to delegate the task or do it yourself.
+                            Specify when you will delegate or do the task. Provide a clear rationale for each decision.
+                            (You can refer to your previous classifications.)</strong></p>
+                         <br><br>
+                            <div style="max-width:544px;text-align:center;">
+                                <q-input v-model="seven" type="textarea" color="brand" :max-height="63" />
+                            </div>
+                        </div>
+                    </q-card>
+                </div>
+</div>
+                    <div class="fixed-bottom-right save-buttons">
+                    <br>
+                        <q-btn
+                            @click="saved"
+                            style="background: #e9d985;
+                            color: #605f5e;"
+                            label="Save"></q-btn>
+                        <q-btn
+                            @click="$router.push('/dashboard')"
+                            style="background: #e9d985;
+                            color: #605f5e;"
+                            :disable="dgdefinput === ''"
+                            label="Save & Submit"></q-btn>
+                    <br>
+                    </div>
+</div>`,
     data: function () {
         return {
-
+            one: 'Tasks that can offer genuine learning opportunities; tasks that can showcase my skills; tasks that I enjoy doing.',
+            two: '1. Outside expectations - if my superiors expect me to do this task for them personally (because they do not yet know those working under me, for example) then I will do that for them personally.\n' +
+            '\n' +
+            '2. Urgency\n' +
+            '\n' +
+            '3. Whether the task can be split up and delegated or if it really is complex and requires the same person to be in charge of the entire thing.',
+            three: 'Option 1:\n' +
+            '\n' +
+            'My situation included balancing my thesis project and two internship projects at the same time. \n' +
+            '\n' +
+            'Thesis was supposed to be submitted for review in mid November, but I was very behind at the beginning of November. My first internship is wrapping up a final project report at the end of November, and requires a big time commitment from me. My second internship is relatively relaxing but still required me 3 workdays a week. \n' +
+            '\n' +
+            'I was accountable for my thesis project, I needed to submit my draft so that my advisor can revise it and make sure that it would be presentable by beginning of December. I was also responsible for drafting a major section of the project report for my first internship, where my supervisors were responsible to put all sections together for review and submission.\n' +
+            '\n' +
+            'I selected this situation because it was a real situation and it was quite challenging for me at the time. ',
+            four: 'I will select situation 2. \n' +
+            '\n' +
+            'I have not encountered the type of situation described in "1" in my current job.',
+            five: 'Task 1: write up the thesis (high importance, high urgency)\n' +
+            '\n' +
+            'Task 2: proofread the thesis to check for errors (low importance, high urgency)\n' +
+            '\n' +
+            'Task 3: analyzing data for the project report for internship 1 (high importance, high urgency)\n' +
+            '\n' +
+            'Task 4: write up the results for the report for internship 1 (high importance, medium urgency)\n' +
+            '\n' +
+            'Task 5: keep up with daily tasks for internship 2 (medium importance, low urgency)',
+            six: '1. Reaching out to colleague who is good at financial analysis. - Important and urgent \n' +
+            '\n' +
+            '2. Conducting financial analyses = three subtasks - all equally important and somewhat urgent\n' +
+            '\n' +
+            'analyzing income statements,\n' +
+            'analyzing cash flows,\n' +
+            '\n' +
+            'analyzing balance sheets\n' +
+            '\n' +
+            '3.  Creating the report. Important, not urgent because the other things are required first. ',
+            seven: '1. Reach out to colleague - do it myself. I cannot delegate this to someone else because I am asking for this favor on behalf of myself. \n' +
+            '\n' +
+            '2. Delegate, but also observe the colleague while he is analyzing balance sheets. \n' +
+            '\n' +
+            '3. Creating report - do myself',
         }
     },
-}
+    methods: {
+        saved () {
+            this.$q.notify({
+                color: 'posbrand',
+                textColor: 'white',
+                icon: 'check',
+                message: 'Progress Saved',
+                position: 'bottom',
+                timeout: 3000
+            });
+        },
+    }
+};
 
 /**
  * ROUTER SECTION
@@ -2033,6 +2517,8 @@ const routes = [
     { path: '/skip', name: 'Skip', component: Skip },
     { path: '/assessment', name: 'Assessment', component: Assessment },
     { path: '/instruction', name: 'Instruction', component: Instruction },
+    { path: '/casestudy', name: 'Case Study', component: CaseStudy},
+    { path: '/feedback', name: 'Feedback Tree', component: Feedback},
     { path: '/peerreview', name: 'Peer Review', component: PeerReview},
     { path: '/dglog', name: 'Delegation Log', component: DgLog},
 ];
