@@ -2114,7 +2114,7 @@ const DgLog = {
                 color: 'posbrand',
                 textColor: 'white',
                 icon: 'check',
-                message: 'Saved',
+                message: 'Progress Saved',
                 position: 'bottom',
                 timeout: 3000
             });
