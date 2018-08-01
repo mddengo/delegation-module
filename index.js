@@ -2116,7 +2116,7 @@ const DgLog = {
                 icon: 'check',
                 message: 'Progress Saved',
                 position: 'bottom',
-                timeout: 3000
+                timeout: 3000,
             });
         },
         afterPlanToggle() {
