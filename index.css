@@ -53,8 +53,8 @@ html, body {
 
 .login {
     position: absolute;
-    top: 30%;
-    left: 35%;
+    top: 40%;
+    left: 40%;
     margin-left:-50px;
     margin-top:-50px;
     font-family: 'Lato', sans-serif;
@@ -247,5 +247,14 @@ html, body {
     font-family: 'Lato', sans-serif;
     padding-top: 8em;
     padding-bottom:5em;
+    color: #496c94;
+}
+
+.dgtask {
+    background-color: #f0f3f6;
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    padding-top: 8em;
+    padding-bottom: 5em;
     color: #496c94;
 }
