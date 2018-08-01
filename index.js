@@ -1804,6 +1804,19 @@ const DgLog = {
                         </div>
                 </q-card>
             </div>
+                    <div class="fixed-bottom-right save-buttons">
+                        <q-btn
+                        @click="saved"
+                        style="background: #e9d985;
+                        color: #605f5e;"
+                        label="Save"></q-btn>
+                        <q-btn
+                        @click="afterPlanToggle"
+                        style="background: #e9d985;
+                        color: #605f5e;"
+                        :disable="inputCheck"
+                        label="Save & Continue"></q-btn>
+                    </div>
         </div>
         
             <div class="row" v-else-if="planselect === 'reflect'">
@@ -1936,17 +1949,6 @@ const DgLog = {
                         </div>
                 </q-card>
             </div>
-        </div>
-        
-            <div>
-                <q-modal v-model="reminder">
-                    <div style="width:868px;text-align:center;">
-                        <router-link to="/dgtask">
-                            <img src="assets/Calendar@2x.jpg" width="100%">
-                        </router-link>
-                    </div>
-                </q-modal>
-            </div>
                     <div class="fixed-bottom-right save-buttons">
                         <q-btn
                         @click="saved"
@@ -1959,14 +1961,119 @@ const DgLog = {
                         :disable="inputCheck"
                         label="Save & Continue"></q-btn>
                     </div>
+        </div>
+        
+            <div>
+                <q-modal v-model="reminder">
+                    <div class="cursor-pointer" style="width:868px;text-align:center;">
+                        <img src="assets/Calendar@2x.jpg" width="100%" @click="dgTaskToggle">
+                    </div>
+                </q-modal>
+                
+                <q-modal v-model="dgTask">
+                    <q-card flat color="white" text-color="secbrand" style="min-width:570px;max-width:828px;margin:0 auto;">
+                        <div>
+                            <h4 style="padding-left:2em;">Delegation of Deliverable Task</h4>
+                            <q-card-main>
+                            <q-list style="font-family:'Lato', sans-serif;">
+                                <q-item style="font-family:Dosis, sans-serif;font-weight:bold;font-variant-caps:all-small-caps;">
+                                <q-item-main label="Subtask Name" />
+                                <q-item-main label="Delegatee" />
+                                <q-item-main label="Delegation Plan" />
+                                <q-item-side right><q-item-main label="Due" /></q-item-side>
+                                </q-item>
+                                <q-item>
+                                        <q-collapsible label="Presentation Draft">
+                                        <div>
+                                        </div>
+                                        </q-collapsible>
+                                    <q-item-main label="John Smith" />
+                                    <q-item-main>
+                                        <q-btn
+                                        rounded
+                                        color="green"
+                                        size="sm"
+                                        label="Finished"/></q-item-main>
+                                    <q-item-side right>
+                                        <q-item-main>6/2/2018</q-item-main>
+                                    </q-item-side>
+                                </q-item>
+                                
+                                <q-item>
+                                    <q-collapsible label="Report Draft">
+                                        <div>
+                                        </div>
+                                        </q-collapsible>
+                                    <q-item-main label="Jane Doe" />
+                                    <q-item-main>
+                                        <q-btn
+                                        rounded
+                                        color="green"
+                                        size="sm"
+                                        label="Finished"/></q-item-main>
+                                    <q-item-side right>
+                                        <q-item-main>6/4/2018</q-item-main>
+                                    </q-item-side>
+                                </q-item>
+                                
+                                <q-item>
+                                    <q-collapsible label="Working Prototype">
+                                        <div>
+                                        </div>
+                                        </q-collapsible>
+                                    <q-item-main label="Jean Roe" />
+                                    <q-item-main>
+                                        <q-btn
+                                        rounded
+                                        color="green"
+                                        size="sm"
+                                        label="Finished"/></q-item-main>
+                                    <q-item-side right>
+                                        <q-item-main>6/4/2018</q-item-main>
+                                    </q-item-side>
+                                </q-item>
+                                
+                                <q-item>
+                                    <q-collapsible label="Commercial Video">
+                                        <div>
+                                        </div>
+                                        </q-collapsible>
+                                    <q-item-main label="Roe Joan" />
+                                    <q-item-main>
+                                        <q-btn
+                                        @click="dgTask = false"
+                                        rounded
+                                        color="primary"
+                                        size="sm"
+                                        label="Start"/></q-item-main>
+                                    <q-item-side right>
+                                        <q-item-main>6/7/2018</q-item-main>
+                                    </q-item-side>
+                                </q-item>
+                            </q-list>
+                            </q-card-main>
+                        <div style="text-align:center;">
+                            <q-card-title><span slot="subtitle" style="color:#496c94;">+ Add More</span></q-card-title>
+                        </div>
+                </div>
+            </q-card>
+        </q-modal>
+        
+                <q-modal v-model="afterPlan">
+                    <div class="cursor-pointer" style="width:868px;text-align:center;">
+                        <img src="assets/Calendar2@2x.jpg" width="100%" @click="reflectToggle">
+                    </div>
+                </q-modal>
+            </div>
 </div>
     `,
     data: function () {
         return {
             showLeft: false,
             plan: true,
-            reminder: false,
+            reminder: true,
             reflect: false,
+            dgTask: false,
             afterPlan: false,
             planselect: 'plan',
             planOptions: [
@@ -2013,145 +2120,20 @@ const DgLog = {
             });
         },
         afterPlanToggle() {
-            this.reminder = false;
             this.afterPlan = true;
+        },
+        dgTaskToggle() {
+            this.reminder = false;
+            this.dgTask = true;
+        },
+        reflectToggle() {
+            this.afterPlan = false;
+            this.plan = false;
+            this.reflect = true;
+            this.planselect = 'reflect';
         }
     }
 };
-
-/**
- * Delegation of Deliverable Task
- * @type {{data: (function(): {})}}
- */
-const DgTask = {
-    template: `
-        <div class="dgtask">
-            <div class="float-right cursor-pointer" style="color:#496c94;padding-right:5em">
-                <p @click="reminder = true"><q-icon name="calendar_today" /> Calendar</p>
-            </div>
-            
-                    <q-card flat color="white" text-color="secbrand" style="min-width:570px;max-width:828px;margin:0 auto;">
-                        <div>
-                            <h4 style="padding-top:2em;padding-left:2em;">Delegation of Deliverable Task</h4>
-                            <q-card-main>
-                            <q-list style="font-family:'Lato', sans-serif;">
-                                <q-item style="font-family:Dosis, sans-serif;font-weight:bold;font-variant-caps:all-small-caps;">
-                                <q-item-main label="Subtask Name" />
-                                <q-item-main label="Delegatee" />
-                                <q-item-main label="Delegation Plan" />
-                                <q-item-side right><q-item-main label="Due" /></q-item-side>
-                                </q-item>
-                                <q-item>
-                                        <q-collapsible label="Presentation Draft">
-                                        <div>
-                                        </div>
-                                        </q-collapsible>
-                                    <q-item-main label="John Smith" />
-                                    <q-item-main>
-                                        <q-btn
-                                        rounded
-                                        color="green"
-                                        size="sm"
-                                        label="Finished"/></q-item-main>
-                                    <q-item-side right>
-                                        <q-item-main>6/2/2018</q-item-main>
-                                    </q-item-side>
-                                </q-item>
-                                
-                                <q-item>
-                                    <q-collapsible label="Report Draft">
-                                        <div>
-                                        </div>
-                                        </q-collapsible>
-                                    <q-item-main label="Jane Doe" />
-                                    <q-item-main>
-                                        <q-btn
-                                        rounded
-                                        color="primary"
-                                        size="sm"
-                                        label="Start"/></q-item-main>
-                                    <q-item-side right>
-                                        <q-item-main>6/4/2018</q-item-main>
-                                    </q-item-side>
-                                </q-item>
-                                
-                                <q-item>
-                                    <q-collapsible label="Working Prototype">
-                                        <div>
-                                        </div>
-                                        </q-collapsible>
-                                    <q-item-main label="Jean Roe" />
-                                    <q-item-main>
-                                        <q-btn
-                                        rounded
-                                        color="primary"
-                                        size="sm"
-                                        label="Start"/></q-item-main>
-                                    <q-item-side right>
-                                        <q-item-main>6/4/2018</q-item-main>
-                                    </q-item-side>
-                                </q-item>
-                                
-                                <q-item>
-                                    <q-collapsible label="Commercial Video">
-                                        <div>
-                                        </div>
-                                        </q-collapsible>
-                                    <q-item-main label="Roe Joan" />
-                                    <q-item-main>
-                                        <q-btn
-                                        rounded
-                                        color="primary"
-                                        size="sm"
-                                        label="Start"/></q-item-main>
-                                    <q-item-side right>
-                                        <q-item-main>6/7/2018</q-item-main>
-                                    </q-item-side>
-                                </q-item>
-                            </q-list>
-                            </q-card-main>
-                        <div style="text-align:center;">
-                            <q-card-title><span slot="subtitle" style="color:#496c94;">+ Add More</span></q-card-title>
-                        </div>
-                </div>
-                <div style="text-align:right;padding-right:1em;padding-bottom:1em;">
-                        <q-btn
-                        @click="saved"
-                        style="background: #e9d985;
-                        color: #605f5e;"
-                        label="Save"></q-btn>
-                </div>
-            </q-card>
-            
-            <q-modal v-model="reminder">
-                <div style="width:868px;text-align:center;">
-                    <img src="assets/Calendar@2x.jpg" width="100%">
-                </div>
-            </q-modal>
-</div>
-    `,
-    data: function () {
-        return {
-            reminder: false,
-        }
-    },
-    methods: {
-        saved () {
-            this.$q.notify({
-                color: 'posbrand',
-                textColor: 'white',
-                icon: 'check',
-                message: 'Progress Saved',
-                position: 'bottom',
-                timeout: 3000
-            });
-        },
-
-    },
-    computed: {
-
-    },
-}
 
 /**
  * Case Study
@@ -2707,7 +2689,6 @@ const routes = [
     { path: '/feedback', name: 'Feedback Tree', component: Feedback},
     { path: '/peerreview', name: 'Peer Review', component: PeerReview},
     { path: '/dglog', name: 'Delegation Log', component: DgLog},
-    { path: '/dgtask', name: 'Delegation of Deliverable', component: DgTask},
 ];
 const router = new VueRouter({
     routes
