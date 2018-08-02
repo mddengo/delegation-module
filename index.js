@@ -1289,7 +1289,7 @@ const Dashboard = {
                                 <q-item-side right><q-item-main label="Availability" /></q-item-side>
                                 </q-item>
                                 <q-item>
-                                        <q-collapsible icon="explore" label="Fierce Negotiation">
+                                        <q-collapsible icon="explore" label="Fierce Negotiation" style="width:310px">
                                         <div>
                                             Fierce Negotiation
                                         </div>
@@ -1305,7 +1305,7 @@ const Dashboard = {
                                     </q-item-side>
                                 </q-item>
                                 <q-item>
-                                    <q-collapsible icon="perm_identity" label="Executive Presence">
+                                    <q-collapsible icon="perm_identity" label="Executive Presence" style="width:310px">
                                         <div>
                                             Executive Presence
                                         </div>
@@ -1313,13 +1313,13 @@ const Dashboard = {
                                     <q-item-main label="21-127" />
                                     <q-item-side right>
                                         <q-item-main>
+                                        <q-item-tile icon="error_outline" color="red" />
                                         <q-btn
                                         rounded
                                         color="red"
                                         size="sm"
                                         label="Overdue"/></q-item-main>
                                     </q-item-side>
-                                        <q-item-tile icon="error_outline" color="red" />
                                 </q-item>
                                 <q-item>
                                     <q-collapsible icon="shopping_cart" label="Essential Delegation Skills">
@@ -1335,8 +1335,8 @@ const Dashboard = {
                                         rounded
                                         color="primary"
                                         size="sm"
-                                        @click="$router.push('/modules')"
-                                        label="Start"/></q-item-main>
+                                        @click="$router.push('/modules')"><div style="color:#027be3">ss</div>Start<div style="color:#027be3">ss</div></q-btn>
+                                        </q-item-main>
                                     </q-item-side>
                                 </q-item>
                             </q-list>
@@ -1983,7 +1983,7 @@ const DgLog = {
                                     <q-item-side right><q-item-main label="Due" /></q-item-side>
                                 </q-item>
                                 <q-item>
-                                   <q-collapsible label="Presentation Draft">
+                                   <q-collapsible label="Presentation Draft" style="width:215px">
                                         <div>
                                         </div>
                                    </q-collapsible>
@@ -2000,7 +2000,7 @@ const DgLog = {
                                 </q-item>
                                 
                                 <q-item>
-                                    <q-collapsible label="Report Draft">
+                                    <q-collapsible label="Report Draft" style="width:215px">
                                         <div>
                                         </div>
                                         </q-collapsible>
@@ -2034,7 +2034,7 @@ const DgLog = {
                                 </q-item>
                                 
                                 <q-item>
-                                    <q-collapsible label="Commercial Video">
+                                    <q-collapsible label="Commercial Video" style="width:215px">
                                         <div>
                                         </div>
                                         </q-collapsible>
