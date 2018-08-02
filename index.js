@@ -2595,6 +2595,11 @@ const PeerReview = {
                                 label="Go Back to My Dashboard" />
                     </div>
                 </q-modal>
+                <q-modal v-model="feedback">
+                    <div class="cursor-pointer" style="width:868px;text-align:center;">
+                        <img src="assets/How%20to%20give%20good%20feedback@2x.jpg" width="60%" @click="feedback = false">
+                    </div>
+                </q-modal>
                 </div>
 </div>
                     <div class="fixed-bottom-right save-buttons">
@@ -2657,6 +2662,7 @@ const PeerReview = {
             '\n' +
             '3. Creating report - do myself',
             submit: false,
+            feedback: true,
         }
     },
     methods: {
