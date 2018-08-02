@@ -1977,23 +1977,23 @@ const DgLog = {
                             <q-card-main>
                             <q-list style="font-family:'Lato', sans-serif;">
                                 <q-item style="font-family:Dosis, sans-serif;font-weight:bold;font-variant-caps:all-small-caps;">
-                                <q-item-main label="Subtask Name" />
-                                <q-item-main label="Delegatee" />
-                                <q-item-main label="Delegation Plan" />
-                                <q-item-side right><q-item-main label="Due" /></q-item-side>
+                                    <q-item-main label="Subtask Name" />
+                                    <q-item-main label="Delegatee" />
+                                    <q-item-main label="Delegation Plan" />
+                                    <q-item-side right><q-item-main label="Due" /></q-item-side>
                                 </q-item>
                                 <q-item>
-                                        <q-collapsible label="Presentation Draft">
+                                   <q-collapsible label="Presentation Draft">
                                         <div>
                                         </div>
-                                        </q-collapsible>
+                                   </q-collapsible>
                                     <q-item-main label="John Smith" />
-                                    <q-item-main>
+                                    <q-item-side class="on-left">
                                         <q-btn
                                         rounded
                                         color="green"
                                         size="sm"
-                                        label="Finished"/></q-item-main>
+                                        label="Finished"/></q-item-side>
                                     <q-item-side right>
                                         <q-item-main>6/2/2018</q-item-main>
                                     </q-item-side>
@@ -2005,12 +2005,12 @@ const DgLog = {
                                         </div>
                                         </q-collapsible>
                                     <q-item-main label="Jane Doe" />
-                                    <q-item-main>
+                                    <q-item-side class="on-left">
                                         <q-btn
                                         rounded
                                         color="green"
                                         size="sm"
-                                        label="Finished"/></q-item-main>
+                                        label="Finished"/></q-item-side>
                                     <q-item-side right>
                                         <q-item-main>6/4/2018</q-item-main>
                                     </q-item-side>
@@ -2022,12 +2022,12 @@ const DgLog = {
                                         </div>
                                         </q-collapsible>
                                     <q-item-main label="Jean Roe" />
-                                    <q-item-main>
+                                    <q-item-side class="on-left">
                                         <q-btn
                                         rounded
                                         color="green"
                                         size="sm"
-                                        label="Finished"/></q-item-main>
+                                        label="Finished"/></q-item-side>
                                     <q-item-side right>
                                         <q-item-main>6/4/2018</q-item-main>
                                     </q-item-side>
@@ -2039,13 +2039,12 @@ const DgLog = {
                                         </div>
                                         </q-collapsible>
                                     <q-item-main label="Roe Joan" />
-                                    <q-item-main>
+                                    <q-item-side class="on-left">
                                         <q-btn
                                         @click="dgTask = false"
                                         rounded
                                         color="primary"
-                                        size="sm"
-                                        label="Start"/></q-item-main>
+                                        size="sm"><div style="color:#027be3">.s</div>Start<div style="color:#027be3">ss</div></q-btn></q-item-side>
                                     <q-item-side right>
                                         <q-item-main>6/7/2018</q-item-main>
                                     </q-item-side>
