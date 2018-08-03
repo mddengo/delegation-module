@@ -1011,7 +1011,7 @@ const Assessment = {
                                 <p style="font-size:30px;font-family:'Dosis',sans-serif;">Defining Delegation</p>
                                 <p style="font-size:17px;">Describe the task you would like to delegate ("{{dgTask}}") with respect to responsibility, authority, and accountability.</p>
                                     <div style="max-width:379px; font-size:17.5px;">
-                                        <q-input dark v-model="dgdefinput" placeholder="Input Text Here" />
+                                        <q-input dark v-model="dgdefinput" type="textarea" placeholder="Input Text Here"/>
                                     </div>
                             </q-card-main>
                         </q-card>
