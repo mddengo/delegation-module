@@ -2265,6 +2265,18 @@ const CaseStudy = {
                     </q-card>
                 </div>
 </div>
+                <q-modal v-model="submit" style="font-family:'Dosis', sans-serif;">
+                    <div style="font-size:30px;max-height:400px;max-width:500px;text-align:left;padding:2em;">
+                        <p>Thank you.</p>
+                        <p>Your assignment has been submitted.</p>
+                        <br>
+                        <q-btn
+                            @click="$router.push('/dashboard')"
+                            style="background:#e9d985;
+                                color:#605f5e;"
+                                label="Go Back to My Dashboard" />
+                    </div>
+                </q-modal>
                     <div class="fixed-bottom-right save-buttons">
                 <q-btn
                     @click="saved"
@@ -2272,7 +2284,7 @@ const CaseStudy = {
                     color: #605f5e;"
                     label="Save"></q-btn>
                 <q-btn
-                    @click="$router.push('/dashboard')"
+                    @click="submitToggle"
                     style="background: #e9d985;
                     color: #605f5e;"
                     label="Save & Continue"></q-btn>
@@ -2281,6 +2293,7 @@ const CaseStudy = {
     data: function () {
         return {
             model: [],
+            submit: false,
         }
     },
     methods: {
@@ -2293,6 +2306,9 @@ const CaseStudy = {
                 position: 'bottom',
                 timeout: 3000
             });
+        },
+        submitToggle () {
+            this.submit = true;
         },
     }
 }
@@ -2582,18 +2598,6 @@ const PeerReview = {
                 </div>
                 
                 <div>
-                <q-modal v-model="submit" style="font-family:'Dosis', sans-serif;">
-                    <div style="font-size:30px;max-height:400px;max-width:500px;text-align:left;padding:2em;">
-                        <p>Thank you.</p>
-                        <p>Your assignment has been submitted.</p>
-                        <br>
-                        <q-btn
-                            @click="$router.push('/dashboard')"
-                            style="background:#e9d985;
-                                color:#605f5e;"
-                                label="Go Back to My Dashboard" />
-                    </div>
-                </q-modal>
                 <q-modal v-model="feedback">
                     <div class="cursor-pointer" style="width:868px;text-align:center;">
                         <img src="assets/How%20to%20give%20good%20feedback@2x.jpg" width="60%" @click="feedback = false">
@@ -2609,7 +2613,7 @@ const PeerReview = {
                             color: #605f5e;"
                             label="Save"></q-btn>
                         <q-btn
-                            @click="submitToggle"
+                            @click="$router.push('/dashboard')"
                             style="background: #e9d985;
                             color: #605f5e;"
                             label="Save & Submit"></q-btn>
@@ -2660,7 +2664,6 @@ const PeerReview = {
             '2. Delegate, but also observe the colleague while he is analyzing balance sheets. \n' +
             '\n' +
             '3. Creating report - do myself',
-            submit: false,
             feedback: true,
         }
     },
@@ -2674,9 +2677,6 @@ const PeerReview = {
                 position: 'bottom',
                 timeout: 3000
             });
-        },
-        submitToggle () {
-            this.submit = true;
         },
     }
 };
