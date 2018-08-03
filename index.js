@@ -2167,7 +2167,11 @@ const CaseStudy = {
                             <p>In this section, please describe at least three criteria
                             that make a task important for you to do personally (50-100 words).</p>
                                 <div style="max-width:544px;font-size:17px">
-                                    <q-input placeholder="Input Text Here" />
+                                    <q-input placeholder="One" />
+                                    <br>
+                                    <q-input placeholder="Two" />
+                                    <br>
+                                    <q-input placeholder="Three" />
                                 </div>
                         </q-card-main>
                     </q-card>
@@ -2277,6 +2281,7 @@ const CaseStudy = {
                                 label="Go Back to My Dashboard" />
                     </div>
                 </q-modal>
+                
                     <div class="fixed-bottom-right save-buttons">
                 <q-btn
                     @click="saved"
@@ -2287,7 +2292,7 @@ const CaseStudy = {
                     @click="submitToggle"
                     style="background: #e9d985;
                     color: #605f5e;"
-                    label="Save & Continue"></q-btn>
+                    label="Save & Continue" />
                     </div>
 </div>`,
     data: function () {
