@@ -2210,7 +2210,7 @@ const CaseStudy = {
                         <q-card-main style="font-size:20px;padding-top:3em;padding-left:3em;padding-right:3em;">
                             <p>Select a delegating situation to analyze, and describe why you selected this situation.</p>
                                 <div style="max-width:544px;font-size:17px;">
-                                    <q-input placeholder="Input Text Here" />
+                                    <q-input type="textarea" :max-height="250" placeholder="Input Text Here" />
                                 </div>
                            <br>
                             <p style="padding-top:3em;">If you chose to describe your own situation,
@@ -2241,7 +2241,7 @@ const CaseStudy = {
                             <p>Identify all tasks in the selected situation and classify them according to importance and urgency.
                             Explain why you classified each task accordingly (75-150 words).</p>
                                 <div style="max-width:544px;font-size:17px">
-                                    <q-input placeholder="Input Text Here" />
+                                    <q-input type="textarea" :max-height="100" placeholder="Input Text Here" />
                                 </div>
                         </q-card-main>
                     </q-card>
@@ -2263,7 +2263,7 @@ const CaseStudy = {
                             Specify when you will delegate or do the task. Provide a clear rationale for each decision.
                             (You can refer to your previous classifications.) </p>
                                 <div style="max-width:544px;font-size:17px">
-                                    <q-input placeholder="Input Text Here" />
+                                    <q-input type="textarea" :max-height="100" placeholder="Input Text Here" />
                                 </div>
                         </q-card-main>
                     </q-card>
